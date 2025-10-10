@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class CompliensService(models.Model):
-    title = models.CharField(verbose_name = 'Название')
+    title = models.CharField(max_length=255, verbose_name = 'Название')
     file = models.FileField(verbose_name='Файл', upload_to='docs/')
     
     class Meta:

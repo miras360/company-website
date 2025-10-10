@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class ScienceAchievments(models.Model):
-    name = models.CharField(verbose_name='Название презентации')
+    name = models.CharField(max_length=255, verbose_name='Название презентации')
     info = models.FileField(upload_to='science/', verbose_name='Презентация')
 
     class Meta:
@@ -17,7 +17,7 @@ class ScienceAchievments(models.Model):
 
 class Science(models.Model):
     title = models.TextField(verbose_name='Основыне пункты достижений')
-    addInfoTitle = models.CharField(verbose_name='Заголовок подпунктов', blank=True)
+    addInfoTitle = models.CharField(max_length=255, verbose_name='Заголовок подпунктов', blank=True)
     addInfo = models.TextField(verbose_name='Подпункты', blank=True)
     class Meta:
         verbose_name_plural = "Научные разработки"
@@ -39,9 +39,9 @@ class SciencePlans(models.Model):
         return f'{self.title}'
     
 class ScienceSovet(models.Model):
-    title=models.CharField(verbose_name='Заголовок', blank=True)
+    title=models.CharField(max_length=255, verbose_name='Заголовок', blank=True)
     description = models.TextField(verbose_name='Описание', blank=True)
-    creation_title = models.CharField(verbose_name = 'Название приказа')
+    creation_title = models.CharField(max_length=255, verbose_name = 'Название приказа')
     creation = models.FileField(upload_to='science/', verbose_name='Приказ о создании', blank=True)
     class Meta:
         verbose_name_plural = "Научно-Технический Совет"
@@ -52,7 +52,7 @@ class ScienceSovet(models.Model):
     
 class ScienceSovetPlans(models.Model):
     sovet=models.ForeignKey(ScienceSovet, on_delete=models.CASCADE, verbose_name='Научно-технический совет')
-    title = models.CharField(verbose_name='Название документа')
+    title = models.CharField(max_length=255, verbose_name='Название документа')
     document = models.FileField(upload_to='science/', verbose_name='Документ', blank=True)
     class Meta:
         verbose_name_plural = "Планы Научно-Технического Совета"
@@ -62,7 +62,7 @@ class ScienceSovetPlans(models.Model):
         return f'{self.title}'
     
 class ScienceSovetMeetings(models.Model):
-    title = models.CharField(verbose_name='Название документа')
+    title = models.CharField(max_length=255, verbose_name='Название документа')
     document = models.FileField(upload_to='science/', verbose_name='Документ', blank=True)
     class Meta:
         verbose_name_plural = "Заседания НТС"
@@ -72,7 +72,7 @@ class ScienceSovetMeetings(models.Model):
         return f'{self.title}'
     
 class ScienceSovetRegulation(models.Model):
-    title = models.CharField(verbose_name='Название документа')
+    title = models.CharField(max_length=255, verbose_name='Название документа')
     document = models.FileField(upload_to='science/', verbose_name='Документ', blank=True)
     class Meta:
         verbose_name_plural = "Положения НТС"

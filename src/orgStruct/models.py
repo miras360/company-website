@@ -10,7 +10,7 @@ class OrgStruct(models.Model):
         return f'Организационная структура'
     
 class Departments(models.Model):
-    name = models.CharField(verbose_name='Название отдела')
+    name = models.CharField(max_length=255, verbose_name='Название отдела')
     info = models.TextField(verbose_name='Информация об отделе')
     class Meta:
         verbose_name_plural = "Отделы"

@@ -1,9 +1,11 @@
 from django.db import models
+from django.template.defaultfilters import length
+
 
 class LEK(models.Model):
-    title = models.CharField(verbose_name = 'Название')
+    title = models.CharField(max_length=255, verbose_name = 'Название')
     description = models.TextField(verbose_name='Описание', blank=True)
-    creation_title = models.CharField(verbose_name = 'Название приказа')
+    creation_title = models.CharField(max_length=255, verbose_name = 'Название приказа')
     creation = models.FileField(upload_to='LEK/', verbose_name='Приказ о создании', blank=True)
     instructions = models.TextField(verbose_name='Инструкции по обращению', blank=True)
     contacts = models.TextField(verbose_name='Контакты секретариата', blank=True)
@@ -15,7 +17,7 @@ class LEK(models.Model):
         return f'{self.title}'
 
 class LEKRegulation(models.Model):
-    title = models.CharField(verbose_name='Название документа')
+    title = models.CharField(max_length=255, verbose_name='Название документа')
     document = models.FileField(upload_to='LEK/', verbose_name='Документ', blank=True)
     class Meta:
         verbose_name_plural = "Положения ЛЭК"
@@ -25,7 +27,7 @@ class LEKRegulation(models.Model):
         return f'{self.title}'
 
 class LEKMeetings(models.Model):
-    title = models.CharField(verbose_name='Название документа')
+    title = models.CharField(max_length=255, verbose_name='Название документа')
     document = models.FileField(upload_to='LEK/', verbose_name='Документ', blank=True)
     class Meta:
         verbose_name_plural = "Заседания ЛЭК"
@@ -35,7 +37,7 @@ class LEKMeetings(models.Model):
         return f'{self.title}'
 
 class LEKPlans(models.Model):
-    title = models.CharField(verbose_name='Название документа')
+    title = models.CharField(max_length=255, verbose_name='Название документа')
     document = models.FileField(upload_to='LEK/', verbose_name='Документ', blank=True)
     class Meta:
         verbose_name_plural = "Планы ЛЭК"
@@ -45,7 +47,7 @@ class LEKPlans(models.Model):
         return f'{self.title}'
     
 class LEKDocForms(models.Model):
-    title = models.CharField(verbose_name='Название формы документа')
+    title = models.CharField(max_length=255, verbose_name='Название формы документа')
     link = models.TextField(verbose_name='Ссылка на форму документа')
     class Meta:
         verbose_name_plural = "Формы документов"

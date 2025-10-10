@@ -1,0 +1,23 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="bcrypt" />
+          <option value="django-etc" />
+          <option value="django-hitcount" />
+          <option value="django-modeltranslation" />
+          <option value="django-utils-six" />
+          <option value="djangorestframework" />
+          <option value="pillow" />
+          <option value="psycopg2" />
+          <option value="PyJWT" />
+          <option value="python-gettext" />
+          <option value="pytz" />
+          <option value="typing_extensions" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

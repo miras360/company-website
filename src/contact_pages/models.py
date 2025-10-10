@@ -4,8 +4,8 @@ from django.db import models
 class Managers(models.Model):
     name = models.CharField(max_length=128, verbose_name='ФИО') 
     post = models.TextField(verbose_name='Должность')
-    phone = models.CharField(verbose_name='Телефон')
-    email = models.CharField(verbose_name='E-mail')
+    phone = models.CharField(max_length=255, verbose_name='Телефон')
+    email = models.CharField(max_length=255, verbose_name='E-mail')
     reception = models.TextField(verbose_name='День и время приема', default = "none")
     show = models.BooleanField(verbose_name='Отображать в 2 таблицах?')
 
@@ -17,7 +17,7 @@ class Managers(models.Model):
         return f'{self.name}: {self.post}'
     
 class Contacts(models.Model):
-    title = models.CharField(verbose_name='Название')
+    title = models.CharField(max_length=255, verbose_name='Название')
     info = models.TextField(verbose_name='Информация')
 
     class Meta:
@@ -30,7 +30,7 @@ class Contacts(models.Model):
 class InfoAccessFaces(models.Model):
     name = models.CharField(max_length=128, verbose_name='ФИО') 
     post = models.TextField(verbose_name='Должность')
-    phone = models.CharField(verbose_name='Телефон')
+    phone = models.CharField(max_length=255, verbose_name='Телефон')
     
     class Meta:
         verbose_name_plural = "Уполномоченые лица по вопросам доступа информации"

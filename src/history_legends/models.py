@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class History(models.Model):
-    title = models.CharField(verbose_name='Название')
+    title = models.CharField(max_length=255, verbose_name='Название')
     poem = models.TextField(verbose_name='Стихотворение')
     info = models.TextField(verbose_name='Информация')
 

@@ -12,7 +12,7 @@ class MedServices(models.Model):
         return f'Медицинские услуги'
     
 class Medicine(models.Model):
-    title = models.CharField(verbose_name='Заголовок')
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Основной текст')
     class Meta:
         verbose_name_plural = "Медицина"

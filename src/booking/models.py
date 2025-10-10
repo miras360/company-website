@@ -4,7 +4,7 @@ from django.db import models
 
     
 class Booking(models.Model):
-    title = models.CharField(verbose_name='Заголовок')
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Основной текст')
     class Meta:
         verbose_name_plural = "Бронирование"

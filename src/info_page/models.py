@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class PacientInfo(models.Model):
-    title = models.CharField(verbose_name='Заголовок')
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
     info = models.TextField(verbose_name='Информация')
 
     class Meta:

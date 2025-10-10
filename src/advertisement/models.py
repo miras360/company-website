@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Ads(models.Model):
-    title = models.CharField(verbose_name = 'Заголовок объявления')
+    title = models.CharField(max_length=255, verbose_name = 'Заголовок объявления')
     
     class Meta:
         verbose_name_plural = "Группа объявлений"
@@ -13,7 +13,7 @@ class Ads(models.Model):
     
 class Files(models.Model):
     ads=models.ForeignKey(Ads, on_delete=models.CASCADE)
-    name = models.CharField(verbose_name = 'Название файла')
+    name = models.CharField(max_length=255, verbose_name = 'Название файла')
     file = models.FileField(verbose_name='Файл', upload_to='docs/')
     date = models.DateTimeField(default=timezone.now, verbose_name='Дата публикации')
     type = models.CharField(max_length = 6, blank=True, null=True )

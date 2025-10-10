@@ -2,9 +2,9 @@ from django.db import models
 
 # Create your models here.
 class CeoDatas(models.Model):
-    name = models.CharField(verbose_name = 'Имя руководителя')
-    dateOfBirth = models.CharField(verbose_name = 'Дата рождания')
-    post = models.CharField(verbose_name='Должность', blank=True)
+    name = models.CharField(max_length=255, verbose_name = 'Имя руководителя')
+    dateOfBirth = models.CharField(max_length=255, verbose_name = 'Дата рождания')
+    post = models.CharField(max_length=255, verbose_name='Должность', blank=True)
     scientific = models.TextField(verbose_name = 'Научная степень', blank=True)
     work = models.TextField(verbose_name = 'Трудовая деятельность', blank=True)
     positions = models.TextField(verbose_name = 'Должности', blank=True)

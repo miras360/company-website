@@ -4,7 +4,7 @@ from django.db import models
 class WorkersInfo(models.Model):
     name = models.CharField(max_length=128, verbose_name='ФИО') 
     post = models.TextField(verbose_name='Должность')
-    work_exp = models.CharField(verbose_name = 'Стаж')
+    work_exp = models.CharField(max_length=255, verbose_name = 'Стаж')
     sertificates = models.TextField(verbose_name = 'Сертификат специалиста')
 
     class Meta:

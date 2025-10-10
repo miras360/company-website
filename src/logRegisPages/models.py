@@ -2,9 +2,9 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 
 class CustomUser(AbstractUser):
-    name = models.CharField(verbose_name = 'Имя')
-    surename = models.CharField(verbose_name = 'Фамилия')
-    phone = models.CharField(verbose_name = 'Телефон')
+    name = models.CharField(max_length=255, verbose_name = 'Имя')
+    surename = models.CharField(max_length=255, verbose_name = 'Фамилия')
+    phone = models.CharField(max_length=255, verbose_name = 'Телефон')
     email = models.EmailField(unique=True, verbose_name = 'Почта' )
     password = models.CharField(max_length=128, verbose_name = 'Пароль')
 

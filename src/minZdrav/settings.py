@@ -11,11 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 AUTH_USER_MODEL = 'logRegisPages.CustomUser'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -83,7 +83,8 @@ MIDDLEWARE = [
 ]
 
 CSRF_COOKIE_DOMAIN = 'burabay-mzrk.kz'
-CSRF_TRUSTED_ORIGINS = ['https://burabay-mzrk.kz', 'https://www.burabay-mzrk.kz']
+CSRF_TRUSTED_ORIGINS = ['https://burabay-mzrk.kz', 'https://www.burabay-mzrk.kz','http://127.0.0.1:8000','http://localhost:8000',]
+
 
 ROOT_URLCONF = 'minZdrav.urls'
 
@@ -110,10 +111,10 @@ WSGI_APPLICATION = 'minZdrav.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'burabay_mzrk',
-        'USER': 'userdb',
-        'PASSWORD': 'DB_pass8811',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'burabay',      # название базы, которую ты создал
+        'USER': 'postgres',     # стандартный пользователь
+        'PASSWORD': '2002',  # пароль, который ты вводил при установке
         'HOST': 'localhost',
         'PORT': '5432',
     }

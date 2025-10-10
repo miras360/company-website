@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Ethica(models.Model):
-    name = models.CharField(verbose_name = 'Название файла')
+    name = models.CharField(max_length=255, verbose_name = 'Название файла')
     file = models.FileField(verbose_name='Файл', upload_to='docs/')
     type = models.CharField(max_length = 6, blank=True, null=True )
 

@@ -17,7 +17,7 @@ class People(models.Model):
         return f'{self.name}'
     
 class Doctors(models.Model):
-    title = models.CharField(verbose_name='Заголовок')
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Основной текст')
     class Meta:
         verbose_name_plural = "Информация о врачах"
@@ -26,7 +26,7 @@ class Doctors(models.Model):
         return f'{self.title}'
 
 class Teachers(models.Model):
-    title = models.CharField(verbose_name='Заголовок')
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Основной текст')
     class Meta:
         verbose_name_plural = "Информация о педагогах"

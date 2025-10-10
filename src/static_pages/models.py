@@ -10,7 +10,7 @@ class index_page(models.Model):
         return f'{self.mission}'
     
 class openInfo(models.Model):
-    title = models.CharField(verbose_name='Заголовок')
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
     file = models.FileField(verbose_name='Документ', upload_to='docs/')
     class Meta:
         verbose_name_plural = "Приказ о прозрачности"
