@@ -113,9 +113,9 @@ WSGI_APPLICATION = 'minZdrav.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'burabay',      # название базы, которую ты создал
-        'USER': 'postgres',     # стандартный пользователь
-        'PASSWORD': '2002',  # пароль, который ты вводил при установке
+        'NAME': 'burabay_mzrk',      # название базы, которую ты создал
+        'USER': 'userdb',     # стандартный пользователь
+        'PASSWORD': 'DB_pass8811',  # пароль, который ты вводил при установке
         'HOST': 'localhost',
         'PORT': '5432',
     }
