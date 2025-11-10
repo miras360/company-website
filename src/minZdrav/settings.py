@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1ya8j+33+d*5@vbvbujj()6kg^zg^j0q&qc^(=w!5ka3l%*4b)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', 'burabay-mzrk.kz']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
@@ -82,9 +82,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_COOKIE_DOMAIN = 'burabay-mzrk.kz'
-CSRF_TRUSTED_ORIGINS = ['https://burabay-mzrk.kz', 'https://www.burabay-mzrk.kz','http://127.0.0.1:8000','http://localhost:8000',]
-
+###CSRF_COOKIE_DOMAIN = '.burabay-mzrk.kz'
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000','http://localhost:8000',]
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
 
 ROOT_URLCONF = 'minZdrav.urls'
 

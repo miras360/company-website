@@ -2,20 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62431f04-9def-4a12-85d9-004113b957b3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../LEK/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LEK/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/leisure/culture.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/leisure/leisure-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/leisure/spa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/leisure/sport.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../minZdrav/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../minZdrav/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/dev-works/505.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/dev-works/505.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/dopPages/leisure.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/dopPages/leisure.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/mediaGalleryPage/mediagallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/mediaGalleryPage/mediagallery.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="33lsw79vgyuEJJgpDpPirUcYlAb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,11 +38,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/borib/PycharmProjects/Burabay-clone-3/src/static",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -46,6 +64,8 @@
       <option name="presentableId" value="Default" />
       <updated>1759903231461</updated>
       <workItem from="1759903233096" duration="51000" />
+      <workItem from="1760682330912" duration="90000" />
+      <workItem from="1761647154454" duration="53000" />
     </task>
     <servers />
   </component>

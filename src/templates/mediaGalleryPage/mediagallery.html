@@ -1,24 +1,3 @@
 {% extends 'base.html' %}
-{% load  i18n %}
-{% block content %}
-<div class="content-split">
-    <div class="navigation">
-        <a href="{% url 'med-services'%}">{% trans 'Медицинские услуги' %}</a>
-        <a href="{% url 'rules'%}" >{% trans 'Правила санатория' %}</a>
-        <a href="{% url 'gobmp'%}" class='selected'>{% trans 'Путевки по ГОБМП' %}</a>
-    </div>
-    <div class="rules">
-        <span class="Title">{% trans 'Медиагалерея' %}:</span>
-        <div class="new-frame">
-            <div class="rule-plates">
-                {% for file in files %}
-                <div class="rule-block">
-                    <img src="../../../media/{{file.file}}" alt="{{file.name}}" style="width: 850px">
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-{% endblock %}
+{% load static %}
+
