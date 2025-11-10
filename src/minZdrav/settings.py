@@ -24,7 +24,7 @@ AUTH_USER_MODEL = 'logRegisPages.CustomUser'
 SECRET_KEY = 'django-insecure-1ya8j+33+d*5@vbvbujj()6kg^zg^j0q&qc^(=w!5ka3l%*4b)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
