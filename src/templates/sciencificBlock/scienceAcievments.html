@@ -10,17 +10,25 @@
         <a href="{% url 'LEK-list'%}">{%trans 'Локальная этическая комиссия по биоэтике'%}</a>
     </div>
     <div class="rules">
-        {%if science.name%}
-        <span class="Title"> {{science.name}} </span>
-        {%endif%}
+        <span class="Title">{%trans 'Достижения'%}</span>
         <div class="rule-plates">
             <div class="new-frame">
-    
-                {%if science.info%}
-                <div class="sci_doc">
-                    <iframe src="/media/{{science.info}}" class="sci_block"></iframe>
-                </div>
-                {%endif%}          
+
+                {# ЦИКЛ ДЛЯ ВСЕХ ДОКУМЕНТОВ #}
+                {% for science in sciences %}
+                    <div class="sci_doc" style="margin-bottom: 30px;">
+                        {% if science.name %}
+                            <h2>{{ science.name }}</h2>
+                        {% endif %}
+
+                        {% if science.info %}
+                            <iframe src="/media/{{ science.info }}" class="sci_block"></iframe>
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <p>{%trans 'Нет доступных документов'%}</p>
+                {% endfor %}
+
             </div>            
         </div>          
     </div>

@@ -3,10 +3,15 @@ from .models import *
 # Create your views here.
 
 def scienceInfo(request):
-    info = ScienceAchievments.objects.order_by('-id').first()
+    #info = ScienceAchievments.objects.order_by('-id').first()
 
-    return render(request, 'sciencificBlock/scienceAcievments.html', {'science':info})
+    #return render(request, 'sciencificBlock/scienceAcievments.html', {'science':info})
+    infos = ScienceAchievments.objects.order_by('-id')
 
+    # Для отладки (можете удалить потом)
+    print(f"Всего документов: {infos.count()}")
+
+    return render(request, 'sciencificBlock/scienceAcievments.html', {'sciences': infos})
 def scienceDev(request):
     infos = Science.objects.order_by('id')
     datas = []
