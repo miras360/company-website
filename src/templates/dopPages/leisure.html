@@ -28,10 +28,25 @@
     background: transparent !important;
   }
 
+  .main-header {
+    max-width: none;
+    width: 100%;
+    height: max-content;
+  }
+
+  .sub-header {
+    height: auto;
+  }
+
+  .content {
+    padding: 0;
+  }
+
   /* ---------- HERO SECTION ---------- */
   .leisure-hero {
     position: relative;
     height: 100vh;
+    height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -377,7 +392,8 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 768px) {
     .leisure-hero {
-      height: 85vh;
+      min-height: 100vh;
+      min-height: 100svh;
     }
 
     .intro-section {
@@ -409,6 +425,10 @@
 
     .activity-image-wrapper {
       height: 260px;
+    }
+    .leisure-hero {
+      min-height: 100vh;
+      min-height: 100svh;
     }
   }
 </style>
