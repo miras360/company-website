@@ -932,3 +932,111 @@ msgstr "The order on the establishment of the Scientific and Technical Council"
 #: .\templates\strategic_partners\strategicPartners.html:7
 msgid "Стратегические партнеры и международное сотрудничество"
 msgstr "Strategic partners and international cooperation"
+
+#: templates/dopPages/leisure.html:435
+msgid "Лечебно-оздоровительный комплекс \"Бурабай\""
+msgstr "Burabay Health and Wellness Complex"
+
+#: templates/dopPages/leisure.html:441
+msgid "Досуг и отдых"
+msgstr "Leisure and Recreation"
+
+#: templates/dopPages/leisure.html:444
+msgid "Откройте для себя место, где время замедляется, а каждый момент наполнен гармонией и красотой"
+msgstr "Discover a place where time slows down and every moment is filled with harmony and beauty"
+
+#: templates/dopPages/leisure.html:450
+msgid "Листайте"
+msgstr "Scroll"
+
+#: templates/dopPages/leisure.html:456
+msgid "Наши возможности"
+msgstr "Our Opportunities"
+
+#: templates/dopPages/leisure.html:457
+msgid "Погрузитесь в мир безмятежности"
+msgstr "Immerse Yourself in a World of Tranquility"
+
+#: templates/dopPages/leisure.html:459
+msgid "Здесь каждый момент создан для вашего удовольствия. Сочетание первозданной природы, элегантного комфорта и внимательного сервиса создаёт атмосферу, в которой время замирает, а душа находит покой и вдохновение."
+msgstr "Here every moment is created for your pleasure. The combination of pristine nature, elegant comfort, and attentive service creates an atmosphere where time seems to stand still and the soul finds peace and inspiration."
+
+#: templates/dopPages/leisure.html:471
+msgid "Механомассаж"
+msgstr "Mechanical Massage"
+
+#: templates/dopPages/leisure.html:473
+msgid "Массажные устройства для головы, рук, ног и тела удовлетворят даже самых требовательных пользователей. Они улучшают обмен веществ, общее самочувствие и снабжение тканей кислородом, способствуют очищению организма и восстановлению жизненного тонуса, укрепляют иммунитет и улучшают лимфоток, стимулируют мозговое кровообращение и повышают концентрацию."
+msgstr "Massage devices for the head, arms, legs, and body will satisfy even the most demanding users. They improve metabolism, overall well-being, and tissue oxygenation, help cleanse the body and restore vitality, strengthen immunity, enhance lymphatic flow, stimulate cerebral circulation, and improve concentration."
+
+#: templates/dopPages/leisure.html:484
+msgid "Галотерапия (спелеотерапия)"
+msgstr "Halotherapy (Speleotherapy)"
+
+#: templates/dopPages/leisure.html:486
+msgid "Галотерапия — это метод лечения с вдыханием воздуха, насыщенного частицами соли. Эффективна при аллергии, синусите, бронхите, астме и как часть комплексной терапии. Соляной аэрозоль подавляет вирусы и бактерии, очищает дыхательные пути, снижает воспаление и улучшает работу лёгких, укрепляет иммунитет и предотвращает обструктивные состояния."
+msgstr "Halotherapy is a treatment method based on inhaling air saturated with salt particles. It is effective for allergies, sinusitis, bronchitis, asthma, and as part of complex therapy. Salt aerosol suppresses viruses and bacteria, cleanses the airways, reduces inflammation, improves lung function, strengthens immunity, and prevents obstructive conditions."
+
+#: templates/dopPages/leisure.html:498
+msgid "Психологическая разгрузка"
+msgstr "Psychological Relaxation"
+
+#: templates/dopPages/leisure.html:500
+msgid "Предназначен для умственного и эмоционального расслабления. Основное воздействие осуществляется через свет - ведь более 90%% информации человек получает глазами."
+msgstr "Designed for mental and emotional relaxation. The primary impact is achieved through light, as more than 90%% of information is perceived visually."
+
+#: templates/dopPages/leisure.html:512
+msgid "Климатотерапия"
+msgstr "Climatotherapy"
+
+#: templates/dopPages/leisure.html:514
+msgid "Метод лечения с использованием природных климатических факторов: солнечного света, воздуха, воды и рельефа местности. Воздействие комплекса природных раздражителей способствует восстановлению биологической связи организма с окружающей средой и укреплению здоровья."
+msgstr "A treatment method using natural climatic factors such as sunlight, air, water, and terrain. The combined impact of natural stimuli helps restore the body's biological connection with the environment and strengthens overall health."
+
+#: templates/dopPages/leisure.html:528
+msgid "Сухие углекислые ванны"
+msgstr "Dry Carbon Dioxide Baths"
+
+#: templates/dopPages/leisure.html:530
+msgid "Разновидность бальнеолечения с использованием увлажнённого углекислого газа. Процедура оказывает мягкое раздражающее действие на организм, стимулируя работу сердечно-сосудистой и дыхательной систем, улучшая кровообращение и обмен веществ."
+msgstr "A type of balneotherapy using humidified carbon dioxide. The procedure has a gentle stimulating effect on the body, enhancing cardiovascular and respiratory function, improving circulation, and boosting metabolism."
+
+#: templates/dopPages/leisure.html:543
+msgid "Светолечение"
+msgstr "Light Therapy"
+
+#: templates/dopPages/leisure.html:545
+msgid "Физиотерапевтический метод, основанный на дозированном воздействии инфракрасного, видимого и ультрафиолетового излучения. Обладает обезболивающим и спазмолитическим эффектом, особенно при хронических воспалениях."
+msgstr "A physiotherapeutic method based on the controlled exposure to infrared, visible, and ultraviolet radiation. It has analgesic and antispasmodic effects, especially in chronic inflammatory conditions."
+
+#: templates/dopPages/leisure.html:559
+msgid "Теплолечение (термотерапия)"
+msgstr "Heat Therapy (Thermotherapy)"
+
+#: templates/dopPages/leisure.html:561
+msgid "Применение с лечебно-профилактическими и реабилитационными целями нагретых сред, обладающих высокой теплоемкостью и теплоудерживающей способностью."
+msgstr "The use of heated substances with high heat capacity and retention for therapeutic, preventive, and rehabilitation purposes."
+
+#: templates/dopPages/leisure.html:573
+msgid "Магнитотерапия"
+msgstr "Magnetotherapy"
+
+#: templates/dopPages/leisure.html:575
+msgid "Физиотерапевтическая методика, основанная на воздействии низкочастотных магнитных полей на организм на клеточном уровне."
+msgstr "A physiotherapeutic technique based on the effects of low-frequency magnetic fields on the body at the cellular level."
+
+#: templates/dopPages/leisure.html:587
+msgid "Кумысолечение"
+msgstr "Kumis Therapy"
+
+#: templates/dopPages/leisure.html:589
+msgid "Кумыс обладает выраженным лечебным действием на организм, повышает иммунную защиту и способствует выздоровлению."
+msgstr "Kumis has pronounced therapeutic effects on the body, strengthens immune defense, and promotes recovery."
+
+#: templates/dopPages/leisure.html:601
+msgid "Ваш идеальный отдых начинается здесь"
+msgstr "Your Perfect Vacation Starts Here"
+
+#: templates/dopPages/leisure.html:603
+msgid "Лечебно-оздоровительный комплекс \"Бурабай\" — это не просто место для отдыха, это опыт, который изменит ваше восприятие комфорта и гармонии. Позвольте нам создать для вас незабываемые моменты."
+msgstr "Burabay Health and Wellness Complex is not just a place to relax; it is an experience that will transform your perception of comfort and harmony. Let us create unforgettable moments for you."

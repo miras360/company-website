@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
-
+{% load i18n static %}
 {% block content %}
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
@@ -36,6 +35,7 @@
 
   .sub-header {
     height: auto;
+    padding: 20px 0;
   }
 
   .content {
@@ -416,13 +416,16 @@
     .scroll-indicator {
       bottom: 2rem;
     }
+    
+    footer {
+      width: 100svw;
+    }
   }
 
   @media (max-width: 480px) {
     .activity-content {
       padding: 2rem;
     }
-
     .activity-image-wrapper {
       height: 260px;
     }
@@ -430,193 +433,169 @@
       min-height: 100vh;
       min-height: 100svh;
     }
+    footer {
+      width: 100svw;
+    }
   }
 </style>
 
 <div class="leisure-hero">
   <div class="hero-background"></div>
   <div class="hero-content">
-    <div class="hero-label">Лечебно-оздоровительный комплекс "Бурабай"</div>
-    <h1>Досуг и отдых</h1>
+    <div class="hero-label">
+      {% blocktrans %}Лечебно-оздоровительный комплекс "Бурабай"{% endblocktrans %}
+    </div>
+
+    <h1>{% blocktrans %}Досуг и отдых{% endblocktrans %}</h1>
+
     <p class="hero-description">
-      Откройте для себя место, где время замедляется, а каждый момент наполнен гармонией и красотой
+      {% blocktrans %}Откройте для себя место, где время замедляется, а каждый момент наполнен гармонией и красотой{% endblocktrans %}
     </p>
   </div>
+
   <div class="scroll-indicator">
-    <span>Листайте</span>
+    <span>{% blocktrans %}Листайте{% endblocktrans %}</span>
   </div>
 </div>
 
 <section class="intro-section">
-  <span class="section-tag">Наши возможности</span>
-  <h2>Погрузитесь в мир безмятежности</h2>
+  <span class="section-tag">{% blocktrans %}Наши возможности{% endblocktrans %}</span>
+  <h2>{% blocktrans %}Погрузитесь в мир безмятежности{% endblocktrans %}</h2>
   <p>
-    Здесь каждый момент создан для вашего удовольствия. Сочетание первозданной природы,
-    элегантного комфорта и внимательного сервиса создаёт атмосферу, в которой время замирает,
-    а душа находит покой и вдохновение.
+    {% blocktrans %}Здесь каждый момент создан для вашего удовольствия. Сочетание первозданной природы, элегантного комфорта и внимательного сервиса создаёт атмосферу, в которой время замирает, а душа находит покой и вдохновение.{% endblocktrans %}
   </p>
 </section>
 
 <section class="activities-section">
   <div class="activities-container">
     <div class="activities-grid">
+
       <div class="activity-card">
         <div class="activity-image-wrapper">
-          <img src="{% static 'images/leisure/Механомассаж.jpg' %}" alt="СПА и релакс">
+          <img src="{% static 'images/leisure/Механомассаж.jpg' %}" alt="{{ alt_spa_relax }}">
           <div class="activity-gradient"></div>
           <div class="activity-number">01</div>
         </div>
         <div class="activity-content">
-          <h3>Механомассаж</h3>
+          <h3>{% blocktrans %}Механомассаж{% endblocktrans %}</h3>
           <p>
-            Массажные устройства для головы, рук, ног и тела удовлетворят даже самых требовательных пользователей.
-            Они:
-            – улучшают обмен веществ, общее самочувствие и снабжение тканей кислородом,
-            – способствуют очищению организма и восстановлению жизненного тонуса,
-            – укрепляют иммунитет и улучшают лимфоток,
-            – стимулируют мозговое кровообращение и повышают концентрацию.
-
+            {% blocktrans %}Массажные устройства для головы, рук, ног и тела удовлетворят даже самых требовательных пользователей. Они улучшают обмен веществ, общее самочувствие и снабжение тканей кислородом, способствуют очищению организма и восстановлению жизненного тонуса, укрепляют иммунитет и улучшают лимфоток, стимулируют мозговое кровообращение и повышают концентрацию.{% endblocktrans %}
           </p>
         </div>
       </div>
 
       <div class="activity-card">
         <div class="activity-image-wrapper">
-          <img src="{% static 'images/leisure/Галотерапия.jpeg' %}" alt="Активный отдых">
+          <img src="{% static 'images/leisure/Галотерапия.jpeg' %}" alt="{{ alt_active_rest }}">
           <div class="activity-gradient"></div>
           <div class="activity-number">02</div>
         </div>
         <div class="activity-content">
-          <h3>Галотерапия (спелеотерапия)</h3>
+          <h3>{% blocktrans %}Галотерапия (спелеотерапия){% endblocktrans %}</h3>
           <p>
-            Галотерапия — это метод лечения с вдыханием воздуха, насыщенного частицами соли.
-            Эффективна при аллергии, синусите, бронхите, астме и как часть комплексной терапии.
-            Соляной аэрозоль:
-            – подавляет вирусы и бактерии,
-            – очищает дыхательные пути,
-            – снижает воспаление и улучшает работу лёгких,
-            – укрепляет иммунитет и предотвращает обструктивные состояния.
+            {% blocktrans %}Галотерапия — это метод лечения с вдыханием воздуха, насыщенного частицами соли. Эффективна при аллергии, синусите, бронхите, астме и как часть комплексной терапии. Соляной аэрозоль подавляет вирусы и бактерии, очищает дыхательные пути, снижает воспаление и улучшает работу лёгких, укрепляет иммунитет и предотвращает обструктивные состояния.{% endblocktrans %}
           </p>
         </div>
       </div>
 
       <div class="activity-card">
         <div class="activity-image-wrapper">
-          <img src="{% static 'images/leisure/ПсихРазгрузка.jpg' %}" alt="Активный отдых">
+          <img src="{% static 'images/leisure/ПсихРазгрузка.jpg' %}" alt="{{ alt_active_rest }}">
           <div class="activity-gradient"></div>
           <div class="activity-number">03</div>
         </div>
         <div class="activity-content">
-          <h3>Психологическая разгрузка</h3>
+          <h3>{% blocktrans %}Психологическая разгрузка{% endblocktrans %}</h3>
           <p>
-            - предназначен для умственного и эмоционального
-            расслабления. Основное воздействие осуществляется
-            через свет — ведь более 90% информации человек
-            получает глазами
-          </p>
-        </div>
-      </div>
-      <div class="activity-card">
-        <div class="activity-image-wrapper">
-          <img src="{% static 'images/leisure/Климатотерапия.jpg' %}" alt="Активный отдых">
-          <div class="activity-gradient"></div>
-          <div class="activity-number">04</div>
-        </div>
-        <div class="activity-content">
-          <h3>Климатотерапия</h3>
-          <p>
-            - метод лечения с использованием природных климатических факторов: солнечного света, воздуха, воды и рельефа местности.
-            Воздействие комплекса природных раздражителей (аэротерапия, гелиотерапия, аэрофитотерапия, ландшафтотерапия)
-            способствует восстановлению биологической связи организма с окружающей средой и укреплению здоровья.
-          </p>
-        </div>
-      </div>
-      <div class="activity-card">
-        <div class="activity-image-wrapper">
-          <img src="{% static 'images/leisure/Сухиеванны.jpg' %}" alt="Активный отдых">
-          <div class="activity-gradient"></div>
-          <div class="activity-number">05</div>
-        </div>
-        <div class="activity-content">
-          <h3>Сухие углекислые ванны</h3>
-          <p>
-            — это разновидность бальнеолечения с использованием увлажнённого углекислого газа. Процедура оказывает мягкое раздражающее действие на организм, стимулируя
-            работу сердечно-сосудистой и дыхательной систем,
-            улучшая кровообращение и обмен веществ.
-          </p>
-        </div>
-      </div>
-      <div class="activity-card">
-        <div class="activity-image-wrapper">
-          <img src="{% static 'images/leisure/светолечение.jpg' %}" alt="Активный отдых">
-          <div class="activity-gradient"></div>
-          <div class="activity-number">06</div>
-        </div>
-        <div class="activity-content">
-          <h3>Светолечение</h3>
-          <p>
-            - физиотерапевтический метод, основанный на дозированном воздействии инфракрасного, видимого и ультрафиолетового излучения.
-            Инфракрасное излучение усиливает
-            микроциркуляцию, снижает воспаление, стимулирует
-            регенерацию и повышает защитные функции тканей.
-            Обладает обезболивающим и спазмолитическим
-            эффектом, особенно при хронических воспалениях.
-          </p>
-        </div>
-      </div>
-      <div class="activity-card">
-        <div class="activity-image-wrapper">
-          <img src="{% static 'images/leisure/теплолечение.jfif' %}" alt="Культурные вечера">
-          <div class="activity-gradient"></div>
-          <div class="activity-number">07</div>
-        </div>
-        <div class="activity-content">
-          <h3>Теплолечение (термотерапия)</h3>
-          <p>
-            – применение с лечебно-профилактическими и реабилитационными целями нагретых сред, обладающих высокой теплоемкостью и теплоудерживающей
-            способностью, низкой теплопроводимостью. Этими свойствами обладают лечебные грязи (пелоиды) и
-            пелоидоподобные вещества. Среди последних в
-            физиотерапии используют парафин, озокерит, нафталан, реже – глину и песок.
+            {% blocktrans %}Предназначен для умственного и эмоционального расслабления. Основное воздействие осуществляется через свет - ведь более 90% информации человек получает глазами.{% endblocktrans %}
           </p>
         </div>
       </div>
 
       <div class="activity-card">
         <div class="activity-image-wrapper">
-          <img src="{% static 'images/leisure/магнитотерапия.jpg' %}" alt="Природа и прогулки">
+          <img src="{% static 'images/leisure/Климатотерапия.jpg' %}" alt="{{ alt_active_rest }}">
+          <div class="activity-gradient"></div>
+          <div class="activity-number">04</div>
+        </div>
+        <div class="activity-content">
+          <h3>{% blocktrans %}Климатотерапия{% endblocktrans %}</h3>
+          <p>
+            {% blocktrans %}Метод лечения с использованием природных климатических факторов: солнечного света, воздуха, воды и рельефа местности. Воздействие комплекса природных раздражителей способствует восстановлению биологической связи организма с окружающей средой и укреплению здоровья.{% endblocktrans %}
+          </p>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-image-wrapper">
+          <img src="{% static 'images/leisure/Сухиеванны.jpg' %}" alt="{{ alt_active_rest }}">
+          <div class="activity-gradient"></div>
+          <div class="activity-number">05</div>
+        </div>
+        <div class="activity-content">
+          <h3>{% blocktrans %}Сухие углекислые ванны{% endblocktrans %}</h3>
+          <p>
+            {% blocktrans %}Разновидность бальнеолечения с использованием увлажнённого углекислого газа. Процедура оказывает мягкое раздражающее действие на организм, стимулируя работу сердечно-сосудистой и дыхательной систем, улучшая кровообращение и обмен веществ.{% endblocktrans %}
+          </p>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-image-wrapper">
+          <img src="{% static 'images/leisure/светолечение.jpg' %}" alt="{{ alt_active_rest }}">
+          <div class="activity-gradient"></div>
+          <div class="activity-number">06</div>
+        </div>
+        <div class="activity-content">
+          <h3>{% blocktrans %}Светолечение{% endblocktrans %}</h3>
+          <p>
+            {% blocktrans %}Физиотерапевтический метод, основанный на дозированном воздействии инфракрасного, видимого и ультрафиолетового излучения. Обладает обезболивающим и спазмолитическим эффектом, особенно при хронических воспалениях.{% endblocktrans %}
+          </p>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-image-wrapper">
+          <img src="{% static 'images/leisure/теплолечение.jfif' %}" alt="{{ alt_cultural_evenings }}">
+          <div class="activity-gradient"></div>
+          <div class="activity-number">07</div>
+        </div>
+        <div class="activity-content">
+          <h3>{% blocktrans %}Теплолечение (термотерапия){% endblocktrans %}</h3>
+          <p>
+            {% blocktrans %}Применение с лечебно-профилактическими и реабилитационными целями нагретых сред, обладающих высокой теплоемкостью и теплоудерживающей способностью.{% endblocktrans %}
+          </p>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-image-wrapper">
+          <img src="{% static 'images/leisure/магнитотерапия.jpg' %}" alt="{{ alt_nature_walks }}">
           <div class="activity-gradient"></div>
           <div class="activity-number">08</div>
         </div>
         <div class="activity-content">
-          <h3>Магнитотерапия</h3>
+          <h3>{% blocktrans %}Магнитотерапия{% endblocktrans %}</h3>
           <p>
-            - физиотерапевтическая методика, основанная на воздействии низкочастотных магнитных полей на организм на клеточном уровне. Влияние переменного
-            или постоянного воздействия оказывает положительный эффект на поврежденные зоны тела,
-            улучшает обменные процессы в тканях, применяется и изолированно как основное лечение, так и в
-            качестве дополнения к медикаментозной терапии.
+            {% blocktrans %}Физиотерапевтическая методика, основанная на воздействии низкочастотных магнитных полей на организм на клеточном уровне.{% endblocktrans %}
           </p>
         </div>
       </div>
-        <div class="activity-card">
+
+      <div class="activity-card">
         <div class="activity-image-wrapper">
-          <img src="{% static 'images/leisure/кумысолечение.jpg' %}" alt="СПА и релакс">
+          <img src="{% static 'images/leisure/кумысолечение.jpg' %}" alt="{{ alt_spa_relax }}">
           <div class="activity-gradient"></div>
           <div class="activity-number">09</div>
         </div>
         <div class="activity-content">
-          <h3>Кумысолечение</h3>
+          <h3>{% blocktrans %}Кумысолечение{% endblocktrans %}</h3>
           <p>
-            Кумыс обладает выраженным лечебным действием на организм, превосходящим по эффективности все
-            известные лечебные средства. Курс
-            кумысолечения восстанавливает нормальный уровень
-            гемоглобина и содержание разных видов лейкоцитов в
-            лейкоцитарной формуле крови, увеличивает иммунную
-            защиту организма, защищая его от влияния
-            болезнетворных микроорганизмов и неблагоприятных
-            факторов и способствуя выздоровлению
+            {% blocktrans %}Кумыс обладает выраженным лечебным действием на организм, повышает иммунную защиту и способствует выздоровлению.{% endblocktrans %}
           </p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -625,10 +604,9 @@
   <div class="feature-wrapper">
     <div class="feature-banner">
       <div class="feature-content">
-        <h2>Ваш идеальный отдых начинается здесь</h2>
+        <h2>{% blocktrans %}Ваш идеальный отдых начинается здесь{% endblocktrans %}</h2>
         <p>
-          Лечебно-оздоровительный комплекс "Бурабай" — это не просто место для отдыха, это опыт, который изменит ваше
-          восприятие комфорта и гармонии. Позвольте нам создать для вас незабываемые моменты.
+          {% blocktrans %}Лечебно-оздоровительный комплекс "Бурабай" — это не просто место для отдыха, это опыт, который изменит ваше восприятие комфорта и гармонии. Позвольте нам создать для вас незабываемые моменты.{% endblocktrans %}
         </p>
       </div>
     </div>

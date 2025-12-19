@@ -135,6 +135,12 @@
                 </div>
                 <div class="dropmenu">
                     <a class="rubric" href="{% url 'med-services'%}" class="dropbtn">{%trans 'Медицинские услуги'%}</a>
+                    <div class="dropcontent">
+                        <div>
+                            <a href="{% url 'med-services'%}">{%trans 'Медицинские услуги'%}</a>
+                            <a href="{% url 'leisure'%}">{%trans 'Досуг'%}</a>
+                        </div>
+                    </div>
                     <!-- <div class="dropcontent">
                         <div>
                             <a href="{% url 'med-services'%}">Платные услуги</a>
@@ -174,9 +180,6 @@
                     </div>
                 </div>
                 <div class="dropmenu">
-                    <a class="rubric" href="{% url 'leisure'%}">{%trans 'Досуг'%}</a>
-                </div>
-                <div class="dropmenu">
                     <a href="{% url 'blogCEO'%}" class="rubric">{%trans 'Обратная связь'%}</a>
                     <div class="dropcontent">
                         <div>
@@ -186,9 +189,6 @@
                             <a href="{% url 'reviews'%}">{%trans 'Отзывы'%}</a>
                         </div>
                     </div>
-                </div>
-                <div class="dropmenu">
-                    <a class="rubric" href="{% url 'transit'%}">{%trans 'Проезд'%}</a>
                 </div>
                 <!-- <div class="dropmenu">
                     <a class="rubric" href="{% url 'gobmp'%}" class="dropbtn">Пациентам</a>
