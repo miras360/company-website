@@ -474,7 +474,7 @@ li{
 .banner{
     background-color: black;
     width: 100%;
-    background-image: url(assets/burabay-background.jpg);
+    background-image: url('./assets/winter-background.jpg');
     background-size: 100%;
     background-position: top;
     background-repeat: no-repeat;
