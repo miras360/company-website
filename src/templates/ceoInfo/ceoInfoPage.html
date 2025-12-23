@@ -41,85 +41,73 @@
                     <div class="rule-block">
                         {% if data.edu_parts %}
                         <h3>{% trans 'Образование' %}:</h3>
-                        <ul>
+
                         {% for part in data.edu_parts %}
-                            <li>{{ part }}</li>
+                            <p>{{ part }}</p>
                         {% endfor %}
-                        </ul>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.spec_parts %}
                         <h3>{% trans 'Научная степень' %}:</h3>
-                        <ul>
+
                         {% for part in data.spec_parts %}
-                            <li>{{ part }}</li>
+                            <p>{{ part }}</p>
                         {% endfor %}
-                        </ul>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.work %}
                         <h3>{% trans 'Трудовая деятельность' %}:</h3>
-                        <ul>
+
                         {% for part in data.work %}
-                            <li>{{ part }}</li>
+                            <p>{{ part }}</p>
                         {% endfor %}
-                        </ul>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.add_parts %}
                         <h3>{% trans 'Дополнительно' %}:</h3>
                         
-                        <ul>
-                            {% for part in data.add_parts %}
-                                <li>{{ part }}</li>
-                            {% endfor %}
-                        </ul>
+                        {% for part in data.add_parts %}
+                            <p>{{ part }}</p>
+                        {% endfor %}
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.awards_parts %}
                         <h3>{% trans 'Награды' %}:</h3>
                         
-                        <ul>
-                            {% for part in data.awards_parts %}
-                                <li>{{ part }}</li>
-                            {% endfor %}
-                        </ul>
+                        {% for part in data.awards_parts %}
+                            <p>{{ part }}</p>
+                        {% endfor %}
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.sertif_parts %}
                         <h3>{% trans 'Сертификаты' %}:</h3>
                         
-                        <ul>
-                            {% for part in data.sertif_parts %}
-                                <li>{{ part }}</li>
-                            {% endfor %}
-                        </ul>
+                        {% for part in data.sertif_parts %}
+                            <p>{{ part }}</p>
+                        {% endfor %}
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.public_parts %}
                         <h3>{% trans 'Публикации' %}:</h3>
                         
-                        <ul>
-                            {% for part in data.public_parts %}
-                                <li>{{ part }}</li>
-                            {% endfor %}
-                        </ul>
+                        {% for part in data.public_parts %}
+                            <p>{{ part }}</p>
+                        {% endfor %}
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.positions %}
                         <h3>{% trans 'Должности' %}:</h3>
-                        <ul>
-                            {% for part in data.positions %}
-                                <li>{{ part }}</li>
-                            {% endfor %}
-                        </ul>
+
+                        {% for part in data.positions %}
+                            <p>{{ part }}</p>
+                        {% endfor %}
                         {% endif %}
                     </div>
                 </div>
