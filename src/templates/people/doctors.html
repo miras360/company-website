@@ -7,26 +7,27 @@
         <a href="{% url 'teachers'%}">{%trans 'Наши педагоги'%}</a>
     </div>
     <div class="rules">
-        {%if datas%}
-            {%if datas.title%}
-                <span class="Title">{{datas.title}}</span>
-            {%endif%}
-            {%if datas.content%}
-                <div class="rule-plates">
-                    <div class="new-frame">
-                        <div class="photo-people">
-                            {% if datas.photo %}
-                                <img src="{{ datas.photo.url }}" alt="фото">
-                            {% endif %}
-                        </div>
+        {% if datas_list %}
+    <div class="rule-plates">
+        {% for datas in datas_list %}
+        <div class="new-frame">
+            <div class="photo-people">
+                {% if datas.photo %}
+                    <img src="{{ datas.photo.url }}" alt="фото">
+                {% endif %}
+            </div>
 
-                        {%for data in datas.content%}
-                        <p>{{data}}</p>
-                        {%endfor%}
-                    </div>
-                </div>
-            {%endif%}
-        {%endif%}
+            {% if datas.title %}
+                <span class="Title">{{ datas.title }}</span>
+            {% endif %}
+
+            {% for line in datas.content %}
+                <p>{{ line }}</p>
+            {% endfor %}
+            </div>
+        {% endfor %}
+        </div>
+        {% endif %}
     </div>
 </div>
 </div>
