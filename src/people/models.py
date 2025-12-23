@@ -17,6 +17,7 @@ class People(models.Model):
         return f'{self.name}'
     
 class Doctors(models.Model):
+    photo = models.ImageField(verbose_name='Фото педагогов', upload_to='images/', blank=True, null=True)
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Основной текст')
     class Meta:
@@ -26,6 +27,7 @@ class Doctors(models.Model):
         return f'{self.title}'
 
 class Teachers(models.Model):
+    photo = models.ImageField(verbose_name='Фото педагогов', upload_to='images/', blank=True, null=True)
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Основной текст')
     class Meta:

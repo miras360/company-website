@@ -12,8 +12,16 @@
                 <span class="Title">{{datas.title}}</span>
             {%endif%}
             {%if datas.content%}
-                <div>
-                    <div class="rule-plates">
+                <div class="rule-plates">
+                    <div class="new-frame">
+                        <div class="photo-people">
+                            {% if datas.photo %}
+                                <img src="{{ datas.photo.url }}" alt="фото">
+                            {% else %}
+                                <p>Фото не загружено</p>
+                            {% endif %}
+                        </div>
+                        
                         {%for data in datas.content%}
                         <p>{{data}}</p>
                         {%endfor%}

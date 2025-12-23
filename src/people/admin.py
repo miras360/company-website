@@ -10,8 +10,8 @@ class PeopleAdmin(TranslationAdmin):
 
 @admin.register(Doctors)
 class DoctorsAdmin(TranslationAdmin):
-    list_display = ( 'title', 'content')
+    list_display = ( 'title', 'photo', 'content')
 
 @admin.register(Teachers)
 class TeachersAdmin(TranslationAdmin):
-    list_display = ( 'title', 'content')
+    list_display = ( 'title', 'photo', 'content')

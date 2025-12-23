@@ -9,6 +9,7 @@ def people_list(request):
 def doctor_list(request):
     posts = Doctors.objects.order_by('id').first()
     datas = {
+        'photo': posts.photo if posts else None,
         'title': posts.title if posts else None,
         'content': posts.content.split('\n') if posts else None,
     }
@@ -17,6 +18,7 @@ def doctor_list(request):
 def teacher_list(request):
     posts = Teachers.objects.order_by('id').first()
     datas = {
+        'photo': posts.photo if posts else None,
         'title': posts.title if posts else None,
         'content': posts.content.split('\n') if posts else None,
     }

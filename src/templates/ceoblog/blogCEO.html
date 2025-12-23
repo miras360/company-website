@@ -22,7 +22,7 @@
                 <p style="font-weight: 300; font-size: 15px;"><i>{%trans 'Опубликовано'%}: </i><b>{{post.author.name}}</b></p>
             </div>
             <hr>
-            <span class="frame-content">{{post.content}} </span>
+            <div class="frame-content"><p>{{post.preview}}</p></div>
             <div class="frame-btn">
                 <p class="date">{{post.date}}</p>
                 <a href="{% url 'post_detail' pid=post.pk %}" class="btn">{%trans 'Читать далее'%}...</a>

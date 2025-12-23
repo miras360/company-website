@@ -6,14 +6,16 @@ from .forms import PostForm
 def post_list(request):
     posts = PostCeo.objects.order_by('-date')
     for post in posts:
-        original_content = post.content
-        post.content = ' '.join(original_content.split()[:40])
-        # Если содержимое было сокращено, добавляем многоточие в конец строки
-        if original_content != post.content:
-            post.content += ' ...'
-        att = PostAttachment.objects.filter(post_id = post.pk)
-        post.att = att
-    return render(request, 'ceoblog/blogCEO.html', {'post_list':posts})
+        original = post.content or ""
+        # делаем превью, но НЕ портим оригинальный content
+        preview = " ".join(original.split()[:40])
+        if preview != original:
+            preview += " ..."
+        post.preview = preview
+
+        post.att = PostAttachment.objects.filter(post_id=post.pk)
+    return render(request, 'ceoblog/blogCEO.html', {'post_list': posts})
+
 
 def post_detail(request, pid):
     post = PostCeo.objects.get(id = pid)

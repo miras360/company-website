@@ -14,11 +14,9 @@
                 {% for rule in rules %}
                 <div class="rule-block">
                     <h3>{{ rule.title }}</h3>
-                    <ul>
                     {% for part in rule.info_parts %}
-                        <li>{{ part }}</li>
+                            <p>{{ part }}</p>
                     {% endfor %}
-                    </ul>
                 </div>
                 {% endfor %}
             </div>
