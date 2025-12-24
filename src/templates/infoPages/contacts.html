@@ -44,8 +44,8 @@
                 <div class="contacts-grid">
                     {% for contact in contacts %}
                     <div class="contact-item">
-                        <div class="contact-title">{{ contact.title }}</div>
-                        <div class="contact-info">{{ contact.info }}</div>
+                        <div class="contact-title">{{ contact.title|linebreaksbr }}</div>
+                        <div class="contact-info">{{ contact.info|linebreaksbr }}</div>
                     </div>
                     {% endfor %}
                 </div>
