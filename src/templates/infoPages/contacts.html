@@ -36,11 +36,19 @@
                 </table>
             </div>
 
-            <p class="table-title">{% trans 'Контакты РГП на ПХВ НИИ курортологии и медицинской реабилитации МЗ РК' %} :</p>
-            <div class="contact-list">
-            {% for contact in contacts %}
-                <p><b>{{contact.title}}:</b> {{contact.info}}</p>
-            {% endfor %}
+            <p class="table-title">
+            {% trans 'Контакты РГП на ПХВ НИИ курортологии и медицинской реабилитации МЗ РК' %}:
+            </p>
+
+            <div class="contacts-card">
+                <div class="contacts-grid">
+                    {% for contact in contacts %}
+                    <div class="contact-item">
+                        <div class="contact-title">{{ contact.title }}</div>
+                        <div class="contact-info">{{ contact.info }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
