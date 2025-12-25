@@ -10,28 +10,30 @@
         <a href="{% url 'LEK-list'%}">{%trans 'Локальная этическая комиссия по биоэтике'%}</a>
     </div>
     <div class="rules">
+        {% if datas %}
         <span class="Title">{% trans 'Научные исследования и научно-методическое обеспечение в сфере курортологии и восстановительного лечения' %}:</span>
-        <div class="new-frame">
-            <div class="rule-plates">
-                {% for data in datas %}
-                    {{ data.title }}
+        <div class="rule-plates">
+            {% for data in datas %}
+            <div class="new-frame">
+                <div class="science__dev">
+                        <h3 class="science__dev-title">{{ data.title|linebreaksbr }}</h3>
 
-                    {% if data.addInfoTitle %}
-                        <p style="padding-left: 75px">
-                            {{ data.addInfoTitle }}
-                        </p>
-                    {% endif %}
+                        {% if data.addInfoTitle %}
+                        <p class="science__dev-subtitle">{{ data.addInfoTitle|linebreaksbr }}</p>
+                        {% endif %}
 
-                    {% if data.addInfo %}
-                        <div class="rule-block">
+                        {% if data.addInfo %}
+                        <div class="science__dev-text">
                             {% for info in data.addInfo %}
-                                {{ info|linebreaksbr }}
+                            {{ info|linebreaksbr }}
                             {% endfor %}
                         </div>
-                    {% endif %}
-                {% endfor %}
+                        {% endif %}
+                </div>
             </div>
+            {% endfor %}
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
