@@ -519,10 +519,17 @@ li{
     -webkit-backdrop-filter: blur(10px);
     border-radius: 8px;
     padding: 10px 20px;
+    transition: .3s;
 }
 
 .nii_information h2{
     text-align: center;
+}
+
+.nii_information:hover{
+    filter: brightness(1.05);
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
 }
 
 .banner-text{
