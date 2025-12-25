@@ -1485,12 +1485,7 @@ width: 30%;
   .ceo-info span h1, .ceo-info span h2{
     margin: 10px 0;
   }
-
-  .anticor-list{
-    margin: 5px 0;
-    font-size: 1rem;
-  }
-
+  
   .lang-mobile{
     display: none;
   }
@@ -2307,7 +2302,7 @@ width: 30%;
   --muted: #6b7280;
   --border: rgba(0, 0, 0, 0.08);
 
-  max-width: 70ch;               /* комфортная длина строки для чтения */
+  max-width: 85ch;               /* комфортная длина строки для чтения */
   color: var(--text);
   line-height: 1.7;
 
