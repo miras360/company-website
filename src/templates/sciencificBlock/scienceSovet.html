@@ -14,78 +14,88 @@
         <span class="Title">{{datas.title}}</span>
         {%endif%}
         <div class="rule-plates">
-            {% for data in datas %}
-                <div class="new-frame">
-                    <div class="science__dev">
-                        {% if datas.description %}
-                            <h3 class="science__dev-title">
-                                {% trans 'Описание Научно-технического совета' %}
-                            </h3>
+            <div class="new-frame">
+                <div class="science__dev">
+                    {% if datas.description %}
+                        <h3 class="science__dev-title">
+                            {% trans 'Описание Научно-технического совета' %}
+                        </h3>
 
-                            <div class="science__dev-text">
-                                {% for data in datas.description %}
-                                    {{ data|linebreaksbr }}
-                                {% endfor %}
-                            </div>
-                        {% endif %}
+                        <div class="science__dev-text">
+                            {% for data in datas.description %}
+                                {{ data|linebreaksbr }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
 
-                        {% if datas.creation %}
-                            <h3 class="science__dev-title">
-                                {% trans 'Приказ о создании Научно-технического совета' %}
-                            </h3>
-
-                            <div class="science__dev-text">
-                                <a href="{% url 'creation_details' fid=datas.pk %}">
-                                    {{ datas.creation_name }}
-                                </a>
-                            </div>
-                        {% endif %}
-
-                        {% if regulations %}
-                            <h3 class="science__dev-title">
-                                {% trans 'Положение' %}
-                            </h3>
-
-                            <div class="science__dev-text">
-                                {% for data in regulations %}
-                                    <a href="{% url 'regulation_details' fid=data.pk %}">
-                                        {{ data.title }}
-                                    </a><br>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-
-                        {% if plans %}
-                            <h3 class="science__dev-title">
-                                {% trans 'Планы' %}
-                            </h3>
-
-                            <div class="science__dev-text rule-block">
-                                {% for plan in plans %}
-                                    <a href="{% url 'plan_details' fid=plan.pk %}">
-                                        {{ plan.title }}
-                                    </a><br>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-
-                        {% if meetings %}
-                            <h3 class="science__dev-title">
-                                {% trans 'Заседания' %}
-                            </h3>
-
-                            <div class="science__dev-text rule-block">
-                                {% for meet in meetings %}
-                                    <a href="{% url 'meetings_details' fid=meet.pk %}">
-                                        {{ meet.title }}
-                                    </a><br>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-
-                    </div>
                 </div>
-            {% endfor %}
+            </div>
+            <div class="new-frame">
+                <div class="science__dev">
+                    {% if datas.creation %}
+                        <h3 class="science__dev-title">
+                            {% trans 'Приказ о создании Научно-технического совета' %}
+                        </h3>
+
+                        <div class="science__dev-text">
+                            <a href="{% url 'creation_details' fid=datas.pk %}">
+                                {{ datas.creation_name }}
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="new-frame">
+                <div class="science__dev">
+                    {% if regulations %}
+                        <h3 class="science__dev-title">
+                            {% trans 'Положение' %}
+                        </h3>
+
+                        <div class="science__dev-text">
+                            {% for data in regulations %}
+                                <a href="{% url 'regulation_details' fid=data.pk %}">
+                                    {{ data.title }}
+                                </a><br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="new-frame">
+                <div class="science__dev">
+                    {% if plans %}
+                        <h3 class="science__dev-title">
+                            {% trans 'Планы' %}
+                        </h3>
+
+                        <div class="science__dev-text rule-block">
+                            {% for plan in plans %}
+                                <a href="{% url 'plan_details' fid=plan.pk %}">
+                                    {{ plan.title }}
+                                </a><br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="new-frame">
+                <div class="science__dev">
+                    {% if meetings %}
+                        <h3 class="science__dev-title">
+                            {% trans 'Заседания' %}
+                        </h3>
+
+                        <div class="science__dev-text rule-block">
+                            {% for meet in meetings %}
+                                <a href="{% url 'meetings_details' fid=meet.pk %}">
+                                    {{ meet.title }}
+                                </a><br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
