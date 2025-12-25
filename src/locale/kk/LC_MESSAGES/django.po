@@ -80,8 +80,8 @@ msgid "Положение"
 msgstr "Ереже"
 
 #: .\templates\LEK\LEK.html:53 .\templates\sciencificBlock\scienceSovet.html:43
-msgid "Заседания"
-msgstr "Отырыстар"
+msgid "Заседания НТС"
+msgstr "ҒТК отырыстары"
 
 #: .\templates\LEK\LEK.html:61
 msgid "Инструкция по обращению в ЛЭК"
