@@ -1971,7 +1971,13 @@ width: 30%;
         padding: 0 5%;
     }
     .banner{
-        background-size: 200%;
+      height: calc(100vh - 32px);
+      height: calc(100svh - 32px);
+      background-size: 450%;
+    }
+    .back-img{
+      height: calc(100vh - 32px);
+      height: calc(100svh - 32px);
     }
   }
 
@@ -2075,7 +2081,13 @@ width: 30%;
         width: calc(100% - 40px);
     }
     .banner{
-        background-size: 200%;
+      height: calc(100vh - 24px);
+      height: calc(100svh - 24px);
+      background-size: 500%;
+    }
+    .back-img{
+      height: calc(100vh - 24px);
+      height: calc(100svh - 24px);
     }
     .banner-content{
         display: none;
@@ -2094,7 +2106,13 @@ width: 30%;
     }
     
     .banner{
-        background-size: 300%;
+      height: calc(100vh - 62px);
+      height: calc(100svh - 62px);
+      background-size: 500%;
+    }
+    .back-img{
+      height: calc(100vh - 62px);
+      height: calc(100svh - 62px);
     }
     .question-inner{
         flex-direction: column;
