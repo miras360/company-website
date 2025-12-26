@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
-{%load i18n%}
+{% load i18n %}
 {% block content %}
-<div class="content-inner">
-    <span class="Title"> {%trans 'Локальная этическая комиссия по биоэтике'%} </span>
-    <div class="documents">
-        <iframe src="/media/{{file}}"></iframe>
+<div class="content-split">
+    <div class="navigation">
+        <a href="{% url 'science'%}">{%trans 'Научные разработки'%}</a>
+        <a href="{% url 'scienceSovet'%}">{%trans 'Научно-технический совет'%}</a>
+        <a href="{% url 'plans'%}" class='selected'>{%trans 'Планы'%}</a>
+        <a href="{% url 'science_achievments'%}">{%trans 'Достижения'%}</a>
+        <a href="{% url 'LEK-list'%}">{%trans 'Локальная этическая комиссия по биоэтике'%}</a>
+    </div>
+    <div class="rules">
+        <div class="rule-plates">
+            <div class="new-frame">
+                <div class="science__dev">
+                    <span class="science__dev-title"> {%trans 'Локальная этическая комиссия по биоэтике'%} </span>
+                    <iframe class="science__dev-iframe--pdf" src="/media/{{file}}"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
