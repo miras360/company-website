@@ -23,72 +23,104 @@
         <span class="Title">{{datas.title}}</span>
         {%endif%}
         <div class="rule-plates">
+            {%if datas.description%}
             <div class="new-frame">
-                {%if datas.description%}
-                <h3>{%trans 'Описание локальной этической комиссии'%}</h3>
-                    {%for data in datas.description%}
-                        <p>{{data}}</p>
-                    {%endfor%}
-                {%endif%}
-                {% if datas.creation %}
-                    <h3>{%trans 'Приказ о создании локальной этической комиссии'%}</h3>
-                    <a class="anticor-list" href = "{% url 'lek_creation_details' fid=datas.pk %}">{{datas.creation_name}}</a>
-                {% endif %}
-                {% if regulation %}
-                    <h3>{%trans 'Положение'%}</h3>
-                    {%for data in regulation%}
-                        <a class="anticor-list" href = "{% url 'lek_regulation_details' fid=data.pk%}">{{data.title}}</a>
-                    {%endfor%}
-                {% endif %}
-                {%if plans %}
-                <h3>{%trans 'Планы'%}</h3>
-                    <div class="rule-block">
-                        {%for plan in plans%}
-                            <p><a class="anticor-list" href = "{% url 'lek_plan_details' fid=plan.pk%}">{{plan.title}}</a></p>
+                <div class="science__dev">
+                    <h3 class="science__dev-title">{%trans 'Описание локальной этической комиссии'%}</h3>
+                    <div class="science__dev-text">
+                        {%for data in datas.description%}
+                            {{data|linebreaksbr}}
                         {%endfor%}
                     </div>
-                {%endif%}
-                {% if meetings %}
-                    <h3>{%trans 'Заседания'%}</h3>
-                    <div class="rule-block">
-                        {%for data in meetings%}
-                            <p><a class="anticor-list" href = "{% url 'lek_meetings_details' fid=data.pk%}">{{data.title}}</a></p>
-                        {%endfor%}
-                    </div>
-                {%endif%}
-                {% if datas.instructions %}
-                    <h3>{%trans 'Инструкция по обращению в ЛЭК'%}</h3>
-                    <div class="rule-block">
-                        {%for data in datas.instructions%}
-                           <p>{{data}}</p>
-                        {%endfor%}
-                    </div>
-                {%endif%}
-                {% if datas.standarts %}
-                    <h3>{%trans 'Стандартные операционные процедуры'%}</h3>
-                    <div class="rule-block">
-                        {%for data in datas.standarts%}
-                           <p>{{data}}</p>
-                        {%endfor%}
-                    </div>
-                {%endif%}
-                {% if datas.contacts %}
-                    <h3>{%trans 'Контакты секретариата ЛЭК'%}</h3>
-                    <div class="rule-block">
-                        {%for data in datas.contacts%}
-                           <p>{{data}}</p>
-                        {%endfor%}
-                    </div>
-                {%endif%}
-                {% if forms %}
-                    <h3>{%trans 'Формы документов для прохождения экспертизы ЛЭК'%}</h3>
-                    <div class="rule-block">
-                        {%for form in forms%}
-                        <p><a class="anticor-list" href = {{form.link}}>{{form.title}}</a></p>
-                        {%endfor%}
-                    </div>
-                {%endif%}
+                </div>
             </div>
+            {%endif%}
+            {% if datas.creation %}
+            <div class="new-frame">
+                <div class="science__dev">
+                        <h3 class="science__dev-title">{%trans 'Приказ о создании локальной этической комиссии'%}</h3>
+                        <p><a href = "{% url 'lek_creation_details' fid=datas.pk %}">{{datas.creation_name|linebreaksbr}}</a></p>
+                </div>
+            </div>
+            {% endif %}
+            {% if regulation %}
+            <div class="new-frame">
+                <div class="science__dev">
+                        <h3 class="science__dev-title">{%trans 'Положение'%}</h3>
+                        {%for data in regulation%}
+                            <p><a href = "{% url 'lek_regulation_details' fid=data.pk%}">{{data.title|linebreaksbr}}</a></p>
+                        {%endfor%}
+                </div>
+            </div>
+            {% endif %}
+            {%if plans %}
+            <div class="new-frame">
+                <div class="science__dev">
+                        <h3 class="science__dev-title">{%trans 'Планы'%}</h3>
+                            {%for plan in plans%}
+                                <p><a href = "{% url 'lek_plan_details' fid=plan.pk%}">{{plan.title|linebreaksbr}}</a></p>
+                            {%endfor%}
+                </div>
+            </div>
+            {% endif %}
+            {% if meetings %}
+            <div class="new-frame">
+                <div class="science__dev">
+                        <h3 class="science__dev-title">{%trans 'Заседания'%}</h3>
+                            {%for data in meetings%}
+                                <p><a href = "{% url 'lek_meetings_details' fid=data.pk%}">{{data.title|linebreaksbr}}</a></p>
+                            {%endfor%}
+                </div>
+            </div>
+            {%endif%}
+            {% if datas.instructions %}
+            <div class="new-frame">
+                <div class="science__dev">
+                    <h3 class="science__dev-title">{%trans 'Инструкция по обращению в ЛЭК'%}</h3>
+                    <div class="science__dev-text">
+                        {%for data in datas.instructions%}
+                        {{data|linebreaksbr}}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+            {% if datas.standarts %}
+            <div class="new-frame">
+                <div class="science__dev">
+                    <h3 class="science__dev-title">{%trans 'Стандартные операционные процедуры'%}</h3>
+                    <div class="science__dev-text">
+                        {%for data in datas.standarts%}
+                        {{data|linebreaksbr}}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+            {% if datas.contacts %}
+            <div class="new-frame">
+                <div class="science__dev">
+                    <h3 class="science__dev-title">{%trans 'Контакты секретариата ЛЭК'%}</h3>
+                    <div class="science__dev-text">
+                        {%for data in datas.contacts%}
+                        {{data|linebreaksbr}}
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+            {% if forms %}
+            <div class="new-frame">
+                <div class="science__dev">
+                    <h3 class="science__dev-title">{%trans 'Формы документов для прохождения экспертизы ЛЭК'%}</h3>
+                    <div class="science__dev-text">
+                        {%for form in forms%}
+                        <p><a href = {{form.link}}>{{form.title|linebreaksbr}}</a></p>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+            {%endif%}
         </div>
     </div>
 </div> 

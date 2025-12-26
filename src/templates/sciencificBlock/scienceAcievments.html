@@ -12,25 +12,20 @@
     <div class="rules">
         <span class="Title">{%trans 'Достижения'%}</span>
         <div class="rule-plates">
-            <div class="new-frame">
-
-                {# ЦИКЛ ДЛЯ ВСЕХ ДОКУМЕНТОВ #}
                 {% for science in sciences %}
-                    <div class="sci_doc" style="margin-bottom: 30px;">
-                        {% if science.name %}
-                            <h2>{{ science.name }}</h2>
-                        {% endif %}
+            <div class="new-frame">
+                <div class="science__dev">
+                    {% if science.name %}
+                        <h3 class="science__dev-title">{{ science.name }}</h3>
+                    {% endif %}
 
-                        {% if science.info %}
-                            <iframe src="/media/{{ science.info }}" class="sci_block"></iframe>
-                        {% endif %}
-                    </div>
-                {% empty %}
-                    <p>{%trans 'Нет доступных документов'%}</p>
-                {% endfor %}
-
-            </div>            
-        </div>          
+                    {% if science.info %}
+                        <iframe class="science__dev-iframe--pdf" src="/media/{{ science.info }}"></iframe>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}               
+        </div>       
     </div>
 </div>
 {% endblock %}

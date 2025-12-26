@@ -15,13 +15,13 @@
         {%endif%}
         <div class="rule-plates">
             <div class = "new-frame">
-                {%if datas.content %}
-                <div class="rule-block">
-                    {% for info in datas.content %}
-                        <p>{{ info }}</p>
-                    {% endfor %}
+                <div class="science__dev">
+                    {% if datas.content %}
+                        <div class="science__dev-text">
+                            {{ datas.content|linebreaksbr }}
+                        </div>
+                    {% endif %}
                 </div>
-                {%endif%}
             </div>
         </div>
     </div>

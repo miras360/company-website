@@ -2379,6 +2379,24 @@ width: 30%;
   border-bottom-color: var(--accent);
 }
 
+.science__dev-iframe--pdf {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 80vh;              /* ключевой момент — читаемость */
+  height: auto;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+
+  background-color: #f9fafb;
+}
+
 @media (max-width: 768px) {
   .science__dev {
     padding: 0.9rem 1rem;
@@ -2387,6 +2405,9 @@ width: 30%;
 
   .science__dev-title {
     font-size: 1.2rem;
+  }
+  .science__dev-iframe--pdf {
+    min-height: 65vh;
   }
 }
 
@@ -2408,5 +2429,9 @@ width: 30%;
 
   .science__dev-text::before {
     width: 2rem;
+  }
+  .science__dev-iframe--pdf {
+    min-height: 55vh;
+    border-radius: 10px;
   }
 }

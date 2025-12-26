@@ -60,7 +60,7 @@ def sciencePlans(request):
     infos = SciencePlans.objects.order_by('id').first()
     datas = {
         'title': infos.title if infos else None,
-        'content': infos.content.split('\n') if infos else None,
+        'content': infos.content if infos else None,
     }
     
     return render(request, 'sciencificBlock/sciencePlans.html', {'datas': datas})
