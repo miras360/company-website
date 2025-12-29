@@ -30,7 +30,7 @@
                 <div class="rule-block">
                     <div class="institute__dev-text">
                         {% for file in files %}
-                            <a href = "{% url 'doc-detils' fid=file.pk%}">{{file.title}}</a>
+                            <a href = "{% url 'doc-detils' fid=file.pk%}">{{file.title|linebreaksbr}}</a>
                         {% endfor %}
                     </div>
                 </div>
