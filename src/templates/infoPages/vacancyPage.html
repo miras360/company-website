@@ -17,54 +17,90 @@
     <div class="rules">
         <span class="Title">{% trans 'Вакансии' %}</span>
         <div class="new-frame">
-            <h2>{% trans 'Республиканское государственное предприятие на праве хозяйственного ведения «Научно-исследовательский институт курортологии и медицинской реабилитации» Министерства здравоохранения Республики Казахстан объявляет  конкурс на занятие следующих вакантных должностей' %}:</h2>
-            {% if datas %}
-            <ul>
-                {% for data in datas %}
-                    <li>{{ data.vacancy }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% if info.compAddress %}
-            <p>{% trans 'Место проведения конкурса' %}: {{info.compAddress}}</p>
-            {% endif %}
-            {% if info.enterprise %}
-            <p>{% trans 'Место нахождения предприятия' %}: {{info.enterprise}}</p>
-            {% endif %}
-            {% if info.description %}
-                <p>{%trans 'Краткое описание основной деятельности предприятия'%}: </p>
-                <ul>    
-                    {% for data in info.description %}
-                    <li>{{data}}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            {% if datas %}
-            <p><u>{%trans 'Требование к участникам конкурса'%}:</u></p>
-                {% for data in datas %}
-                    <p><b>{{data.vacancy}}:</b></p>
-                    {% for part in data.requirement_parts %}
-                        <p>{{part}}</p>
-                    {% endfor %}
-                {% endfor %}
-            {% endif %}
-            {% if info.addmisions  %}
-            <p><u>{%trans 'Для участия в конкурсе не принимаются следующие лица'%}:</u> </p>
-                {% for data in info.addmisions %}
-                <p>{{data}}</p>
-                {% endfor %}
-            {% endif %}
-            {% if info.documents %}
-            <p><u>{%trans 'Для участия в конкурсе, необходимо представить следующие документы'%}: </u> </p>
-                {% for data in info.documents %}
-                <p>{{data}}</p>
-                {% endfor %}
-            {% endif %}
-            {% if info.additionally %}
-                {% for data in info.additionally %}
-                <p>{{data}}</p>
-                {% endfor %}
-            {% endif %}
+            <div class="institute__dev">
+                <h2 class="institute__dev-title">{% trans 'Республиканское государственное предприятие на праве хозяйственного ведения «Научно-исследовательский институт курортологии и медицинской реабилитации» Министерства здравоохранения Республики Казахстан объявляет  конкурс на занятие следующих вакантных должностей' %}:</h2>
+                {% if datas %}
+                <div class="rule-block">
+                    <div class="institute__dev-text">
+                        {% for data in datas %}
+                            <p>{{ data.vacancy }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if info.compAddress %}
+                <div class="rule-block">
+                    <div class="institute__dev-text">
+                            <p>{% trans 'Место проведения конкурса' %}: {{info.compAddress}}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% if info.enterprise %}
+                <div class="rule-block">
+                    <div class="institute__dev-text">
+                            <p>{% trans 'Место нахождения предприятия' %}: {{info.enterprise}}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% if info.description %}
+                <div class="rule-block">
+                    <div class="institute__dev-title">
+                        <p>{%trans 'Краткое описание основной деятельности предприятия'%}: </p>
+                    </div>
+                    <div class="institute__dev-text">    
+                        {% for data in info.description %}
+                            <p>{{data}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if datas %}
+                <div class="rule-block">
+                    <div class="institute__dev-title">
+                        <p>{%trans 'Требование к участникам конкурса'%}:</p>
+                    </div>
+                    <div class="institute__dev-text">
+                        {% for data in datas %}
+                            <p><b>{{data.vacancy}}:</b></p>
+                            {% for part in data.requirement_parts %}
+                                <p>{{part}}</p>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if info.addmisions  %}
+                <div class="rule-block">
+                    <div class="institute__dev-title">
+                        <p>{%trans 'Для участия в конкурсе не принимаются следующие лица'%}: </p>
+                    </div>
+                    <div class="institute__dev-text">
+                        {% for data in info.addmisions %}
+                            <p>{{data}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if info.documents %}
+                <div class="rule-block">
+                    <div class="institute__dev-title">
+                        <p>{%trans 'Для участия в конкурсе, необходимо представить следующие документы'%}:  </p>
+                    </div>
+                    <div class="institute__dev-text">
+                        {% for data in info.documents %}
+                            <p>{{data}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+                {% if info.additionally %}
+                <div class="rule-block">
+                    <div class="institute__dev-text">
+                        {% for data in info.additionally %}
+                            <p>{{data}}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div> 

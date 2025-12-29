@@ -17,22 +17,40 @@
     <div class="rules">        
         <h2 class="Title">{%trans 'Стратегическое развитие'%}</h2>
         <div class="rule-plates">
-            
-            
-            <table >
-                
-                <tr>
-                    <th>{% trans 'Название' %}</th> <th>{% trans 'Скачать' %}</th> 
-                </tr>
-                {% for post in stratDevs %}
-                    <tr>
-                        <td>{{post.name}} </td> <td><a href="{% url 'download_file' sid=post.pk %}">Скачать</a></td> 
-                    </tr>
-                {% endfor %}
-            </table>
-            
+            <div class="new-frame">
+                <div class="institute__dev">
+                    <div class="institute__dev-docs">
+                        {% if stratDevs %}
+                            <div class="institute__dev-table" role="table" aria-label="{% trans 'Документы' %}">
+                                <div class="institute__dev-thead" role="rowgroup">
+                                    <div class="institute__dev-tr institute__dev-tr--head" role="row">
+                                        <div class="institute__dev-th" role="columnheader">{% trans 'Название' %}</div>
+                                        <div class="institute__dev-th institute__dev-th--right" role="columnheader">{% trans 'Скачать' %}</div>
+                                    </div>
+                                </div>
+
+                                <div class="institute__dev-tbody" role="rowgroup">
+                                    {% for post in stratDevs %}
+                                        <div class="institute__dev-tr" role="row">
+                                            <div class="institute__dev-td" role="cell">
+                                                <span class="institute__dev-name">{{ post.name }}</span>
+                                            </div>
+
+                                            <div class="institute__dev-td institute__dev-td--right" role="cell">
+                                                <a class="institute__dev-download"
+                                                href="{% url 'download_file' sid=post.pk %}">
+                                                    {% trans 'Скачать' %}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}

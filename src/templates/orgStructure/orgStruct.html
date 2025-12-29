@@ -26,9 +26,13 @@
             {% for dep in deps %}
             <button class="accordion">{{dep.name}}</button>
             <div class="panel">
-                {% for info in dep.info %}
-                    <p>{{info}}</p>
-                {% endfor %}
+                <div class="institute__dev">
+                    <div class="institute__dev-text">
+                        {% for info in dep.info %}
+                            {{info|linebreaksbr}}
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
             {% endfor %}
             {% endif %}
