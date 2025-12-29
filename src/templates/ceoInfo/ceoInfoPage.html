@@ -24,7 +24,7 @@
                     <div class="photo">
                         <img src="../../media/{{data.photo}}" alt="">
                     </div>
-                    
+                
                     {% if data.name and data.date_of_birth %}
                     <span>
                         <h1>{{data.name}}</h1>
@@ -37,77 +37,93 @@
                     
                 </div>
                 {% endif %}
-                <div class="rule-plates">
+                <div class="institute__dev">
                     <div class="rule-block">
                         {% if data.edu_parts %}
-                        <h3>{% trans 'Образование' %}:</h3>
+                        <h3 class="institute__dev-title">{% trans 'Образование' %}:</h3>
 
-                        {% for part in data.edu_parts %}
-                            <p>{{ part }}</p>
-                        {% endfor %}
+                        <div class="institute__dev-text">
+                            {% for part in data.edu_parts %}
+                                {{ part|linebreaksbr }}
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.spec_parts %}
-                        <h3>{% trans 'Научная степень' %}:</h3>
+                        <h3 class="institute__dev-title">{% trans 'Научная степень' %}:</h3>
 
-                        {% for part in data.spec_parts %}
-                            <p>{{ part }}</p>
-                        {% endfor %}
+                        <div class="institute__dev-text">
+                            {% for part in data.spec_parts %}
+                                {{ part|linebreaksbr }}
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.work %}
-                        <h3>{% trans 'Трудовая деятельность' %}:</h3>
+                        <h3 class="institute__dev-title">{% trans 'Трудовая деятельность' %}:</h3>
 
-                        {% for part in data.work %}
-                            <p>{{ part }}</p>
-                        {% endfor %}
+                        <div class="institute__dev-text">
+                            {% for part in data.work %}
+                                {{ part|linebreaksbr }}
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.add_parts %}
-                        <h3>{% trans 'Дополнительно' %}:</h3>
+                        <h3 class="institute__dev-title">{% trans 'Дополнительно' %}:</h3>
                         
-                        {% for part in data.add_parts %}
-                            <p>{{ part }}</p>
-                        {% endfor %}
+                        <div class="institute__dev-text">
+                            {% for part in data.add_parts %}
+                                {{ part|linebreaksbr }}
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.awards_parts %}
-                        <h3>{% trans 'Награды' %}:</h3>
+                        <h3 class="institute__dev-title">{% trans 'Награды' %}:</h3>
                         
-                        {% for part in data.awards_parts %}
-                            <p>{{ part }}</p>
-                        {% endfor %}
+                        <div class="institute__dev-text">
+                            {% for part in data.awards_parts %}
+                                {{ part|linebreaksbr }}
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.sertif_parts %}
-                        <h3>{% trans 'Сертификаты' %}:</h3>
+                        <h3 class="institute__dev-title">{% trans 'Сертификаты' %}:</h3>
                         
-                        {% for part in data.sertif_parts %}
-                            <p>{{ part }}</p>
-                        {% endfor %}
+                        <div class="institute__dev-text">
+                            {% for part in data.sertif_parts %}
+                                {{ part|linebreaksbr }}
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.public_parts %}
-                        <h3>{% trans 'Публикации' %}:</h3>
+                        <h3 class="institute__dev-title">{% trans 'Публикации' %}:</h3>
                         
-                        {% for part in data.public_parts %}
-                            <p>{{ part }}</p>
-                        {% endfor %}
+                        <div class="institute__dev-text">
+                            {% for part in data.public_parts %}
+                                {{ part|linebreaksbr }}
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </div>
                     <div class="rule-block">
                         {% if data.positions %}
-                        <h3>{% trans 'Должности' %}:</h3>
+                        <h3 class="institute__dev-title">{% trans 'Должности' %}:</h3>
 
-                        {% for part in data.positions %}
-                            <p>{{ part }}</p>
-                        {% endfor %}
+                        <div class="institute__dev-text">
+                            {% for part in data.positions %}
+                                {{ part|linebreaksbr }}
+                            {% endfor %}
+                        </div>
                         {% endif %}
                     </div>
                 </div>

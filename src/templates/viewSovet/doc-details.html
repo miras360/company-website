@@ -3,9 +3,9 @@
 {% block content %}
 <div class="content-inner">
     <span class="Title"> {%trans 'Наблюдательный совет'%} </span>
-    <div class="documents">
-        <p>{{file.title}}</p>
-        <iframe src="/media/{{file.file}}"></iframe>
+    <div class="institute__dev">
+        <h3 class="institute__dev-title">{{file.title}}</h3>
+        <iframe class="institute__dev-iframe--pdf" src="/media/{{file.file}}"></iframe>
     </div>
 </div>
 {% endblock %}

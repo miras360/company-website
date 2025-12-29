@@ -26,10 +26,16 @@
     <div class="rules">
         <span class="Title"> {% trans 'Наблюдательный совет' %} </span>
         <div class="new-frame">
-            <div class="rules">
-                {% for file in files %}
-                <a class="anticor-list" href = "{% url 'doc-detils' fid=file.pk%}">{{file.title}}</a>
-                {% endfor %}
+            <div class="institute__dev">
+                {% if datas.description %}
+                <div class="rule-block">
+                    <div class="institute__dev-text">
+                        {% for file in files %}
+                            <a href = "{% url 'doc-detils' fid=file.pk%}">{{file.title}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
