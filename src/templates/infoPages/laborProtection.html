@@ -16,16 +16,16 @@
     </div>
     <div class="rules">
         <span class="Title">{% trans 'Охрана труда' %}</span>
-        
         <div class="rule-plates">
-            
             <div class="new-frame">
-                <div>
-                    <b><p>{{ data.title }}</p></b>
+                <div class="institute__dev">
+                    <h1 class="institute__dev-title">{{ data.title }}</h1>
+                    <div class="institute__dev-text">
+                        {% for part in data.content %}
+                            <p>{{ part }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
-                {% for part in data.content %}
-                    <p>{{ part }}</p>
-                {% endfor %}
             </div>
         </div>
     </div>

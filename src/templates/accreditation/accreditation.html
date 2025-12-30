@@ -16,28 +16,30 @@
     </div>
     <div class="rules">
         <span class="Title">{% trans 'Аккредитация' %}:</span>
-        <div class="new-frame">
-            <div class="rule-plates">
-                <h1>{%trans 'Научная аккредитация:'%}</h1>
-                {% for post in posts %}
-                <div class="rule-block">
-                    {%if post.science%}
-                    <a href="{% url 'accredit_detail' pid=post.pk %}">
-                        <h3>{{ post.title }}</h3>
-                    </a>
-                    {%endif%}
+        <div class="rule-plates">
+            <div class="new-frame">
+                <div class="institute__dev">
+                    <h1 class="institute__dev-title">{%trans 'Научная аккредитация:'%}</h1>
+                    <div class="institute__dev-text">
+                        {% for post in posts %}
+                            {%if post.science%}
+                                <p><a href="{% url 'accredit_detail' pid=post.pk %}">{{ post.title }}</a></p>
+                            {%endif%}
+                        {% endfor %}
+                    </div>
                 </div>
-                {% endfor %}
-                <h1>{%trans 'Медицинская аккредитация:'%}</h1>
-                {% for post in posts %}
-                <div class="rule-block">
-                    {%if post.medicine%}
-                    <a href="{% url 'accredit_detail' pid=post.pk %}">
-                        <h3>{{ post.title }}</h3>
-                    </a>
-                    {%endif%}
+            </div>
+            <div class="new-frame">
+                <div class="institute__dev">
+                    <h1 class="institute__dev-title">{%trans 'Медицинская аккредитация:'%}</h1>
+                    <div class="institute__dev-text">
+                        {% for post in posts %}
+                            {%if post.medicine%}
+                                <p><a href="{% url 'accredit_detail' pid=post.pk %}">{{ post.title }}</a></p>
+                            {%endif%}
+                        {% endfor %}
+                    </div>
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>

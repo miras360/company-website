@@ -1,14 +1,33 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
-<div class="content-inner">
-    <span class="Title"> {{post.title}} </span>
-    <div class="documents">
-        {% if post.type == 'doc' %}
-        <iframe src="/media/{{post.file}}"></iframe>
-        {%else%}
-        <img src="/media/{{post.file}}"></img>
-        {%endif%}
+<div class="content-split">
+    <div class="navigation">
+        <a href="{% url 'viewSovet'%}">{% trans 'Наблюдательный совет' %}</a>
+        <a href="{% url 'ceo-info'%}"> {% trans 'Руководство' %}</a>
+        <a href="{% url 'orgStruct' %}">{% trans 'Структура' %}</a>
+        <a href="{% url 'vacancies' %}">{% trans 'Вакансии' %}</a>
+        <a href="{% url 'strategic-dev'%}">{% trans 'Стратегическое развитие' %}</a>
+        <a href="{% url 'ads'%}">{% trans 'Государственные закупки' %}</a>
+        <a href="{% url 'compServ'%}">{% trans 'Комплаенс служба' %}</a>
+        <a href="{% url 'antiCor'%}">{% trans 'Противодействие коррупции' %}</a>
+        <a href="{% url 'accreditation'%}">{% trans 'Аккредитация' %}</a>
+        <a href="{% url 'laborProtection' %}">{% trans 'Охрана труда' %}</a>
+    </div>
+    <div class="rules">
+        <span class="Title">{% trans 'Аккредитация' %}:</span>
+        <div class="rule-plates">
+            <div class="new-frame">
+                <div class="institute__dev">
+                    <span class="institute__dev-title"> {{post.title}} </span>
+                    {% if post.type == 'doc' %}
+                    <iframe class="institute__dev-iframe--pdf" src="/media/{{post.file}}"></iframe>
+                    {%else%}
+                    <img src="/media/{{post.file}}"></img>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

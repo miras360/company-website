@@ -16,11 +16,17 @@
     </div>
     <div class="rules">
         <span class="Title"> {% trans 'План по противодействию коррупции' %} </span>
-        <div class="new-frame anticor">
-            <div class="rules">
-                {% for file in files %}
-                <a class="anticor-list" href = "{% url 'antiCorDetails' fid=file.pk%}">{{file.title}}</a>
-                {% endfor %}
+        <div class="rule-plates">
+            <div class="new-frame">
+                <div class="institute__dev">
+                    <div class="rule-block">
+                        <div class="institute__dev-text">
+                            {% for file in files %}
+                                <p><a class="anticor-list" href = "{% url 'antiCorDetails' fid=file.pk%}">{{file.title}}</a></p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
