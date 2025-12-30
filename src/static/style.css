@@ -1995,6 +1995,8 @@ width: 30%;
         grid-template-columns: 45% 45%;
     }
     .ceo-info{
+        padding: 0.9rem 1rem;
+        max-width: 100%;
         flex-direction: column;
     }
     .ceo-info span{
@@ -2189,7 +2191,9 @@ width: 30%;
         font-size: 1rem;
         text-align: center;
     }
-
+    .ceo-info{
+      padding: 0.75rem;
+    }
     .ceo-info span h1{
         font-size: 1.7rem;
     }
