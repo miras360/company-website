@@ -157,6 +157,7 @@ msgstr "Институт туралы"
 #: .\templates\antiCorPages\antiCorList.html:6 .\templates\base.html:54
 #: .\templates\base.html:109 .\templates\ceoInfo\ceoInfoPage.html:6
 #: .\templates\complianceService\compServiceList.html:6
+#: .\templates\complianceService\doc-details.html:6
 #: .\templates\dopPages\managment_standart.html:6
 #: .\templates\infoPages\advertisement.html:6
 #: .\templates\infoPages\laborProtection.html:6
@@ -175,6 +176,7 @@ msgstr "Бақылау кеңесі"
 #: .\templates\antiCorPages\antiCorList.html:7 .\templates\base.html:110
 #: .\templates\ceoInfo\ceoInfoPage.html:7
 #: .\templates\complianceService\compServiceList.html:7
+#: .\templates\complianceService\doc-details.html:7
 #: .\templates\dopPages\managment_standart.html:7
 #: .\templates\infoPages\advertisement.html:7
 #: .\templates\infoPages\laborProtection.html:7
@@ -190,6 +192,7 @@ msgstr "Басшылық"
 #: .\templates\antiCorPages\antiCorList.html:8 .\templates\base.html:37
 #: .\templates\base.html:111 .\templates\ceoInfo\ceoInfoPage.html:8
 #: .\templates\complianceService\compServiceList.html:8
+#: .\templates\complianceService\doc-details.html:8
 #: .\templates\dopPages\managment_standart.html:8
 #: .\templates\infoPages\advertisement.html:8
 #: .\templates\infoPages\laborProtection.html:8
@@ -205,6 +208,7 @@ msgstr "Құрылымы"
 #: .\templates\antiCorPages\antiCorList.html:9 .\templates\base.html:112
 #: .\templates\ceoInfo\ceoInfoPage.html:9
 #: .\templates\complianceService\compServiceList.html:9
+#: .\templates\complianceService\doc-details.html:9
 #: .\templates\dopPages\managment_standart.html:9
 #: .\templates\infoPages\advertisement.html:9
 #: .\templates\infoPages\laborProtection.html:9
@@ -222,6 +226,7 @@ msgstr "Бос жұмыс орындары"
 #: .\templates\antiCorPages\antiCorList.html:10 .\templates\base.html:50
 #: .\templates\base.html:113 .\templates\ceoInfo\ceoInfoPage.html:10
 #: .\templates\complianceService\compServiceList.html:10
+#: .\templates\complianceService\doc-details.html:10
 #: .\templates\dopPages\managment_standart.html:10
 #: .\templates\infoPages\advertisement.html:10
 #: .\templates\infoPages\laborProtection.html:10
@@ -238,6 +243,7 @@ msgstr "Стратегиялық даму"
 #: .\templates\antiCorPages\antiCorList.html:11 .\templates\base.html:52
 #: .\templates\base.html:116 .\templates\ceoInfo\ceoInfoPage.html:11
 #: .\templates\complianceService\compServiceList.html:11
+#: .\templates\complianceService\doc-details.html:11
 #: .\templates\dopPages\managment_standart.html:11
 #: .\templates\infoPages\advertisement.html:11
 #: .\templates\infoPages\laborProtection.html:11
@@ -254,6 +260,7 @@ msgstr "Мемлекеттік сатып алу"
 #: .\templates\base.html:117 .\templates\ceoInfo\ceoInfoPage.html:12
 #: .\templates\complianceService\compServiceList.html:12
 #: .\templates\complianceService\compServiceList.html:18
+#: .\templates\complianceService\doc-details.html:12
 #: .\templates\infoPages\advertisement.html:12
 #: .\templates\infoPages\laborProtection.html:12
 #: .\templates\infoPages\vacancyPage.html:12
@@ -268,6 +275,7 @@ msgstr "Сәйкестік қызметі"
 #: .\templates\antiCorPages\antiCorList.html:13 .\templates\base.html:51
 #: .\templates\base.html:118 .\templates\ceoInfo\ceoInfoPage.html:13
 #: .\templates\complianceService\compServiceList.html:13
+#: .\templates\complianceService\doc-details.html:13
 #: .\templates\dopPages\managment_standart.html:13
 #: .\templates\infoPages\advertisement.html:13
 #: .\templates\infoPages\laborProtection.html:13
@@ -285,6 +293,7 @@ msgstr "Сыбайлас жемқорлыққа қарсы іс-қимыл"
 #: .\templates\antiCorPages\antiCorList.html:14 .\templates\base.html:55
 #: .\templates\base.html:119 .\templates\ceoInfo\ceoInfoPage.html:14
 #: .\templates\complianceService\compServiceList.html:14
+#: .\templates\complianceService\doc-details.html:14
 #: .\templates\dopPages\managment_standart.html:14
 #: .\templates\infoPages\advertisement.html:14
 #: .\templates\infoPages\laborProtection.html:14
@@ -300,6 +309,7 @@ msgstr "Аккредиттеу"
 #: .\templates\antiCorPages\antiCorList.html:15 .\templates\base.html:120
 #: .\templates\ceoInfo\ceoInfoPage.html:15
 #: .\templates\complianceService\compServiceList.html:15
+#: .\templates\complianceService\doc-details.html:15
 #: .\templates\dopPages\managment_standart.html:15
 #: .\templates\infoPages\advertisement.html:15
 #: .\templates\infoPages\laborProtection.html:15
