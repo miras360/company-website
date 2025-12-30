@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 # Create your views here.
 def ads(request):
-    ads = Ads.objects.order_by('-id')
+    ads = Ads.objects.order_by('id')
     for ad in ads:
         files = Files.objects.filter(ads_id = ad.pk)
         ad.files = files
