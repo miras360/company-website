@@ -1669,36 +1669,8 @@ width: 30%;
     box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.1);
 }
 
-/* контейнер фото внутри карточки */
-.photo-people {
-  width: 100%;
-  overflow: hidden;           /* чтобы обрезка работала */
-  border-radius: 12px 12px 0 0;
-  margin-bottom: 14px;
-}
-
-/* само изображение */
-.photo-people img {
-  width: 100%;
-  height: auto;               /* ключевое: НЕТ фиксированной высоты */
-  display: block;
-  object-fit: cover;          /* подстраивается под ширину */
-}
-
-.new-frame .photo-people img {
-  transition: transform 0.4s ease;
-}
-
-.new-frame:hover .photo-people img {
-  transform: scale(1.03);
-}
-
 
 @media (max-width: 480px) {
-  .photo-people {
-    height: 180px;
-    border-radius: 8px 8px 0 0;
-  }
 
   .new-frame p {
     padding: 10px 14px;
@@ -2647,6 +2619,54 @@ width: 30%;
 /* Микро-подсветка строки */
 .institute__dev-tbody .institute__dev-tr:hover {
   background: rgba(15, 160, 147, 0.04);
+}
+
+.institute__dev-photo{
+  width: 100%;
+  margin: 0 0 12px 0;
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.08),
+    0 0 0 1px var(--border);
+  background: #fff;
+}
+
+.institute__dev-photo img{
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* микро-анимация только при наведении (не навязчиво) */
+@media (hover: hover){
+  .institute__dev-photo img{
+    transition: transform 220ms ease;
+  }
+  .institute__dev-photo:hover img{
+    transform: scale(1.01);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .institute__dev-photo img{ transition: none; }
+}
+
+@media (max-width: 640px){
+  .institute__dev-photo img{
+    aspect-ratio: 4 / 3;       /* выше кадр */
+    object-position: top;     /* лица остаются в кадре */
+  }
+}
+
+/* Уважение к accessibility */
+@media (prefers-reduced-motion: reduce){
+  .institute__dev-photo img{
+    transition: none;
+  }
 }
 
 

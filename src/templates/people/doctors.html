@@ -8,24 +8,28 @@
     </div>
     <div class="rules">
         {% if datas_list %}
-    <div class="rule-plates">
-        {% for datas in datas_list %}
-        <div class="new-frame">
-            <div class="photo-people">
-                {% if datas.photo %}
-                    <img src="{{ datas.photo.url }}" alt="фото">
-                {% endif %}
+        <div class="rule-plates">
+            {% for datas in datas_list %}
+            <div class="new-frame">
+                <div class="institute__dev">
+                    <div class="institute__dev-photo">
+                        {% if datas.photo %}
+                            <img src="{{ datas.photo.url }}" alt="фото">
+                        {% endif %}
+                    </div>
+
+                    {% if datas.title %}
+                        <span class="institute__dev-title">{{ datas.title }}</span>
+                    {% endif %}
+
+                    <div class="institute__dev-text">
+                        {% for line in datas.content %}
+                            <p>{{ line }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
-
-            {% if datas.title %}
-                <span class="Title">{{ datas.title }}</span>
-            {% endif %}
-
-            {% for line in datas.content %}
-                <p>{{ line }}</p>
             {% endfor %}
-            </div>
-        {% endfor %}
         </div>
         {% endif %}
     </div>

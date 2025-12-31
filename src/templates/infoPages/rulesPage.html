@@ -8,17 +8,21 @@
     </div>
     <div class="rules">
         <span class="Title">{% trans 'Информация для пациентов' %}:</span>
-        <div class="new-frame">
-            <div class="rule-plates">
-                <h2>{% trans 'Права пациентов' %}</h2>
-                {% for rule in rules %}
-                <div class="rule-block">
-                    <h3>{{ rule.title }}</h3>
-                    {% for part in rule.info_parts %}
-                            <p>{{ part }}</p>
+        <div class="rule-plates">
+            <div class="new-frame">
+                <div class="institute__dev">
+                    <h2 class="institute__dev-title">{% trans 'Права пациентов' %}</h2>
+                    {% for rule in rules %}
+                    <div class="rule-block">
+                        <h3 class="institute__dev-subtitle">{{ rule.title }}</h3>
+                        <div class="institute__dev-text">
+                            {% for part in rule.info_parts %}
+                                <p>{{ part }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
                     {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>

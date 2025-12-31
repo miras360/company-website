@@ -11,32 +11,54 @@
             {% if data.title %}
             <span class="Title">{{data.title}}:</span>
             {%endif%}
-            <div class="new-frame">
-                {% if data.info_parts %}
-                    {%for info in data.info_parts%}
-                    <p>{{info}}</p>
-                    {%endfor%}
-                {%endif%}
-                {% if data.adults or data.children %}
-                    <h3>{%trans 'Кто имеет право на бесплатную реабилитацию:'%}</h3>
-                    {% if data.adults %}
-                        <h3>{%trans 'Взрослые:'%}</h3>
-                        {%for info in data.adults%}
-                        <p>{{info}}</p>
-                        {%endfor%}
-                    {%endif%}
-                    {% if data.children %}
-                        <h3>{%trans 'Дети:'%}</h3>
-                        {%for info in data.children%}
-                        <p>{{info}}</p>
-                        {%endfor%}
-                    {%endif%}
-                {%endif%}
+            <div class="rule-plate">
+                <div class="new-frame">
+                    <div class="institute__dev">
+                        {% if data.info_parts %}
+                            <div class="institute__dev-text">
+                                {%for info in data.info_parts%}
+                                    {{info|linebreaksbr}}
+                                {%endfor%}
+                            </div>
+                        {%endif%}
+                    </div>
+                </div>
+                <div class="new-frame">
+                    <div class="institute__dev">
+                        {% if data.adults or data.children %}
+                            <h3 class="institute__dev-title">{%trans 'Кто имеет право на бесплатную реабилитацию:'%}</h3>
+                            <div class="rule-block">
+                                {% if data.adults %}
+                                    <h3 class="institute__dev-subtitle">{%trans 'Взрослые:'%}</h3>
+                                    <div class="institute__dev-text">
+                                        {%for info in data.adults%}
+                                            {{info}}
+                                        {%endfor%}
+                                    </div>
+                                {%endif%}
+                            </div>
+                            {% if data.children %}
+                                <h3 class="institute__dev-subtitle">{%trans 'Дети:'%}</h3>
+                                <div class="institute__dev-text">
+                                    {%for info in data.children%}
+                                        {{info}}
+                                    {%endfor%}
+                                </div>
+                            {%endif%}
+                        {%endif%}
+                    </div>
+                </div>
                 {% if data.add %}
-                    <h3>{%trans 'Для получения бесплатной путевки в рамках ОСМС необходимо:'%}</h3>
-                    {%for info in data.add%}
-                    <p>{{info}}</p>
-                    {%endfor%}
+                <div class="new-frame">
+                    <div class="institute__dev">
+                            <h3 class="institute__dev-title">{%trans 'Для получения бесплатной путевки в рамках ОСМС необходимо:'%}</h3>
+                            <div class="institute__dev-text">
+                                {%for info in data.add%}
+                                    <p>{{info}}</p>
+                                {%endfor%}
+                            </div>
+                    </div>
+                </div>
                 {%endif%}
             </div>
         {%endif%}

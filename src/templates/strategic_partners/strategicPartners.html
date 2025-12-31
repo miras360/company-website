@@ -6,12 +6,16 @@
     <div class="rules">
         <span class="Title">{% trans 'Стратегические партнеры и международное сотрудничество' %}:</span>
         <div class="new-frame">
-            <p>{{datas.intro}}</p>
-            <ul>
-                {% for data in datas.partners %}
-                <li>{{data}}</li>
-                {% endfor %}
-            </ul>
+            <div class="institute__dev">
+                <div class="institute__dev-title">
+                    {{ datas.intro }}
+                </div>
+                <div class="institute__dev-text">
+                    {% for data in datas.partners %}
+                        {{data|linebreaksbr}}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
 
 
