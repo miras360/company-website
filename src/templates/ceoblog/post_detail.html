@@ -1,32 +1,65 @@
 {% extends 'base.html' %}
-{% load i18n%}
+{% load i18n %}
+{% load youtube %}
+
 {% block content %}
 <div class="content-inner">
-    <div class="new-frame">
-        <h1 class="frame-header">{{post.title}}</h1>
-        <p style="font-weight: 300; font-size: 15px;">{%trans 'Опубликовано'%}: <b>{{post.author.name}}</b></p>
-        <p class="big_content">{{post.content|linebreaks}}</p>
-        {% for att in attachments %}
-        {% if att.type == 'img' %}
-            <div class="big_pic">
-                <img src="/media/{{att.file}}" alt="" width="100%">
-            </div>
-        {% else %}
-            <div class="documents">
-                <iframe src="/media/{{att.file}}"></iframe>
-            </div>
-        {% endif %}
-        {% endfor %}
-        <p class="date mg-b">{{post.date}}</p>
-    </div>
-    <div class="comments">
-    {% for comms in comments %}
-        <div class="comment-card">
-            <p class="comment-username">{{comms.author}}</p>
-            <p class="comment-time">{{comms.time_stamp}}</p>
-            <p class="comment-body">{{comms.content}}</p> 
+  <div class="new-frame">
+    <div class="ceoBlogPost__dev">
+        <h1 class="ceoBlogPost__dev-title">{{ post.title }}</h1>
+        <p class="ceoBlogPost__dev-subtitle">
+          {% trans 'Опубликовано' %}:
+          <strong>{{ post.author.name }}</strong>
+        </p>
+
+        <div class="ceoBlogPost__dev-text">
+          {{ post.content|linebreaks }}
         </div>
+
+        {% with embed=post.youtube_url|youtube_embed %}
+          {% if embed %}
+            <div class="ceoBlogPost__dev-video">
+              <iframe
+                src="{{ embed }}"
+                title="YouTube video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        {% for att in attachments %}
+          {% if att.type == 'img' %}
+            <div class="ceoBlogPost__dev-photo">
+              <img class="ceoBlogPost__dev-image" src="{{ att.file.url }}" alt="">
+            </div>
+          {% else %}
+              <iframe class="ceoBlogPost__dev-iframe--pdf" src="{{ att.file.url }}"></iframe>
+          {% endif %}
         {% endfor %}
+
+        <div class="ceoBlogPost__dev-subtitle">
+            <time datetime="{{ post.date|date:'c' }}">
+                {{ post.date }}
+            </time>
+        </div>
     </div>
-</div> 
+
+  </div>
+  <section class="ceoBlogPost__dev-comments">
+    {% for comms in comments %}
+      <div class="ceoBlogPost__dev-comment">
+        <div class="ceoBlogPost__dev-comment-head">
+          <span class="ceoBlogPost__dev-comment-user">{{ comms.author }}</span>
+          <time class="ceoBlogPost__dev-comment-time">{{ comms.time_stamp }}</time>
+        </div>
+        <p class="ceoBlogPost__dev-comment-body">{{ comms.content }}</p>
+      </div>
+    {% endfor %}
+  </section>
+
+</div>
 {% endblock %}

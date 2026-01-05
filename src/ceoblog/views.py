@@ -1,26 +1,34 @@
 from django.shortcuts import render, redirect
+from django.db.models import Prefetch
 from .models import PostCeo, PostAttachment
 from .forms import PostForm
 # Create your views here.
 
 def post_list(request):
-    posts = PostCeo.objects.order_by('-date')
+    posts = PostCeo.objects.order_by('-date').prefetch_related('attachments')
+
     for post in posts:
         original = post.content or ""
-        # делаем превью, но НЕ портим оригинальный content
         preview = " ".join(original.split()[:40])
         if preview != original:
             preview += " ..."
         post.preview = preview
 
-        post.att = PostAttachment.objects.filter(post_id=post.pk)
+        post.att = post.attachments.all()
+
     return render(request, 'ceoblog/blogCEO.html', {'post_list': posts})
 
 
 def post_detail(request, pid):
-    post = PostCeo.objects.get(id = pid)
-    attachments = PostAttachment.objects.filter(post_id = pid)
-    return render(request, 'ceoblog/post_detail.html', {'post':post, 'attachments': attachments})
+    post = PostCeo.objects.prefetch_related('attachments').get(pk=pid)
+    return render(
+        request,
+        'ceoblog/post_detail.html',
+        {
+            'post': post,
+            'attachments': post.attachments.all()
+        }
+    )
 
 def post_new(request):
     if request.method != 'POST':
