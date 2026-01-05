@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'laborProtection',
     'compliensService',
     'LEK',
+    'rules',
 ]
 
 MIDDLEWARE = [
@@ -87,6 +88,8 @@ CSRF_COOKIE_DOMAIN = 'burabay-mzrk.kz'
 CSRF_TRUSTED_ORIGINS = ['https://burabay-mzrk.kz', 'https://www.burabay-mzrk.kz']
 
 ROOT_URLCONF = 'minZdrav.urls'
+
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 
 TEMPLATES = [
     {
