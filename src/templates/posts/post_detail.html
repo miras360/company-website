@@ -1,56 +1,76 @@
 {% extends 'base.html' %}
 {% load i18n%}
+{% load youtube %}
 {% block content %}
 <div class="content-inner">
     <div class="new-frame">
-        <h1 class="fame-header">{{post.title}}</h1>
-        {% if post.author %}
-        <p style="font-weight: 300; font-size: 15px;">{%trans 'Опубликовано'%}: <b>{{post.author.name}}</b></p>
-        {% endif %}
-        <p class="big_content">
-            {% for info_part in post.content %}
-                <p>{{info_part}}</p>
-            {% endfor %}</p>
-        <div class="big-pics">
-            {% comment %} {% for att in attachments %}
-            {% if att.type == 'img' %}
-            <div class="big_pic">
-                <img src="/media/{{att.file}}" alt="" height="100%">
-            </div>
-            {% else %}
-            <div class="documents">
-                <iframe src="/media/{{att.file}}"></iframe>
-            </div>
+        <div class="ceoBlogPost__dev">
+            <h1 class="ceoBlogPost__dev-title">{{post.title}}</h1>
+            {% if post.author %}
+            <p class="ceoBlogPost__dev-subtitle">{%trans 'Опубликовано'%}: <b>{{post.author.name}}</b></p>
             {% endif %}
-            {% endfor %} {% endcomment %}
-            <div class="swiper sw2 full-sw">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    {% for att in attachments %}
-                    {% if att.type == 'img' %}
-                    <div class="swiper-slide ssl"><img
-                            src="/media/{{att.file}}" alt="" height="400px"></div>
-                    {% endif %}
-                    {% endfor %}
+            <div class="ceoBlogPost__dev-text">
+                {{ post.content|linebreaksbr }}
+            </div>
+            {% with embed=post.youtube_url|youtube_embed %}
+                {% if embed %}
+                <div class="ceoBlogPost__dev-video">
+                    <iframe
+                    src="{{ embed }}"
+                    title="YouTube video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy">
+                    </iframe>
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination pag"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <!-- If we need navigation buttons -->
+                {% endif %}
+            {% endwith %}
+            <div class="big-pics">
+                {% comment %} {% for att in attachments %}
+                {% if att.type == 'img' %}
+                <div class="ceoBlogPost__dev-photo">
+                    <img class="ceoBlogPost__dev-image" src="/media/{{att.file}}" alt="" height="100%">
+                </div>
+                {% else %}
+                <div class="documents">
+                    <iframe class="ceoBlogPost__dev-iframe--pdf" src="/media/{{att.file}}"></iframe>
+                </div>
+                {% endif %}
+                {% endfor %} {% endcomment %}
+                <div class="swiper sw2 full-sw">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        {% for att in attachments %}
+                        {% if att.type == 'img' %}
+                        <div class="swiper-slide ssl"><img
+                                src="/media/{{att.file}}" alt="" height="400px"></div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination pag"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <!-- If we need navigation buttons -->
+                </div>
+            </div>
+            <div class="mobile-news-pic">
+                {% for att in attachments %}
+                    {% if att.type == 'img' %}
+                        <div class="news-picture"><img
+                        src="/media/{{att.file}}" alt="" width="100%"></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="ceoBlogPost__dev-subtitle">
+                <time datetime="{{ post.date|date:'c' }}">
+                    {{ post.date }}
+                </time>
             </div>
         </div>
-        <div class="mobile-news-pic">
-            {% for att in attachments %}
-                {% if att.type == 'img' %}
-                    <div class="news-picture"><img
-                    src="/media/{{att.file}}" alt="" width="100%"></div>
-                {% endif %}
-            {% endfor %}
-        </div>
-
-        <p class="date mg-b">{{post.date}}</p>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

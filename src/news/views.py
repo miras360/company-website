@@ -25,16 +25,17 @@ def post_list(request):
     return render(request, 'posts/post_list.html', {'post_list':post_list})
 
 def post_detail(request, pid):
-    post = Post.objects.get(id = pid)
-    attachments = PostAttachment.objects.filter(post_id = pid)
+    post = Post.objects.get(pk=pid)
+    attachments = PostAttachment.objects.filter(post=post)
 
-    post_data = {
-        'author': post.author,
-        'title': post.title,
-        'date': post.date,
-        'content': post.content.split('\n'),
-    }
-    return render(request, 'posts/post_detail.html', {'post':post_data, 'attachments': attachments})
+    return render(
+        request,
+        'posts/post_detail.html',
+        {
+            'post': post,
+            'attachments': attachments,
+        }
+    )
 
 def post_new(request):
     if request.method == 'POST':

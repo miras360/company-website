@@ -28,7 +28,7 @@ class PostForm(forms.ModelForm):
     images = MultipleFileField()
     class Meta:
         model = Post
-        fields = ('title', 'title_kk', 'title_en', 'content', 'content_kk', 'content_en', 'images')
+        fields = ('title', 'title_kk', 'title_en', 'content', 'content_kk', 'content_en', 'images', 'youtube_url')
 
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)

@@ -9,6 +9,9 @@ class CustomPostAdmin(TranslationAdmin):
         (_('Информация на русском'), {'fields': ( 'title_ru', 'content_ru',)}),
         (_('Информация на казахском'), {'fields': ('title_kk', 'content_kk',)}),
         (_('Информация на английском'), {'fields': ('title_en', 'content_en',)}),
+        (_('Медиа'), {
+            'fields': ('youtube_url',),
+            'description': _('Ссылка на YouTube-видео')}),
         (_('Дополнительная информация'), {'fields': ( 'date', )}),
     )
     add_fieldsets = (
@@ -16,6 +19,8 @@ class CustomPostAdmin(TranslationAdmin):
         (_('Информация на русском'), {'fields': ( 'title_ru', 'content_ru',)}),
         (_('Информация на казахском'), {'fields': ('title_kk', 'content_kk',)}),
         (_('Информация на английском'), {'fields': ('title_en', 'content_en',)}),
+        (_('Медиа'), {
+            'fields': ('youtube_url',)}),
         (_('Дополнительная информация'), {'fields': ( 'date', )}),
     )
     list_display = ( 'title', 'content',)

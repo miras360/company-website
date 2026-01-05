@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 class PostAttachmentInline(admin.TabularInline):
     model = PostAttachment
     extra = 1
-    fields = ('file', 'type')   # type можно убрать, если не хочешь видеть
+    fields = ('file',)   # type можно убрать, если не хочешь видеть
     verbose_name = _('Файл')
     verbose_name_plural = _('Файлы (фото/документы)')
 
@@ -20,7 +20,7 @@ class CustomPostCeoAdmin(TranslationAdmin):
         (_('Информация на английском'), {'fields': ('title_en', 'content_en',)}),
         (_('Медиа'), {
             'fields': ('youtube_url',),
-            'description': _('Ссылка на YouTube-видео (не iframe)')}),
+            'description': _('Ссылка на YouTube-видео')}),
         (_('Дополнительная информация'), {'fields': ('date',)}),
     )
     add_fieldsets = (

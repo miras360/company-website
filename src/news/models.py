@@ -8,6 +8,12 @@ class Post(models.Model):
     title = models.CharField(max_length = 1000, verbose_name='Заголовок')
     date = models.DateTimeField(default=timezone.now, verbose_name='Дата')
     content = models.TextField(verbose_name='Контент')
+    youtube_url = models.URLField(
+        verbose_name='YouTube ссылка',
+        blank=True,
+        null=True,
+        help_text='Ссылка на видео с YouTube (необязательно)'
+    ) 
     class Meta:
         verbose_name_plural = "Публикации"
         verbose_name='Публикация'
