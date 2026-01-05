@@ -1427,9 +1427,22 @@ width: 30%;
   }
 
   .mg-t{
-    margin-top: 10px;
+    margin-top: 0.5rem;
     display: block;
-}
+    position: relative;
+    padding: 0 0 0 0.9rem;
+  }
+
+  .mg-t::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.12em;
+    width: 3px;
+    height: 1em;
+    background: #0FA093;
+    border-radius: 2px;
+  }
   .anthem{
     text-align: center;
     margin-bottom: 40px;
