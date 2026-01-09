@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .models import CeoDatas
 # Create your views here.
 def ceoInfo(request):
-    datas = CeoDatas.objects.order_by('id')
+    datas = CeoDatas.objects.order_by('sort_order','id')
     ceo_list=[]
     for data in datas:
         ceo_data = {
