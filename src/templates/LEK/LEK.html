@@ -16,7 +16,7 @@
         <a href="{% url 'scienceSovet'%}">{%trans 'Научно-технический совет'%}</a>
         <a href="{% url 'plans'%}">{%trans 'Планы'%}</a>
         <a href="{% url 'science_achievments'%}">{%trans 'Достижения'%}</a>
-        <a href="{% url 'LEK-list' %}" class='selected'>{%trans 'Локальная этическая комиссия по биоэтике'%}</a>
+        <a href="{% url 'LEK-list' %}" class='selected'>{%trans 'Локальная комиссия по биоэтике'%}</a>
     </div>
     <div class="rules">
         {%if datas.title%}
@@ -26,7 +26,7 @@
             {%if datas.description%}
             <div class="new-frame">
                 <div class="science__dev">
-                    <h3 class="science__dev-title">{%trans 'Описание локальной этической комиссии'%}</h3>
+                    <h3 class="science__dev-title">{%trans 'Описание локальной комиссии по биоэтике'%}</h3>
                     <div class="science__dev-text">
                         {%for data in datas.description%}
                             {{data|linebreaksbr}}
@@ -38,7 +38,7 @@
             {% if datas.creation %}
             <div class="new-frame">
                 <div class="science__dev">
-                        <h3 class="science__dev-title">{%trans 'Приказ о создании локальной этической комиссии'%}</h3>
+                        <h3 class="science__dev-title">{%trans 'Приказ о создании локальной комиссии по биоэтике'%}</h3>
                         <p><a href = "{% url 'lek_creation_details' fid=datas.pk %}">{{datas.creation_name|linebreaksbr}}</a></p>
                 </div>
             </div>
@@ -76,7 +76,7 @@
             {% if datas.instructions %}
             <div class="new-frame">
                 <div class="science__dev">
-                    <h3 class="science__dev-title">{%trans 'Инструкция по обращению в ЛЭК'%}</h3>
+                    <h3 class="science__dev-title">{%trans 'Инструкция по обращению в ЛКБ'%}</h3>
                     <div class="science__dev-text">
                         {%for data in datas.instructions%}
                         {{data|linebreaksbr}}
@@ -100,7 +100,7 @@
             {% if datas.contacts %}
             <div class="new-frame">
                 <div class="science__dev">
-                    <h3 class="science__dev-title">{%trans 'Контакты секретариата ЛЭК'%}</h3>
+                    <h3 class="science__dev-title">{%trans 'Контакты секретариата ЛКБ'%}</h3>
                     <div class="science__dev-text">
                         {%for data in datas.contacts%}
                         {{data|linebreaksbr}}
@@ -112,7 +112,7 @@
             {% if forms %}
             <div class="new-frame">
                 <div class="science__dev">
-                    <h3 class="science__dev-title">{%trans 'Формы документов для прохождения экспертизы ЛЭК'%}</h3>
+                    <h3 class="science__dev-title">{%trans 'Формы документов для прохождения экспертизы ЛКБ'%}</h3>
                     <div class="science__dev-text">
                         {%for form in forms%}
                         <p><a href = {{form.link}}>{{form.title|linebreaksbr}}</a></p>

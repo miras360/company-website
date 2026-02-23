@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<article class="digital_library_view__dev">
+    <a href="{% url 'digital_library:book_list' %}" class="digital_library_view__dev-subtitle">← {% trans 'Назад к списку' %}</a>
+    
+    <h1 class="digital_library_view__dev-title">{{ book.title }}</h1>
+    <p class="digital_library_view__dev-subtitle">{{ book.author }}</p>
+
+    <div class="digital_library_view__dev-photo" style="max-width: 300px;">
+        {% if book.cover %}
+            <img src="{{ book.cover.url }}" alt="{{ book.title }}">
+        {% endif %}
+    </div>
+
+    <div class="digital_library_view__dev-text">
+        <p><strong>{% trans 'Описание' %}:</strong></p>
+        {{ book.description|linebreaks }}
+    </div>
+
+    {% if book.file.url %}
+    <iframe src="{{ book.file.url }}" class="digital_library_view__dev-iframe--pdf"></iframe>
+    
+    <div class="digital_library_view__dev-docs">
+        <a href="{{ book.file.url }}" class="digital_library_view__dev-btn" download>
+            {% trans 'Скачать' %}
+        </a>
+    </div>
+    {% endif %}
+</article>
+{% endblock %}

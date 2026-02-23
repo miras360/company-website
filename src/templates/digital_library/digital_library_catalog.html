@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<section class="digital-library-catalog">
+
+  <header class="digital-library-catalog__header">
+    <h1 class="digital-library-catalog__title">
+      {% trans 'Цифровая библиотека' %}
+    </h1>
+    <p class="digital-library-catalog__subtitle">
+      {% trans 'Выберите интересующую вас литературу или воспользуйтесь поиском' %}
+    </p>
+  </header>
+
+  <div class="digital-library-catalog__toolbar">
+    <form method="get" class="digital-library-catalog__search">
+      <input
+        type="text"
+        name="q"
+        value="{{ request.GET.q }}"
+        placeholder="{% trans 'Поиск...' %}"
+        class="digital-library-catalog__search-input"
+      >
+      <button type="submit" class="digital-library-catalog__search-btn">
+        {% trans 'Найти' %}
+      </button>
+    </form>
+  </div>
+
+  {% if books %}
+    <div class="digital-library-catalog__grid">
+      {% for book in books %}
+        <article class="digital-library-catalog__card">
+
+          <a href="{{ book.get_absolute_url }}"
+             class="digital-library-catalog__cover">
+            {% if book.cover %}
+              <img
+                src="{{ book.cover.url }}"
+                alt="{{ book.title }}"
+                class="digital-library-catalog__cover-img"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="digital-library-catalog__cover-placeholder">
+                {% trans 'Нет обложки' %}
+              </div>
+            {% endif %}
+          </a>
+
+          <div class="digital-library-catalog__meta">
+            <a href="{{ book.get_absolute_url }}"
+               class="digital-library-catalog__name">
+              {{ book.title }}
+            </a>
+
+            {% if book.author %}
+              <div class="digital-library-catalog__author">
+                {{ book.author }}
+              </div>
+            {% endif %}
+          </div>
+
+        </article>
+      {% endfor %}
+    </div>
+    {% if is_paginated %}
+      <nav class="digital-library-catalog__pagination" aria-label="{% trans 'Пагинация' %}">
+        <ul class="digital-library-catalog__pagination-list">
+
+          {# Prev #}
+          <li class="digital-library-catalog__pagination-item">
+            {% if page_obj.has_previous %}
+              <a class="digital-library-catalog__pagination-link"
+                href="?{% if request.GET.q %}q={{ request.GET.q|urlencode }}&{% endif %}page={{ page_obj.previous_page_number }}">‹</a>
+            {% else %}
+              <span class="digital-library-catalog__pagination-text digital-library-catalog__pagination-text--disabled">‹</span>
+            {% endif %}
+          </li>
+
+          {# 1 #}
+          <li class="digital-library-catalog__pagination-item">
+            <a class="digital-library-catalog__pagination-link {% if page_obj.number == 1 %}is-active{% endif %}"
+              href="?{% if request.GET.q %}q={{ request.GET.q|urlencode }}&{% endif %}page=1">1</a>
+          </li>
+
+          {# left dots #}
+          {% if page_obj.number|add:'-3' > 1 %}
+            <li class="digital-library-catalog__pagination-item">
+              <span class="digital-library-catalog__pagination-text">…</span>
+            </li>
+          {% endif %}
+
+          {# window: current-2 .. current+2 (but without 1 and last) #}
+          {% for num in paginator.page_range %}
+            {% if num != 1 and num != paginator.num_pages %}
+              {% if num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
+                <li class="digital-library-catalog__pagination-item">
+                  <a class="digital-library-catalog__pagination-link {% if page_obj.number == num %}is-active{% endif %}"
+                    href="?{% if request.GET.q %}q={{ request.GET.q|urlencode }}&{% endif %}page={{ num }}">
+                    {{ num }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {# right dots #}
+          {% if page_obj.number|add:'3' < paginator.num_pages %}
+            <li class="digital-library-catalog__pagination-item">
+              <span class="digital-library-catalog__pagination-text">…</span>
+            </li>
+          {% endif %}
+
+          {# last page (if pages > 1) #}
+          {% if paginator.num_pages > 1 %}
+            <li class="digital-library-catalog__pagination-item">
+              <a class="digital-library-catalog__pagination-link {% if page_obj.number == paginator.num_pages %}is-active{% endif %}"
+                href="?{% if request.GET.q %}q={{ request.GET.q|urlencode }}&{% endif %}page={{ paginator.num_pages }}">
+                {{ paginator.num_pages }}
+              </a>
+            </li>
+          {% endif %}
+
+          {# Next #}
+          <li class="digital-library-catalog__pagination-item">
+            {% if page_obj.has_next %}
+              <a class="digital-library-catalog__pagination-link"
+                href="?{% if request.GET.q %}q={{ request.GET.q|urlencode }}&{% endif %}page={{ page_obj.next_page_number }}">›</a>
+            {% else %}
+              <span class="digital-library-catalog__pagination-text digital-library-catalog__pagination-text--disabled">›</span>
+            {% endif %}
+          </li>
+
+        </ul>
+      </nav>
+    {% endif %}
+  {% else %}
+    <p class="digital-library-catalog__empty">
+      {% trans 'Книг пока нет' %}
+    </p>
+  {% endif %}
+
+</section>
+{% endblock %}

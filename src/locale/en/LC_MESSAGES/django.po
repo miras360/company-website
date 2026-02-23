@@ -68,11 +68,11 @@ msgid "Локальная этическая комиссия по биоэти�
 msgstr "Local Ethical Commission on Bioethics"
 
 #: .\templates\LEK\LEK.html:29
-msgid "Описание локальной этической комиссии"
+msgid "Описание локальной комиссии по биоэтике"
 msgstr "Description of the local Ethics Commission"
 
 #: .\templates\LEK\LEK.html:35
-msgid "Приказ о создании локальной этической комиссии"
+msgid "Приказ о создании локальной комиссии по биоэтике"
 msgstr "The order on the establishment of a local ethics commission"
 
 #: .\templates\LEK\LEK.html:39 .\templates\sciencificBlock\scienceSovet.html:29
@@ -84,22 +84,22 @@ msgid "Заседания НТС"
 msgstr "Meetings STC"
 
 #: .\templates\LEK\LEK.html:61
-msgid "Инструкция по обращению в ЛЭК"
-msgstr "Instructions for contacting the local Ethical Commission on Bioethics"
+msgid "Инструкция по обращению в ЛКБ"
+msgstr "Instructions for contacting the local Commission on Bioethics"
 
 #: .\templates\LEK\LEK.html:69
 msgid "Стандартные операционные процедуры"
 msgstr "Standard operating procedures"
 
 #: .\templates\LEK\LEK.html:77
-msgid "Контакты секретариата ЛЭК"
+msgid "Контакты секретариата ЛКБ"
 msgstr ""
-"Contacts of the secretariat of the local Ethical Commission on Bioethics"
+"Contacts of the secretariat of the local Commission on Bioethics"
 
 #: .\templates\LEK\LEK.html:85
-msgid "Формы документов для прохождения экспертизы ЛЭК"
+msgid "Формы документов для прохождения экспертизы ЛКБ"
 msgstr ""
-"Forms of documents for the examination of the local ethical commission on "
+"Forms of documents for the examination of the local commission on "
 "bioethics"
 
 #: .\templates\MainPage\index.html:8
@@ -1050,3 +1050,28 @@ msgstr "Your Perfect Vacation Starts Here"
 #: templates/dopPages/leisure.html:603
 msgid "Лечебно-оздоровительный комплекс \"Бурабай\" — это не просто место для отдыха, это опыт, который изменит ваше восприятие комфорта и гармонии. Позвольте нам создать для вас незабываемые моменты."
 msgstr "Burabay Health and Wellness Complex is not just a place to relax; it is an experience that will transform your perception of comfort and harmony. Let us create unforgettable moments for you."
+
+#: .\templates\digital_library\digital_library_catalog.html:8
+msgid "Цифровая библиотека"
+msgstr "Digital Library"
+
+#: .\templates\digital_library\digital_library_catalog.html:11
+msgid "Выберите интересующую вас литературу или воспользуйтесь поиском"
+msgstr "Select the literature you are interested in or use the search"
+
+#: .\templates\digital_library\digital_library_catalog.html:20
+msgid "Поиск..."
+msgstr "Search..."
+
+#: .\templates\digital_library\digital_library_catalog.html:24
+msgid "Найти"
+msgstr "Search"
+
+#: .\templates\digital_library\digital_library_catalog.html:43
+msgid "Нет обложки"
+msgstr "No cover"
+
+#: .\templates\digital_library\digital_library_catalog.html:67
+msgid "Книг пока нет"
+msgstr "No books available yet"
+

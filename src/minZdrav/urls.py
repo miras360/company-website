@@ -9,6 +9,7 @@ from minZdrav.download import download_file
 from news.views import post_new
 from django.conf.urls.i18n import i18n_patterns
 from django.views.generic import TemplateView
+from django.views.generic import RedirectView
 
 
 urlpatterns = [
@@ -42,8 +43,8 @@ urlpatterns += i18n_patterns(
     path('registration/', registration, name = 'registr'), #Регистрация
     path('password-reset/', CustomPasswordResetView.as_view(), name='password_reset'), #Забыли пароль
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'), #страница с текстом об отправке ссылке на сброс пароля
-    path('reset/<uidb64>/<token>/', CustomPasswordResetConfirmView.as_view(), name='password_reset_confirm'), #
-    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('reset/<uidb64>/<token>/', CustomPasswordResetConfirmView.as_view(), name='password_reset_confirm'), #страница для ввода нового пароля
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'), #страница с текстом об успешной смене пароля
     path('download/<str:file_name>/', download_file, name='download_file'), #Скачивание файлов
     path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/', activate, name='activate'), #страница активации аккаунта
 
@@ -61,13 +62,15 @@ urlpatterns += i18n_patterns(
     path('compliance-service/', include('compliensService.urls')),
     path('local-ethical-commission-on-bioethics/', include('LEK.urls')),
 
-    path('scientific-developments/', TemplateView.as_view(template_name='dopPages/scientificDev.html'), name='sci-dev'), #Научные достижения
-    path('quality-management-standard/', TemplateView.as_view(template_name='dopPages/managment_standart.html'), name='managment_standart'), #Стандарты менеджмента качества
-    path('achievments/', TemplateView.as_view(template_name='dopPages/Achievments.html'), name='achievments'),
-    path('uvo/', TemplateView.as_view(template_name='dopPages/UVO.html'), name='uvo'),
-    path('schedule-of-childrens-shifts/', TemplateView.as_view(template_name='dopPages/kidsSchedule.html'), name='kidsSchedule'),
+    path('scientific-developments/', RedirectView.as_view(pattern_name='error505'), name='sci-dev'), #Научные достижения #TemplateView.as_view(template_name='dopPages/scientificDev.html'),
+    path('quality-management-standard/', RedirectView.as_view(pattern_name='error505'), name='managment_standart'), #Стандарты менеджмента качества #TemplateView.as_view(template_name='dopPages/managment_standart.html'), 
+    path('achievments/', RedirectView.as_view(pattern_name='error505'), name='achievments'), #TemplateView.as_view(template_name='dopPages/Achievments.html'), 
+    path('uvo/', RedirectView.as_view(pattern_name='error505'), name='uvo'), #TemplateView.as_view(template_name='dopPages/UVO.html'), 
+    path('schedule-of-childrens-shifts/', RedirectView.as_view(pattern_name='error505'), name='kidsSchedule'), #TemplateView.as_view(template_name='dopPages/kidsSchedule.html'), 
     path('leisure/', TemplateView.as_view(template_name='dopPages/leisure.html'), name='leisure'),
-    path('transit/', TemplateView.as_view(template_name='dopPages/transit.html'), name='transit'),
+    path('transit/', RedirectView.as_view(pattern_name='error505'), name='transit'), #проезд в санаторий (пока что не нужно) #TemplateView.as_view(template_name='dopPages/transit.html'), 
+
+    path('digital_library/', include('digital_library.urls'), name='digital_library'), #Цифровая библиотека
     
     path('error/', TemplateView.as_view(template_name='dev-works/505.html'), name='error505'),
 )
