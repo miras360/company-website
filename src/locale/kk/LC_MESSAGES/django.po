@@ -64,7 +64,7 @@ msgstr "Жетістіктер"
 #: .\templates\sciencificBlock\scienceDev.html:10
 #: .\templates\sciencificBlock\sciencePlans.html:10
 #: .\templates\sciencificBlock\scienceSovet.html:10
-msgid "Локальная этическая комиссия по биоэтике"
+msgid "Локальная комиссия по биоэтике"
 msgstr "Жергілікті биоэтика комиссиясы"
 
 #: .\templates\LEK\LEK.html:29
