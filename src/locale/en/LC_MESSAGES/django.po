@@ -65,7 +65,7 @@ msgstr "Progress"
 #: .\templates\sciencificBlock\sciencePlans.html:10
 #: .\templates\sciencificBlock\scienceSovet.html:10
 msgid "Локальная этическая комиссия по биоэтике"
-msgstr "Local Ethical Commission on Bioethics"
+msgstr "Local Commission on Bioethics"
 
 #: .\templates\LEK\LEK.html:29
 msgid "Описание локальной комиссии по биоэтике"
