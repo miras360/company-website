@@ -3,11 +3,21 @@
 {% block content %} 
 <div class="content-split">
     <div class="navigation">
-        <a href="{% url 'science'%}" class = 'selected'>{%trans 'Научные разработки'%}</a>
-        <a href="{% url 'scienceSovet'%}">{%trans 'Научно-технический совет'%}</a>
+        {% comment %} <a href="{% url 'viewSovet'%}" class='selected'>{% trans 'Наблюдательный совет' %}</a>
+        <a href="{% url 'strategic-dev'%}" >{% trans 'Стратегическое развитие' %}</a>
+        <a href="{% url 'antiCor'%}">{% trans 'Противодействие коррупции' %}</a>
+        <a href="{% url 'ads'%}">{% trans 'Государственные закупки' %}</a>
+        <a href="{% url 'compServ'%}">{% trans 'Комплаенс служба' %}</a>
+        
+        
+        <a href="{% url 'accreditation'%}">{% trans 'Аккредитация' %}</a> {% endcomment %}
+
+        <a href="{% url 'council_main' %}">{% trans 'Ученый совет' %}</a>
+        <a href="{% url 'science'%}">{%trans 'Научные разработки'%}</a>
         <a href="{% url 'plans'%}">{%trans 'Планы'%}</a>
-        <a href="{% url 'science_achievments'%}">{%trans 'Достижения'%}</a>
-        <a href="{% url 'LEK-list'%}">{%trans 'Локальная этическая комиссия по биоэтике'%}</a>
+        <a href="{% url 'science_achievments'%}" class="selected">{%trans 'Достижения'%}</a>
+        <a href="{% url 'LEK-list'%}">{%trans 'Локальная комиссия по биоэтике'%}</a>
+        <a href="{% url 'scienceSovet'%}">{%trans 'Научно-технический совет'%}</a>
     </div>
     <div class="rules">
         <span class="Title">{% trans 'Научные исследования и научно-методическое обеспечение в сфере курортологии и восстановительного лечения' %}:</span>

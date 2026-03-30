@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="content-split">
+    <div class="navigation">
+        <a href="{% url 'council_main' %}" class="selected">{% trans 'Ученый совет' %}</a>
+        <a href="{% url 'science'%}">{%trans 'Научные разработки'%}</a>
+        <a href="{% url 'plans'%}">{%trans 'Планы'%}</a>
+        <a href="{% url 'science_achievments'%}">{%trans 'Достижения'%}</a>
+        <a href="{% url 'LEK-list'%}">{%trans 'Локальная комиссия по биоэтике'%}</a>
+        <a href="{% url 'scienceSovet'%}">{%trans 'Научно-технический совет'%}</a>
+    </div>
+    <div class="rules">
+        <div class="rule-plates">
+            <div class="new-frame">
+                <div class="science__dev">
+                    <iframe class="science__dev-iframe--pdf" src="{{ file.url }}" width="100%" height="800px"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

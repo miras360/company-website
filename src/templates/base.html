@@ -155,11 +155,12 @@
                     <a class="rubric" href="{% url 'science'%}" class="dropbtn">{%trans 'Наука и Достижения'%}</a>
                     <div class="dropcontent">
                         <div>
+                            <a href="{% url 'council_main' %}">{% trans 'Ученый совет' %}</a>
                             <a href="{% url 'science'%}">{%trans 'Научные разработки'%}</a>
-                            <a href="{% url 'scienceSovet'%}">{%trans 'Научно-технический совет'%}</a>
                             <a href="{% url 'plans'%}">{%trans 'Планы'%}</a>
                             <a href="{% url 'science_achievments'%}">{%trans 'Достижения'%}</a>
-                            <a href="{% url 'LEK-list' %}">{%trans 'Локальная комиссия по биоэтике'%}</a>
+                            <a href="{% url 'LEK-list'%}">{%trans 'Локальная комиссия по биоэтике'%}</a>
+                            <a href="{% url 'scienceSovet'%}">{%trans 'Научно-технический совет'%}</a>
                         </div>
                     </div>
                 </div>

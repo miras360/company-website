@@ -24,6 +24,8 @@ msgstr ""
 #: .\templates\sciencificBlock\scienceDev.html:6
 #: .\templates\sciencificBlock\sciencePlans.html:6
 #: .\templates\sciencificBlock\scienceSovet.html:6
+#: .\templates\academicCouncil\doc-details.html:6
+#: .\templates\academicCouncil\mian.html:6
 msgid "Научные разработки"
 msgstr "Ғылыми әзірлемелер"
 
@@ -34,6 +36,8 @@ msgstr "Ғылыми әзірлемелер"
 #: .\templates\sciencificBlock\scienceDev.html:7
 #: .\templates\sciencificBlock\sciencePlans.html:7
 #: .\templates\sciencificBlock\scienceSovet.html:7
+#: .\templates\academicCouncil\doc-details.html:7
+#: .\templates\academicCouncil\mian.html:7
 msgid "Научно-технический совет"
 msgstr "Ғылыми-техникалық кеңес"
 
@@ -45,6 +49,8 @@ msgstr "Ғылыми-техникалық кеңес"
 #: .\templates\sciencificBlock\sciencePlans.html:8
 #: .\templates\sciencificBlock\scienceSovet.html:8
 #: .\templates\sciencificBlock\scienceSovet.html:35
+#: .\templates\academicCouncil\doc-details.html:8
+#: .\templates\academicCouncil\mian.html:8
 msgid "Планы"
 msgstr "Жоспарлар"
 
@@ -54,6 +60,8 @@ msgstr "Жоспарлар"
 #: .\templates\sciencificBlock\scienceDev.html:9
 #: .\templates\sciencificBlock\sciencePlans.html:9
 #: .\templates\sciencificBlock\scienceSovet.html:9
+#: .\templates\academicCouncil\doc-details.html:9
+#: .\templates\academicCouncil\mian.html:9
 msgid "Достижения"
 msgstr "Жетістіктер"
 
@@ -64,8 +72,22 @@ msgstr "Жетістіктер"
 #: .\templates\sciencificBlock\scienceDev.html:10
 #: .\templates\sciencificBlock\sciencePlans.html:10
 #: .\templates\sciencificBlock\scienceSovet.html:10
+#: .\templates\academicCouncil\doc-details.html:10
+#: .\templates\academicCouncil\mian.html:10
 msgid "Локальная комиссия по биоэтике"
 msgstr "Жергілікті биоэтика комиссиясы"
+
+#: .\templates\LEK\LEK.html:20 .\templates\LEK\doc-details.html:5
+#: .\templates\MainPage\site_map.html:35 .\templates\base.html:158
+#: .\templates\sciencificBlock\achievments.html:15
+#: .\templates\sciencificBlock\scienceAcievments.html:15
+#: .\templates\sciencificBlock\scienceDev.html:15
+#: .\templates\sciencificBlock\sciencePlans.html:15
+#: .\templates\sciencificBlock\scienceSovet.html:15
+#: .\templates\academicCouncil\doc-details.html:15
+#: .\templates\academicCouncil\mian.html:15
+msgid "Ученый совет"
+msgstr "Академиялық кеңес"
 
 #: .\templates\LEK\LEK.html:29
 msgid "Описание локальной комиссии по биоэтике"

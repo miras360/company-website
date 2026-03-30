@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="content-split">
+    <div class="navigation">
+        {% comment %} <a href="{% url 'viewSovet'%}" class='selected'>{% trans 'Наблюдательный совет' %}</a>
+        <a href="{% url 'strategic-dev'%}" >{% trans 'Стратегическое развитие' %}</a>
+        <a href="{% url 'antiCor'%}">{% trans 'Противодействие коррупции' %}</a>
+        <a href="{% url 'ads'%}">{% trans 'Государственные закупки' %}</a>
+        <a href="{% url 'compServ'%}">{% trans 'Комплаенс служба' %}</a>
+        
+        
+        <a href="{% url 'accreditation'%}">{% trans 'Аккредитация' %}</a> {% endcomment %}
+
+        <a href="{% url 'council_main' %}" class="selected">{% trans 'Ученый совет' %}</a>
+        <a href="{% url 'science'%}">{%trans 'Научные разработки'%}</a>
+        <a href="{% url 'plans'%}">{%trans 'Планы'%}</a>
+        <a href="{% url 'science_achievments'%}">{%trans 'Достижения'%}</a>
+        <a href="{% url 'LEK-list'%}">{%trans 'Локальная комиссия по биоэтике'%}</a>
+        <a href="{% url 'scienceSovet'%}">{%trans 'Научно-технический совет'%}</a>
+    </div>
+
+    <div class="rules">
+        <h2 class="Title">{% trans 'Ученый совет' %}</h2>
+
+        {% if docs %}
+        <div class="new-frame">
+            <div class="institute__dev">
+                <div class="institute__dev-table">
+                    <div class="institute__dev-thead">
+                        <div class="institute__dev-tr institute__dev-tr--head">
+                            <div class="institute__dev-th">{% trans 'Название' %}</div>
+                            <div class="institute__dev-th institute__dev-th--right">{% trans 'Скачать' %}</div>
+                        </div>
+                    </div>
+                    <div class="institute__dev-tbody">
+                        {% for doc in docs %}
+                        <div class="institute__dev-tr">
+                            <div class="institute__dev-td">{{ doc.title }}</div>
+                            <div class="institute__dev-td institute__dev-td--right">
+                                <a class="institute__dev-download" href="{{ doc.file.url }}" download>
+                                    {% trans 'Скачать' %}
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if meetings %}
+        <div class="new-frame" style="margin-top: 20px;">
+            <div class="science__dev">
+                <h3 class="science__dev-title">{% trans 'Заседания' %}</h3>
+                {% for data in meetings %}
+                    <p>
+                        <a href="{% url 'council_pdf_view' pk=data.pk %}">
+                            {{ data.title|linebreaksbr }}
+                        </a>
+                    </p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

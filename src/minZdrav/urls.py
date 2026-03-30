@@ -71,6 +71,8 @@ urlpatterns += i18n_patterns(
     path('transit/', RedirectView.as_view(pattern_name='error505'), name='transit'), #проезд в санаторий (пока что не нужно) #TemplateView.as_view(template_name='dopPages/transit.html'), 
 
     path('digital_library/', include('digital_library.urls'), name='digital_library'), #Цифровая библиотека
+
+    path('academic_council/', include('academicCouncil.urls')), # Ученый совет
     
     path('error/', TemplateView.as_view(template_name='dev-works/505.html'), name='error505'),
 )
