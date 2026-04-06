@@ -211,34 +211,37 @@ li{
     margin: 20px 0;
 }
 
-.socials-header{
+.socials-header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    gap: 8px;
     margin: 0 10px;
 }
 
-.socials-header svg{
-    width: 26px;
+.socials-header svg {
+    width: 24px;
+    height: 24px;
     display: block;
-    padding: 0px;
     fill: #2f2f2f;
     transition: .3s;
+}
+
+.socials-header a {
+    display: flex;
+    border-radius: 8px;
+    text-decoration: none;
 }
 
 .socials-header svg:hover{
     transform: scale(1.2);
 }
 
-.socials-header a{
-    border-radius: 8px;
-    margin: 5px 0;
-}
-
 .socials-header a:nth-child(1):hover svg{ fill: #e1306c; }
 .socials-header a:nth-child(2):hover svg{ fill: #1877f2; }
 .socials-header a:nth-child(3):hover svg{ fill: #ff0000; }
+.socials-header a:nth-child(4):hover svg{ fill: #4BC9FF; }
 
 .sign_in{
     display: flex;
@@ -479,7 +482,7 @@ li{
 .banner{
     background-color: black;
     width: 100%;
-    background-image: url('./assets/winter-background.jpg');
+    background-image: url('./assets/burabay-background.jpg');
     background-size: 100%;
     background-position: top;
     background-repeat: no-repeat;
@@ -792,29 +795,35 @@ footer{
     align-items: center;
 }
 
-.links{
-    display: flex;
+.links {
+    display: grid; /* Включаем сетку */
+    grid-template-columns: repeat(2, 1fr); /* Создаем 2 колонки равной ширины */
+    grid-template-rows: repeat(2, auto);   /* Создаем 2 ряда */
+    gap: 15px 30px; /* Первый параметр — отступ между рядами, второй — между колонками */
     align-items: center;
-    justify-content: center;
+    justify-items: start; /* Выравниваем ссылки по левому краю внутри ячеек */
+}
+
+.links a {
+    /* Удаляем margin-left: 50px, так как теперь за отступы отвечает gap в гридах */
+    margin: 0; 
+    color: #f8f8ff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между текстом и иконкой */
+    transition: 0.3s;
+    font-size: 14px; /* Можно немного уменьшить шрифт, если места совсем мало */
+}
+
+.links a:hover {
+    border-bottom: 2px solid #f8f8ff; /* Уменьшил до 2px, чтобы не сильно прыгало */
+    padding-bottom: 2px;
 }
 
 .contacts{
     display: flex;
     flex-direction: column;
-}
-
-.links a{
-    margin-left: 50px;
-    color: #f8f8ff;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-.links a:hover{
-    border-bottom: 3px solid #f8f8ff;
-    padding-bottom: 5px;
 }
 
 .social-icon{
@@ -823,6 +832,7 @@ footer{
   transition: fill .3s;
   fill: #f8f8ff;
   flex: 0 0 auto;
+  flex-shrink: 0;
 }
 
 .social-link{
@@ -838,6 +848,7 @@ footer{
 .links a:nth-child(1):hover .social-icon{ fill: #e1306c; }
 .links a:nth-child(2):hover .social-icon{ fill: #1877f2; }
 .links a:nth-child(3):hover .social-icon{ fill: #ff0000; }
+.links a:nth-child(4):hover .social-icon{ fill: #4BC9FF; } 
  
 .astana-banner{
     width: 80%;
