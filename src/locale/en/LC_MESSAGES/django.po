@@ -990,8 +990,8 @@ msgid "Погрузитесь в мир безмятежности"
 msgstr "Immerse Yourself in a World of Tranquility"
 
 #: templates/dopPages/leisure.html:459
-msgid "Здесь каждый момент создан для вашего удовольствия. Сочетание первозданной природы, элегантного комфорта и внимательного сервиса создаёт атмосферу, в которой время замирает, а душа находит покой и вдохновение."
-msgstr "Here every moment is created for your pleasure. The combination of pristine nature, elegant comfort, and attentive service creates an atmosphere where time seems to stand still and the soul finds peace and inspiration."
+msgid "В филиале НИИ курортологии и медицинской реабилитации МЗ РК Лечебно-оздоровительном комплексе \"Бурабай\" каждый момент создан для вашего удовольствия. Сочетание первозданной природы, элегантного комфорта и внимательного сервиса создаёт атмосферу, в которой время замирает, а душа находит покой и вдохновение."
+msgstr "In the branch of the Research Institute of Balneology and Medical Rehabilitation of the Ministry of Health of the Republic of Kazakhstan, the Burabai Medical and Wellness Complex every moment is created for your pleasure. The combination of pristine nature, elegant comfort, and attentive service creates an atmosphere where time seems to stand still and the soul finds peace and inspiration."
 
 #: templates/dopPages/leisure.html:471
 msgid "Механомассаж"
