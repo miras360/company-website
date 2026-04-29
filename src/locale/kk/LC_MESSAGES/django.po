@@ -1062,7 +1062,7 @@ msgid "Лечебно-оздоровительный комплекс \"Бура
 msgstr "«Бурабай» емдеу-сауықтыру кешені — бұл жай ғана демалыс орны емес, бұл жайлылық пен үйлесім туралы түсінігіңізді өзгертетін ерекше тәжірибе. Біз сіз үшін ұмытылмас сәттерді жасауға мүмкіндік беріңіз."
 
 
-#: .\templates\digital_library\digital_library_catalog.html:8
+#: .\templates\digital_library\digital_library_catalog.html:8 .\templates\base.html:227 .\templates\MainPage\site_map.html:72
 msgid "Цифровая библиотека"
 msgstr "Цифрлық кітапхана"
 

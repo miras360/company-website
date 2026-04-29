@@ -1073,7 +1073,7 @@ msgstr "Your Perfect Vacation Starts Here"
 msgid "Лечебно-оздоровительный комплекс \"Бурабай\" — это не просто место для отдыха, это опыт, который изменит ваше восприятие комфорта и гармонии. Позвольте нам создать для вас незабываемые моменты."
 msgstr "Burabay Health and Wellness Complex is not just a place to relax; it is an experience that will transform your perception of comfort and harmony. Let us create unforgettable moments for you."
 
-#: .\templates\digital_library\digital_library_catalog.html:8
+#: .\templates\digital_library\digital_library_catalog.html:8 .\templates\base.html:227 .\templates\MainPage\site_map.html:72
 msgid "Цифровая библиотека"
 msgstr "Digital Library"
 
