@@ -1085,3 +1085,287 @@ msgstr "Мұқабасы жоқ"
 #: .\templates\digital_library\digital_library_catalog.html:67
 msgid "Книг пока нет"
 msgstr "Әзірге кітаптар жоқ"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "XI Международный форум"
+msgstr "XI Халықаралық форум"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Логотип Шипажай"
+msgstr "Шипажай логотипі"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "XI Международный научно-практический форум"
+msgstr "XI Халықаралық ғылыми-практикалық форум"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Шипажай - 2026"
+msgstr "Шипажай - 2026"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Ежегодная масштабная площадка для развития санаторно-курортной отрасли Казахстана и Центральной Азии"
+msgstr "Қазақстан мен Орталық Азияның шипажай-курорттық саласын дамытуға арналған жыл сайынғы ауқымды алаң"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Объединяем экспертов, идеи и лучшие практики, чтобы поднять санаторно-курортное лечение на новый уровень."
+msgstr "Шипажай-курорттық емдеуді жаңа деңгейге көтеру үшін сарапшыларды, идеялар мен озық тәжірибелерді біріктіреміз."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Регистрация участников"
+msgstr "Қатысушыларды тіркеу"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Регистрация статей"
+msgstr "Мақалаларды тіркеу"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Буклет"
+msgstr "Буклет"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "До начала форума"
+msgstr "Форумның басталуына дейін"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "августа"
+msgstr "тамыз"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "дней"
+msgstr "күн"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "часов"
+msgstr "сағат"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "минут"
+msgstr "минут"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "секунд"
+msgstr "секунд"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "О форуме"
+msgstr "Форум туралы"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Что такое форум"
+msgstr "Форум дегеніміз не"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Шипажай"
+msgstr "Шипажай"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "С 2016 года Международный научно-практический форум «Шипажай» собирает ключевых игроков системы здравоохранения, работающих в сфере санаторно-курортного лечения и медицинской реабилитации."
+msgstr "2016 жылдан бастап «Шипажай» халықаралық ғылыми-практикалық форумы шипажай-курорттық емдеу және медициналық оңалту саласында жұмыс істейтін денсаулық сақтау жүйесінің негізгі мамандарын жинайды."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Это профессиональная площадка в регионе, где происходит настоящий продуктивный диалог. Каждый год форум становится мощным импульсом для всей санаторно-курортной отрасли Казахстана и зарубежья."
+msgstr "Бұл аймақтағы нақты өнімді диалог жүретін кәсіби алаң. Жыл сайын форум Қазақстан мен шет елдердің бүкіл шипажай-курорттық саласы үшін қуатты серпінге айналады."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Продуктивный диалог между практиками и учёными"
+msgstr "Тәжірибешілер мен ғалымдар арасындағы өнімді диалог"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Обмен реальным опытом и внедрение передовых технологий"
+msgstr "Нақты тәжірибе алмасу және озық технологияларды енгізу"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Обсуждение самых острых проблем отрасли"
+msgstr "Саланың ең өзекті мәселелерін талқылау"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Поиск эффективных решений для санаториев, курортов и реабилитационных центров"
+msgstr "Шипажайлар, курорттар және оңалту орталықтары үшін тиімді шешімдер іздеу"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "лет проведения форума"
+msgstr "жыл форумды өткізу"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "юбилейный форум в 2026 году"
+msgstr "2026 жылғы мерейтойлық форум"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "участники из стран ближнего и дальнего зарубежья"
+msgstr "жақын және алыс шетел елдерінен қатысушылар"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Наука и Журнал"
+msgstr "Ғылым және Журнал"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Публикация"
+msgstr "Жарияланым"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "научных работ"
+msgstr "ғылыми жұмыстар"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Сборник и Журнал"
+msgstr "Жинақ және Журнал"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Принятые статьи публикуются в официальном сборнике трудов форума и рецензируемом научно-практическом журнале."
+msgstr "Қабылданған мақалалар форум еңбектерінің ресми жинағында және рецензияланатын ғылыми-практикалық журналда жарияланады."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Широкий спектр тем"
+msgstr "Тақырыптардың кең ауқымы"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Принимаются работы по инновационным методам курортологии, реабилитационной медицине и организации здравоохранения."
+msgstr "Курортологияның инновациялық әдістері, оңалту медицинасы және денсаулық сақтауды ұйымдастыру бойынша жұмыстар қабылданады."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Индексация и признание"
+msgstr "Индексациялау және тану"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Материалы конференции вносят вклад в научную деятельность и признаются профессиональным сообществом."
+msgstr "Конференция материалдары ғылыми қызметке үлес қосады және кәсіби қауымдастықпен танылады."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Участники"
+msgstr "Қатысушылар"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Кто участвует в форуме"
+msgstr "Форумға кім қатысады"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Руководители и главные врачи санаториев и реабилитационных центров"
+msgstr "Шипажайлар мен оңалту орталықтарының басшылары және бас дәрігерлері"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Ведущие эксперты в области курортологии и восстановительной медицины"
+msgstr "Курортология және қалпына келтіру медицинасы саласындағы жетекші сарапшылар"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Представители медицинских вузов и профильных учреждений"
+msgstr "Медициналық ЖОО және бейінді мекемелердің өкілдері"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Специалисты фармацевтических компаний"
+msgstr "Фармацевтикалық компаниялардың мамандары"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Производители и поставщики медицинского оборудования"
+msgstr "Медициналық жабдықтарды өндірушілер мен жеткізушілер"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Делегации из стран ближнего и дальнего зарубежья"
+msgstr "Жақын және алыс шетелдерден келген делегациялар"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Если вы развиваете санаторно-курортное направление — это ваше ключевое событие года."
+msgstr "Егер сіз шипажай-курорттық бағытты дамытып жатсаңыз — бұл сіздің жылдың басты оқиғасы."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Преимущества"
+msgstr "Артықшылықтар"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Почему стоит"
+msgstr "Неге қатысу"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "участвовать?"
+msgstr "керек?"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Обмен опытом с лучшими специалистами отрасли"
+msgstr "Саланың үздік мамандарымен тәжірибе алмасу"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Живой диалог с практиками и учёными, формирующими стандарты отрасли."
+msgstr "Сала стандарттарын қалыптастыратын тәжірибешілермен және ғалымдармен жанды диалог."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Доступ к передовым практикам и инновациям в курортологии"
+msgstr "Курортологиядағы озық тәжірибелер мен инновацияларға қол жеткізу"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Новейшие технологии и методики восстановительной медицины из первых уст."
+msgstr "Қалпына келтіру медицинасының жаңа технологиялары мен әдістемелері бірінші ауыздан."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Решение реальных проблем санаторно-курортных учреждений"
+msgstr "Шипажай-курорттық мекемелердің нақты мәселелерін шешу"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Практические ответы на актуальные вызовы, с которыми сталкивается отрасль."
+msgstr "Сала тап болатын өзекті сын-қатерлерге практикалық жауаптар."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Новые партнёрства и полезные деловые контакты"
+msgstr "Жаңа серіктестіктер мен пайдалы іскерлік байланыстар"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Площадка для встреч, которые становятся долгосрочным сотрудничеством."
+msgstr "Ұзақ мерзімді ынтымақтастыққа айналатын кездесулер алаңы."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Возможность представить свой опыт на международном уровне"
+msgstr "Өз тәжірибеңізді халықаралық деңгейде таныстыру мүмкіндігі"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Выступайте, публикуйтесь, будьте услышаны международным сообществом."
+msgstr "Сөз сөйлеңіз, жариялаңыз, халықаралық қауымдастық сізді естісін."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Присоединяйтесь"
+msgstr "Қосылыңыз"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Готовы быть в центре главных событий"
+msgstr "Басты оқиғалардың ортасында болуға дайынсыз ба"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "санаторно-курортной отрасли?"
+msgstr "шипажай-курорттық саланың?"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Присоединяйтесь к XI Международному форуму «Шипажай» — и станьте частью сообщества, которое формирует будущее оздоровительной медицины в Казахстане и Центральной Азии."
+msgstr "XI Халықаралық «Шипажай» форумына қосылыңыз және Қазақстан мен Орталық Азиядағы сауықтыру медицинасының болашағын қалыптастыратын қауымдастықтың бір бөлігі болыңыз."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Поддержка"
+msgstr "Қолдау"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Спонсоры и"
+msgstr "Демеушілер мен"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Партнеры"
+msgstr "Серіктестер"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Логотип Партнера 1"
+msgstr "1-ші Серіктестің логотипі"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Логотип Партнера 2"
+msgstr "2-ші Серіктестің логотипі"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Логотип Партнера 3"
+msgstr "3-ші Серіктестің логотипі"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Логотип Партнера 4"
+msgstr "4-ші Серіктестің логотипі"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Стать спонсором"
+msgstr "Демеуші болу"
+
+#: .\templates\base.html:232 .\templates\MainPage\site_map.html:9
+msgid "Шипажай 2026!"
+msgstr "Шипажай 2026!"

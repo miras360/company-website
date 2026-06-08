@@ -1,0 +1,822 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+ 
+{% block content %}
+ 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+ 
+  :root {
+    --accent:        #0fa093;
+    --accent-dark:   #088a7e;
+    --accent-light:  #e6f7f6;
+    --accent-mid:    rgba(15,160,147,0.12);
+    --accent-glow:   rgba(15,160,147,0.18);
+    --blue:          #006ac7;
+    --blue-light:    rgba(0,106,199,0.08);
+    --text:          #111827;
+    --muted:         #6b7280;
+    --border:        rgba(17,24,39,.10);
+    --bg:            #ffffff;
+    --bg-soft:       #f5fffe;
+    --bg-alt:        #f0f9f8;
+    --font-display:  'Cormorant Garamond', Georgia, serif;
+    --font-body:     'Nunito', sans-serif;
+    --font-mono:     'JetBrains Mono', monospace;
+  }
+ 
+  .shp * { box-sizing: border-box; margin: 0; padding: 0; }
+  .shp { font-family: var(--font-body); color: var(--text); background: var(--bg); overflow-x: hidden; }
+ 
+  /* ── HERO ─────────────────────────────────────────── */
+  .shp-hero {
+    position: relative;
+    min-height: 92vh;
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 5rem;
+    overflow: hidden;
+  }
+  .shp-hero__decor { position: absolute; inset: 0; pointer-events: none; }
+  .shp-hero__decor::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(15,160,147,0.10) 0%, rgba(15,160,147,0.03) 55%, transparent 75%);
+    animation: blob 9s ease-in-out infinite alternate;
+  }
+  .shp-hero__decor::after {
+    content: '';
+    position: absolute; bottom: -100px; left: -80px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(0,106,199,0.07) 0%, transparent 70%);
+    animation: blob 12s ease-in-out 3s infinite alternate;
+  }
+  .shp-hero__dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,160,147,0.18) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 0%, transparent 100%);
+    opacity: 0.45;
+  }
+  .shp-hero__arc {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%; pointer-events: none;
+    border: 1px solid rgba(15,160,147,0.07);
+  }
+ 
+  .shp-hero__badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent-light);
+    border: 1px solid rgba(15,160,147,0.28);
+    color: var(--accent-dark);
+    font-family: var(--font-mono); font-size: 0.68rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.4rem 1.1rem; border-radius: 100px;
+    margin-bottom: 2.5rem;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.6s ease 0.15s forwards;
+  }
+  .shp-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 1.6s ease infinite; }
+ 
+  .shp-hero__logo-wrap {
+    margin-bottom: 2rem;
+    opacity: 0; transform: translateY(16px);
+    animation: fadeUp 0.6s ease 0.3s forwards;
+  }
+  .shp-hero__logo { height: 8rem; width: auto; filter: drop-shadow(0 4px 16px rgba(15,160,147,0.22)); }
+ 
+  .shp-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5.5vw, 4.6rem); font-weight: 700;
+    line-height: 1.1; color: var(--text); max-width: 880px;
+    margin-bottom: 0.75rem;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.7s ease 0.45s forwards;
+  }
+  .shp-hero__title em { color: var(--accent); font-style: italic; }
+ 
+  .shp-hero__subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.12rem); font-weight: 400;
+    color: var(--muted); max-width: 660px; margin-bottom: 1.75rem; line-height: 1.7;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.7s ease 0.6s forwards;
+  }
+ 
+  .shp-hero__slogan {
+    display: inline-block;
+    font-family: var(--font-display); font-size: clamp(1rem, 1.8vw, 1.22rem);
+    font-style: italic; font-weight: 600;
+    color: var(--text); max-width: 640px; line-height: 1.55;
+    margin-bottom: 3rem;
+    padding: 1.1rem 1.5rem;
+    background: var(--accent-light); border-radius: 8px; border-left: 3px solid var(--accent);
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.7s ease 0.75s forwards;
+  }
+ 
+  .shp-hero__cta {
+    display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center;
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 0.7s ease 0.9s forwards;
+  }
+ 
+  /* ── COUNTDOWN ─────────────────────────────────────── */
+  .shp-countdown { background: var(--accent); padding: 3rem 2rem; }
+  .shp-countdown__inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    gap: 3rem; flex-wrap: wrap;
+  }
+  .shp-cd-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.8); text-align: center; }
+  .shp-cd-label strong { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; font-style: italic; color: #fff; letter-spacing: 0; margin-top: 0.2rem; }
+  .shp-cd-grid { display: flex; align-items: center; gap: clamp(0.75rem, 3vw, 2rem); }
+  .shp-cd-unit { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+  .shp-cd-num { font-family: var(--font-display); font-size: clamp(2.8rem, 7vw, 4.5rem); font-weight: 700; color: #fff; line-height: 1; min-width: 2ch; text-align: center; }
+  .shp-cd-num.flip { animation: numFlip 0.32s ease; }
+  .shp-cd-word { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+  .shp-cd-sep { font-family: var(--font-display); font-size: 3rem; color: rgba(255,255,255,0.45); line-height: 1; margin-bottom: 1.1rem; }
+ 
+  /* ── SECTIONS ──────────────────────────────────────── */
+  .shp-section { padding: 7rem 2rem; }
+  .shp-section--alt { background: var(--bg-alt); }
+  .shp-section--soft { background: var(--bg-soft); }
+  .shp-inner { max-width: 1120px; margin: 0 auto; }
+ 
+  .shp-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--font-mono); font-size: 0.68rem;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+  }
+  .shp-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--accent); border-radius: 2px; }
+  .shp-h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 1rem; }
+  .shp-h2 em { color: var(--accent); font-style: italic; }
+  .shp-lead { font-size: 1.05rem; color: var(--muted); line-height: 1.8; max-width: 660px; margin-bottom: 3rem; }
+ 
+  /* ── ABOUT ─────────────────────────────────────────── */
+  .shp-about__layout { display: grid; grid-template-columns: 5fr 4fr; gap: 5rem; align-items: start; }
+  .shp-about__text p { font-size: 1.02rem; line-height: 1.85; color: var(--muted); margin-bottom: 1.25rem; }
+  .shp-about__text p strong { color: var(--text); font-weight: 600; }
+  .shp-about__points { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.5rem; }
+  .shp-about__points li {
+    display: flex; align-items: flex-start; gap: 0.9rem;
+    padding: 1rem 1.25rem; background: var(--bg);
+    border: 1px solid var(--border); border-radius: 10px;
+    font-size: 0.94rem; line-height: 1.55; color: var(--text);
+    transition: border-color 0.28s, box-shadow 0.28s, transform 0.28s;
+  }
+  .shp-about__points li:hover { border-color: var(--accent); box-shadow: 0 4px 18px rgba(15,160,147,0.09); transform: translateX(4px); }
+  .shp-about__points li::before { content: ''; flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 0.42rem; }
+ 
+  .shp-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin-top: 3rem; border: 1px solid var(--border); }
+  .shp-stat { background: var(--bg); padding: 1.75rem 1.5rem; text-align: center; }
+  .shp-stat__num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; color: var(--accent); line-height: 1; }
+  .shp-stat__label { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.4; font-weight: 500; }
+ 
+  /* ── AUDIENCE ──────────────────────────────────────── */
+  .shp-audience__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+  .shp-acard {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+  .shp-acard::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent), #09cfa8); transition: width 0.4s ease; }
+  .shp-acard:hover { border-color: rgba(15,160,147,0.3); box-shadow: 0 6px 28px rgba(15,160,147,0.10); transform: translateY(-3px); }
+  .shp-acard:hover::after { width: 100%; }
+  .shp-acard__icon { width: 46px; height: 46px; border-radius: 10px; background: var(--accent-light); border: 1px solid rgba(15,160,147,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; }
+  .shp-acard h3 { font-size: 0.94rem; font-weight: 600; color: var(--text); line-height: 1.45; }
+  .shp-audience__note { margin-top: 2.5rem; padding: 1.5rem 2rem; background: linear-gradient(135deg, var(--accent-light), rgba(0,106,199,0.05)); border-radius: 10px; border-left: 3px solid var(--accent); font-family: var(--font-display); font-size: 1.18rem; font-style: italic; font-weight: 600; color: var(--text); line-height: 1.5; }
+ 
+  /* ── BENEFITS & SCIENCE CARDS ──────────────────────── */
+  .shp-benefits__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .shp-benefit {
+    padding: 2rem; background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+    display: flex; flex-direction: column; gap: 0.65rem; position: relative; overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  }
+  .shp-benefit::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--blue)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+  .shp-benefit:hover { box-shadow: 0 8px 32px rgba(15,160,147,0.11); transform: translateY(-3px); border-color: rgba(15,160,147,0.28); }
+  .shp-benefit:hover::before { transform: scaleX(1); }
+  .shp-benefit__top { display: flex; align-items: center; justify-content: space-between; }
+  .shp-benefit__num { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; background: var(--accent-light); padding: 0.25rem 0.6rem; border-radius: 100px; }
+  .shp-benefit__icon { font-size: 1.6rem; line-height: 1; }
+  .shp-benefit h3 { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.4; }
+  .shp-benefit p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
+ 
+/* ── PARTNERS ──────────────────────────────────────── */
+  .shp-partners__grid {
+    display: grid;
+    /* Уменьшили минимальную ширину до 160px, чтобы их больше влезало в ряд */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  
+  .shp-partner-logo {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px; /* Строгая высота карточки */
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .shp-partner-logo:hover {
+    border-color: rgba(15,160,147,0.3);
+    box-shadow: 0 6px 28px rgba(15,160,147,0.08);
+    transform: translateY(-3px);
+  }
+
+  /* Стилизация самих изображений логотипов */
+  .shp-partner-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Вписывает логотип без сплющивания */
+    filter: grayscale(100%) opacity(0.6); /* Делает их серыми по умолчанию */
+    transition: filter 0.4s ease;
+  }
+
+  /* При наведении мыши возвращаем оригинальные цвета */
+  .shp-partner-logo:hover img {
+    filter: grayscale(0%) opacity(1);
+  }
+
+  /* ── CTA ───────────────────────────────────────────── */
+  .shp-cta {
+    padding: 8rem 2rem;
+    background: linear-gradient(135deg, var(--bg-alt) 0%, var(--accent-light) 50%, #e8f4fd 100%);
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .shp-cta::before {
+    content: 'XI';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-family: var(--font-display); font-size: 30vw; font-weight: 700;
+    color: rgba(15,160,147,0.05); pointer-events: none; user-select: none; line-height: 1;
+  }
+  .shp-cta__inner { position: relative; max-width: 760px; margin: 0 auto; }
+  .shp-cta__tag { display: inline-block; background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.4rem 1.1rem; border-radius: 100px; margin-bottom: 2rem; }
+  .shp-cta .shp-h2 { font-size: clamp(1.9rem, 4vw, 3rem); margin-bottom: 1.25rem; }
+  .shp-cta__text { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-bottom: 3rem; }
+  .shp-cta__buttons { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+ 
+/* ── BUTTONS ───────────────────────────────────────── */
+  .shp-btn { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 0.55rem; 
+    padding: 0.85rem 1.9rem; 
+    border-radius: 8px; 
+    font-family: var(--font-body); 
+    font-size: 0.9rem; 
+    font-weight: 700; 
+    text-decoration: none; 
+    cursor: pointer; 
+    border: none; 
+    transition: all 0.25s ease; 
+  }
+  
+  /* Основная кнопка */
+  .shp-btn--primary { 
+    background: var(--accent); 
+    color: #ffffff; 
+    box-shadow: 0 4px 18px rgba(15,160,147,0.30); 
+  }
+  .shp-btn--primary:hover { 
+    background: var(--accent-dark); 
+    color: #ffffff; /* Принудительно оставляем текст белым */
+    box-shadow: 0 6px 26px rgba(15,160,147,0.45); 
+    transform: translateY(-2px); 
+  }
+  
+  /* Кнопка с обводкой (Буклет) */
+  .shp-btn--outline { 
+    background: transparent; 
+    color: var(--text); 
+    border: 1.5px solid var(--border); 
+  }
+  .shp-btn--outline:hover { 
+    background: var(--accent);   /* Заливаем фирменным цветом при наведении */
+    color: #ffffff;              /* Делаем текст белым для отличной читаемости */
+    border-color: var(--accent); /* Красим рамку в цвет заливки */
+    box-shadow: 0 6px 20px rgba(15,160,147,0.25);
+    transform: translateY(-2px); 
+  }
+ 
+  /* ── SCROLL REVEAL ─────────────────────────────────── */
+  /* Fade up (default) */
+  .shp-reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.72s cubic-bezier(.22,.68,0,1.2), transform 0.72s cubic-bezier(.22,.68,0,1.2);
+  }
+  .shp-reveal.in { opacity: 1; transform: none; }
+ 
+  /* Slide from left */
+  .shp-reveal--l {
+    opacity: 0; transform: translateX(-40px);
+    transition: opacity 0.72s cubic-bezier(.22,.68,0,1.2), transform 0.72s cubic-bezier(.22,.68,0,1.2);
+  }
+  .shp-reveal--l.in { opacity: 1; transform: none; }
+ 
+  /* Slide from right */
+  .shp-reveal--r {
+    opacity: 0; transform: translateX(40px);
+    transition: opacity 0.72s cubic-bezier(.22,.68,0,1.2), transform 0.72s cubic-bezier(.22,.68,0,1.2);
+  }
+  .shp-reveal--r.in { opacity: 1; transform: none; }
+ 
+  /* Scale up */
+  .shp-reveal--scale {
+    opacity: 0; transform: scale(0.88);
+    transition: opacity 0.7s cubic-bezier(.22,.68,0,1.2), transform 0.7s cubic-bezier(.22,.68,0,1.2);
+  }
+  .shp-reveal--scale.in { opacity: 1; transform: scale(1); }
+ 
+  /* Clip-path wipe (from bottom) */
+  .shp-reveal--clip {
+    opacity: 1;
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 0.8s cubic-bezier(.22,.68,0,1.2);
+  }
+  .shp-reveal--clip.in { clip-path: inset(0% 0 0 0); }
+ 
+  /* Rotate + fade */
+  .shp-reveal--rot {
+    opacity: 0; transform: translateY(24px) rotate(-2deg);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.22,.68,0,1.2);
+  }
+  .shp-reveal--rot.in { opacity: 1; transform: none; }
+ 
+/* Stagger delays */
+  .shp-d1{transition-delay:.07s} .shp-d2{transition-delay:.15s}
+  .shp-d3{transition-delay:.23s} .shp-d4{transition-delay:.31s}
+  .shp-d5{transition-delay:.39s} .shp-d6{transition-delay:.47s}
+  .shp-d7{transition-delay:.55s} .shp-d8{transition-delay:.63s}
+  .shp-d9{transition-delay:.71s} .shp-d10{transition-delay:.79s}
+ 
+  /* ── SVG DRAW LINE ──────────────────────────────────── */
+  .shp-draw-line {
+    display: block; width: 100%; overflow: visible;
+    margin: 3.5rem 0;
+  }
+  .shp-draw-line path {
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    fill: none;
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    transition: stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1);
+    opacity: 0.35;
+  }
+  .shp-draw-line.in path { stroke-dashoffset: 0; }
+ 
+  /* ── STAT NUMBER COUNTER ────────────────────────────── */
+  .shp-stat__num[data-count] { display: block; }
+ 
+  /* ── PARALLAX LAYER ─────────────────────────────────── */
+  .shp-parallax { will-change: transform; }
+ 
+  /* ── SECTION TITLE UNDERLINE DRAW ──────────────────── */
+  .shp-h2-lined { position: relative; display: inline-block; }
+  .shp-h2-lined::after {
+    content: '';
+    position: absolute; bottom: -6px; left: 0;
+    height: 3px; width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    border-radius: 3px;
+    transition: width 0.9s cubic-bezier(.22,.68,0,1.2) 0.35s;
+  }
+  .shp-reveal.in .shp-h2-lined::after,
+  .shp-h2.in .shp-h2-lined::after { width: 100%; }
+ 
+  /* ── PROGRESS BARS (benefits) ───────────────────────── */
+  .shp-benefit__bar {
+    height: 3px; background: var(--border); border-radius: 3px;
+    overflow: hidden; margin-top: auto;
+  }
+  .shp-benefit__bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #09cfa8);
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.1s cubic-bezier(.22,.68,0,1.2);
+  }
+  .shp-benefit.in .shp-benefit__bar-fill { width: var(--bar-w, 80%); }
+ 
+  /* ── KEYFRAMES ─────────────────────────────────────── */
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+  @keyframes blob { from{transform:scale(1)} to{transform:scale(1.12)} }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  @keyframes numFlip { 0%{transform:scaleY(1);color:#fff} 45%{transform:scaleY(.82);color:rgba(255,255,255,.6)} 100%{transform:scaleY(1);color:#fff} }
+ 
+  /* ── RESPONSIVE ────────────────────────────────────── */
+  @media(max-width:960px){
+    .shp-about__layout{grid-template-columns:1fr;gap:2.5rem}
+  }
+  @media(max-width:640px){
+    .shp-hero{padding:5rem 1.5rem 4rem;min-height:auto}
+    .shp-hero__cta,.shp-cta__buttons{flex-direction:column;align-items:stretch}
+    .shp-btn{justify-content:center}
+    .shp-section{padding:5rem 1.5rem}
+    .shp-countdown{padding:2.5rem 1.5rem}
+    .shp-countdown__inner{flex-direction:column;gap:1.5rem}
+    .shp-cd-sep{display:none}
+    .shp-stats{grid-template-columns:1fr}
+  }
+</style>
+ 
+<div class="shp">
+ 
+  <!-- HERO -->
+  <section class="shp-hero">
+    <div class="shp-hero__decor"></div>
+    <div class="shp-hero__dots"></div>
+    <div class="shp-hero__arc" style="width:900px;height:900px"></div>
+    <div class="shp-hero__arc" style="width:650px;height:650px;border-color:rgba(15,160,147,0.05)"></div>
+    <div class="shp-hero__arc" style="width:1150px;height:1150px;border-color:rgba(15,160,147,0.04)"></div>
+ 
+    <div class="shp-hero__badge">
+      <span class="shp-badge-dot"></span>
+      {% trans "XI Международный форум" %} · 2026
+    </div>
+ 
+    <div class="shp-hero__logo-wrap">
+      <img src = "../../static/assets/SHP_LOGO/shipazhai_2026_logo.png" alt="{% trans 'Логотип Шипажай' %}" class="shp-hero__logo" onerror="this.style.display='none'">
+    </div>
+ 
+    <h1 class="shp-hero__title">
+      {% trans "XI Международный научно-практический форум" %}
+      <em>«{% trans "Шипажай - 2026" %}»</em>
+    </h1>
+ 
+    <p class="shp-hero__subtitle">
+      {% trans "Ежегодная масштабная площадка для развития санаторно-курортной отрасли Казахстана и Центральной Азии" %}
+    </p>
+ 
+    <p class="shp-hero__slogan">
+      {% trans "Объединяем экспертов, идеи и лучшие практики, чтобы поднять санаторно-курортное лечение на новый уровень." %}
+    </p>
+ 
+    <div class="shp-hero__cta">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScHjTycEMHuOIFRaSuQWh4FXk5chQ_LCQWKwBEfdnkYKqHp2Q/viewform?usp=publish-editor" class="shp-btn shp-btn--primary">✦ {% trans "Регистрация участников" %}</a>
+      <a href="../../static/assets/SHP_LOGO/SHP_BANNER.jpg" download="SHP_BANNER.jpg" class="shp-btn shp-btn--outline">📄 {% trans "Буклет" %}</a>
+    </div>
+  </section>
+ 
+  <!-- COUNTDOWN -->
+  <section class="shp-countdown">
+    <div class="shp-countdown__inner">
+      <div class="shp-cd-label">
+        {% trans "До начала форума" %}
+        <strong id="shp-cd-date">
+          7 {% trans "августа" %} 2026
+        </strong>
+      </div>
+      <div class="shp-cd-grid">
+        <div class="shp-cd-unit">
+          <span class="shp-cd-num" id="shp-cd-days">--</span>
+          <span class="shp-cd-word">{% trans "дней" %}</span>
+        </div>
+        <span class="shp-cd-sep" aria-hidden="true">:</span>
+        <div class="shp-cd-unit">
+          <span class="shp-cd-num" id="shp-cd-hours">--</span>
+          <span class="shp-cd-word">{% trans "часов" %}</span>
+        </div>
+        <span class="shp-cd-sep" aria-hidden="true">:</span>
+        <div class="shp-cd-unit">
+          <span class="shp-cd-num" id="shp-cd-mins">--</span>
+          <span class="shp-cd-word">{% trans "минут" %}</span>
+        </div>
+        <span class="shp-cd-sep" aria-hidden="true">:</span>
+        <div class="shp-cd-unit">
+          <span class="shp-cd-num" id="shp-cd-secs">--</span>
+          <span class="shp-cd-word">{% trans "секунд" %}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- О ФОРУМЕ -->
+  <section class="shp-section" id="shp-about">
+    <div class="shp-inner">
+      <div class="shp-about__layout">
+        <div>
+          <p class="shp-eyebrow shp-reveal">{% trans "О форуме" %}</p>
+          <h2 class="shp-h2 shp-reveal shp-d1">{% trans "Что такое форум" %}<br><em>«{% trans "Шипажай" %}»?</em></h2>
+          <div class="shp-about__text shp-reveal shp-d2">
+            <p>{% trans "С 2016 года Международный научно-практический форум «Шипажай» собирает ключевых игроков системы здравоохранения, работающих в сфере санаторно-курортного лечения и медицинской реабилитации." %}</p>
+            <p>{% trans "Это профессиональная площадка в регионе, где происходит настоящий продуктивный диалог. Каждый год форум становится мощным импульсом для всей санаторно-курортной отрасли Казахстана и зарубежья." %}</p>
+          </div>
+          <ul class="shp-about__points">
+            <li class="shp-reveal shp-d1">{% trans "Продуктивный диалог между практиками и учёными" %}</li>
+            <li class="shp-reveal shp-d2">{% trans "Обмен реальным опытом и внедрение передовых технологий" %}</li>
+            <li class="shp-reveal shp-d3">{% trans "Обсуждение самых острых проблем отрасли" %}</li>
+            <li class="shp-reveal shp-d4">{% trans "Поиск эффективных решений для санаториев, курортов и реабилитационных центров" %}</li>
+          </ul>
+        </div>
+        <div>
+          <div class="shp-stats shp-reveal--r shp-d1">
+            <div class="shp-stat">
+              <div class="shp-stat__num" data-count="9" data-suffix="+">0+</div>
+              <div class="shp-stat__label">{% trans "лет проведения форума" %}</div>
+            </div>
+            <div class="shp-stat">
+              <div class="shp-stat__num">XI</div>
+              <div class="shp-stat__label">{% trans "юбилейный форум в 2026 году" %}</div>
+            </div>
+            <div class="shp-stat">
+              <div class="shp-stat__num">🌏</div>
+              <div class="shp-stat__label">{% trans "участники из стран ближнего и дальнего зарубежья" %}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SVG decorative draw line -->
+      <svg class="shp-draw-line shp-reveal" viewBox="0 0 1100 40" preserveAspectRatio="none" height="40" aria-hidden="true">
+        <path d="M0,20 Q120,4 220,20 T440,20 T660,20 T880,20 T1100,20"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- НАУКА И ЖУРНАЛ -->
+  <section class="shp-section shp-section--alt" id="shp-science">
+    <div class="shp-inner">
+      <p class="shp-eyebrow shp-reveal">{% trans "Наука и Журнал" %}</p>
+      <h2 class="shp-h2 shp-reveal shp-d1">{% trans "Публикация" %} <em>{% trans "научных работ" %}</em></h2>
+      <div class="shp-benefits__grid">
+        <div class="shp-benefit shp-reveal shp-d1">
+          <div class="shp-benefit__top"><span class="shp-benefit__num">01</span><span class="shp-benefit__icon">📖</span></div>
+          <h3>{% trans "Сборник и Журнал" %}</h3>
+          <p>{% trans "Принятые статьи публикуются в официальном сборнике трудов форума и рецензируемом научно-практическом журнале." %}</p>
+          <div class="shp-benefit__bar"><div class="shp-benefit__bar-fill" style="--bar-w:100%"></div></div>
+        </div>
+        <div class="shp-benefit shp-reveal shp-d2">
+          <div class="shp-benefit__top"><span class="shp-benefit__num">02</span><span class="shp-benefit__icon">🔬</span></div>
+          <h3>{% trans "Широкий спектр тем" %}</h3>
+          <p>{% trans "Принимаются работы по инновационным методам курортологии, реабилитационной медицине и организации здравоохранения." %}</p>
+          <div class="shp-benefit__bar"><div class="shp-benefit__bar-fill" style="--bar-w:100%"></div></div>
+        </div>
+        <div class="shp-benefit shp-reveal shp-d3">
+          <div class="shp-benefit__top"><span class="shp-benefit__num">03</span><span class="shp-benefit__icon">🏆</span></div>
+          <h3>{% trans "Индексация и признание" %}</h3>
+          <p>{% trans "Материалы конференции вносят вклад в научную деятельность и признаются профессиональным сообществом." %}</p>
+          <div class="shp-benefit__bar"><div class="shp-benefit__bar-fill" style="--bar-w:100%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ДЛЯ КОГО -->
+  <section class="shp-section shp-section--soft" id="shp-audience">
+    <div class="shp-inner">
+      <p class="shp-eyebrow shp-reveal">{% trans "Участники" %}</p>
+      <h2 class="shp-h2 shp-reveal shp-d1">{% trans "Кто участвует в форуме" %} <em>«{% trans "Шипажай" %}»</em></h2>
+      <div class="shp-audience__grid">
+        <div class="shp-acard shp-reveal shp-d1"><div class="shp-acard__icon">🏥</div><h3>{% trans "Руководители и главные врачи санаториев и реабилитационных центров" %}</h3></div>
+        <div class="shp-acard shp-reveal shp-d2"><div class="shp-acard__icon">🔬</div><h3>{% trans "Ведущие эксперты в области курортологии и восстановительной медицины" %}</h3></div>
+        <div class="shp-acard shp-reveal shp-d3"><div class="shp-acard__icon">🎓</div><h3>{% trans "Представители медицинских вузов и профильных учреждений" %}</h3></div>
+        <div class="shp-acard shp-reveal shp-d1"><div class="shp-acard__icon">💊</div><h3>{% trans "Специалисты фармацевтических компаний" %}</h3></div>
+        <div class="shp-acard shp-reveal shp-d2"><div class="shp-acard__icon">⚙️</div><h3>{% trans "Производители и поставщики медицинского оборудования" %}</h3></div>
+        <div class="shp-acard shp-reveal shp-d3"><div class="shp-acard__icon">🌐</div><h3>{% trans "Делегации из стран ближнего и дальнего зарубежья" %}</h3></div>
+      </div>
+      <div class="shp-audience__note shp-reveal shp-d2">{% trans "Если вы развиваете санаторно-курортное направление — это ваше ключевое событие года." %}</div>
+    </div>
+  </section>
+ 
+  <!-- ПРЕИМУЩЕСТВА -->
+  <section class="shp-section" id="shp-benefits">
+    <div class="shp-inner">
+      <p class="shp-eyebrow shp-reveal">{% trans "Преимущества" %}</p>
+      <h2 class="shp-h2 shp-reveal shp-d1">{% trans "Почему стоит" %} <em>{% trans "участвовать?" %}</em></h2>
+      <div class="shp-benefits__grid">
+        <div class="shp-benefit shp-reveal shp-d1">
+          <div class="shp-benefit__top"><span class="shp-benefit__num">01</span><span class="shp-benefit__icon">🤝</span></div>
+          <h3>{% trans "Обмен опытом с лучшими специалистами отрасли" %}</h3>
+          <p>{% trans "Живой диалог с практиками и учёными, формирующими стандарты отрасли." %}</p>
+          <div class="shp-benefit__bar"><div class="shp-benefit__bar-fill" style="--bar-w:90%"></div></div>
+        </div>
+        <div class="shp-benefit shp-reveal shp-d2">
+          <div class="shp-benefit__top"><span class="shp-benefit__num">02</span><span class="shp-benefit__icon">🚀</span></div>
+          <h3>{% trans "Доступ к передовым практикам и инновациям в курортологии" %}</h3>
+          <p>{% trans "Новейшие технологии и методики восстановительной медицины из первых уст." %}</p>
+          <div class="shp-benefit__bar"><div class="shp-benefit__bar-fill" style="--bar-w:85%"></div></div>
+        </div>
+        <div class="shp-benefit shp-reveal shp-d3">
+          <div class="shp-benefit__top"><span class="shp-benefit__num">03</span><span class="shp-benefit__icon">🎯</span></div>
+          <h3>{% trans "Решение реальных проблем санаторно-курортных учреждений" %}</h3>
+          <p>{% trans "Практические ответы на актуальные вызовы, с которыми сталкивается отрасль." %}</p>
+          <div class="shp-benefit__bar"><div class="shp-benefit__bar-fill" style="--bar-w:78%"></div></div>
+        </div>
+        <div class="shp-benefit shp-reveal shp-d1">
+          <div class="shp-benefit__top"><span class="shp-benefit__num">04</span><span class="shp-benefit__icon">🔗</span></div>
+          <h3>{% trans "Новые партнёрства и полезные деловые контакты" %}</h3>
+          <p>{% trans "Площадка для встреч, которые становятся долгосрочным сотрудничеством." %}</p>
+          <div class="shp-benefit__bar"><div class="shp-benefit__bar-fill" style="--bar-w:95%"></div></div>
+        </div>
+        <div class="shp-benefit shp-reveal shp-d2">
+          <div class="shp-benefit__top"><span class="shp-benefit__num">05</span><span class="shp-benefit__icon">🌍</span></div>
+          <h3>{% trans "Возможность представить свой опыт на международном уровне" %}</h3>
+          <p>{% trans "Выступайте, публикуйтесь, будьте услышаны международным сообществом." %}</p>
+          <div class="shp-benefit__bar"><div class="shp-benefit__bar-fill" style="--bar-w:88%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- CTA -->
+  <section class="shp-cta" id="shp-apply">
+    <div class="shp-cta__inner">
+      <div class="shp-cta__tag shp-reveal">{% trans "Присоединяйтесь" %}</div>
+      <h2 class="shp-h2 shp-reveal shp-d1">
+        {% trans "Готовы быть в центре главных событий" %}
+        <em>{% trans "санаторно-курортной отрасли?" %}</em>
+      </h2>
+      <p class="shp-cta__text shp-reveal shp-d2">
+        {% trans "Присоединяйтесь к XI Международному форуму «Шипажай» — и станьте частью сообщества, которое формирует будущее оздоровительной медицины в Казахстане и Центральной Азии." %}
+      </p>
+      <div class="shp-cta__buttons shp-reveal shp-d3">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScHjTycEMHuOIFRaSuQWh4FXk5chQ_LCQWKwBEfdnkYKqHp2Q/viewform?usp=publish-editor" class="shp-btn shp-btn--primary">✦ {% trans "Регистрация участников" %}</a>
+        <a href="../../static/assets/SHP_LOGO/SHP_BANNER.jpg" download="SHP_BANNER.jpg" class="shp-btn shp-btn--outline">📄 {% trans "Буклет" %}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПАРТНЕРЫ И СПОНСОРЫ (До футера) -->
+  <section class="shp-section shp-section--alt" id="shp-partners">
+    <div class="shp-inner">
+      <p class="shp-eyebrow shp-reveal">{% trans "Поддержка" %}</p>
+      <h2 class="shp-h2 shp-reveal shp-d1">{% trans "Спонсоры и" %} <em>{% trans "Партнеры" %}</em></h2>
+      
+      <div class="shp-partners__grid">
+        <div class="shp-partner-logo shp-reveal shp-d1">
+          <img src="../../static/assets/SHP_LOGO/SHP_KA.png" alt="SHP_KA" onerror="this.style.display='none'">
+        </div>
+        <div class="shp-partner-logo shp-reveal shp-d2">
+          <img src="../../static/assets/SHP_LOGO/SHP_BK.jpeg" alt="SHP_BK" onerror="this.style.display='none'">
+        </div>
+        <div class="shp-partner-logo shp-reveal shp-d3">
+          <img src="../../static/assets/SHP_LOGO/SHP_MT.jpeg" alt="SHP_MT" onerror="this.style.display='none'">
+        </div>
+        <div class="shp-partner-logo shp-reveal shp-d4">
+          <img src="../../static/assets/SHP_LOGO/SHP_NSA.png" alt="SHP_NSA" onerror="this.style.display='none'">
+        </div>
+        <div class="shp-partner-logo shp-reveal shp-d5">
+          <img src="../../static/assets/SHP_LOGO/SHP_SE.png" alt="SHP_SE" onerror="this.style.display='none'">
+        </div>
+        <div class="shp-partner-logo shp-reveal shp-d6">
+          <img src="../../static/assets/SHP_LOGO/SHP_SKMA.png" alt="SHP_SKMA" onerror="this.style.display='none'">
+        </div>
+        <div class="shp-partner-logo shp-reveal shp-d7">
+          <img src="../../static/assets/SHP_LOGO/SHP_VT.jpeg" alt="SHP_VT" onerror="this.style.display='none'">
+        </div>
+        <div class="shp-partner-logo shp-reveal shp-d8">
+          <img src="../../static/assets/SHP_LOGO/SHP_YGK.png" alt="SHP_YGK" onerror="this.style.display='none'">
+        </div>
+        <div class="shp-partner-logo shp-reveal shp-d9">
+          <img src="../../static/assets/SHP_LOGO/SPH_SKO.jpeg" alt="SHP_SKO" onerror="this.style.display='none'">
+        </div>
+        <div class="shp-partner-logo shp-reveal shp-d10">
+          <img src="../../static/assets/SHP_LOGO/SHP_ANMU.png" alt="SHP_AMNU" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <!-- БЛОК С КНОПКОЙ -->
+      <div class="shp-reveal" style="margin-top: 3.5rem; text-align: center;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScHjTycEMHuOIFRaSuQWh4FXk5chQ_LCQWKwBEfdnkYKqHp2Q/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="shp-btn shp-btn--primary">
+          🤝 {% trans "Стать спонсором" %}
+        </a>
+      </div>
+    </div>
+  </section>
+ 
+</div>
+ 
+<script>
+(function () {
+  /* ── COUNTDOWN ── дата форума ── */
+  const TARGET = new Date(2026, 7, 7, 9, 0, 0); // 7 августа 2026, 09:00
+ 
+  const $ = id => document.getElementById(id);
+  const pad = n => String(n).padStart(2, '0');
+  const flip = (el, val) => {
+    if (!el) return;
+    const s = pad(val);
+    if (el.textContent !== s) {
+      el.classList.remove('flip'); void el.offsetWidth; el.classList.add('flip'); el.textContent = s;
+    }
+  };
+
+  function tick() {
+    const diff = TARGET - Date.now();
+    if (diff <= 0) {
+      ['shp-cd-days','shp-cd-hours','shp-cd-mins','shp-cd-secs'].forEach(id => { const e=$(id); if(e) e.textContent='00'; });
+      const n=$('shp-cd-date'); if(n) n.textContent = '🎉'; 
+      return;
+    }
+    flip($('shp-cd-days'),  Math.floor(diff / 864e5));
+    flip($('shp-cd-hours'), Math.floor((diff % 864e5) / 36e5));
+    flip($('shp-cd-mins'),  Math.floor((diff % 36e5) / 6e4));
+    flip($('shp-cd-secs'),  Math.floor((diff % 6e4) / 1e3));
+  }
+  
+  tick(); setInterval(tick, 1000);
+
+  /* ── NUMBER COUNTER ───────────────────────────────── */
+  function animateCount(el) {
+    const target  = parseInt(el.dataset.count, 10);
+    const suffix  = el.dataset.suffix || '';
+    const dur     = 1400;
+    const start   = performance.now();
+    function step(now) {
+      const t = Math.min((now - start) / dur, 1);
+      const ease = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      el.textContent = Math.round(ease * target) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+ 
+  /* ── SCROLL REVEAL (main) ─────────────────────────── */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('[data-count]').forEach(animateCount);
+      if (e.target.dataset.count) animateCount(e.target);
+      revealObs.unobserve(e.target);
+    });
+  }, { threshold: 0.13 });
+ 
+  document.querySelectorAll(
+    '.shp-reveal, .shp-reveal--l, .shp-reveal--r, .shp-reveal--scale, .shp-reveal--clip, .shp-reveal--rot, .shp-draw-line, .shp-benefit'
+  ).forEach(el => revealObs.observe(el));
+ 
+  /* ── STAGGER CHILDREN ─────────────────────────────── */
+  document.querySelectorAll('.shp-audience__grid, .shp-benefits__grid, .shp-partners__grid').forEach(grid => {
+    [...grid.children].forEach((child, i) => {
+      if (!child.style.transitionDelay) {
+        child.style.transitionDelay = (i * 0.08) + 's';
+      }
+    });
+  });
+ 
+  /* ── PARALLAX ─────────────────────────────────────── */
+  const parallaxEls = document.querySelectorAll('.shp-parallax');
+  if (parallaxEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        parallaxEls.forEach(el => {
+          const speed = parseFloat(el.dataset.speed || '0.15');
+          el.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }, { passive: true });
+  }
+ 
+  /* ── SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+ 
+  /* ── HERO DOTS PARALLAX ───────────────────────────── */
+  const dots = document.querySelector('.shp-hero__dots');
+  if (dots && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY * 0.3;
+      dots.style.transform = `translateY(${y}px)`;
+    }, { passive: true });
+  }
+ 
+  /* ── MAGNETIC BUTTONS ─────────────────────────────── */
+  document.querySelectorAll('.shp-btn--primary').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r   = btn.getBoundingClientRect();
+      const dx  = (e.clientX - r.left - r.width  / 2) * 0.18;
+      const dy  = (e.clientY - r.top  - r.height / 2) * 0.18;
+      btn.style.transform = `translate(${dx}px, ${dy}px) translateY(-2px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+})();
+</script>
+ 
+{% endblock %}
