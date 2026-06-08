@@ -1187,8 +1187,8 @@ msgid "лет проведения форума"
 msgstr "жыл форумды өткізу"
 
 #: .\templates\shipazhai\shipazhai_2026.html
-msgid "юбилейный форум в 2026 году"
-msgstr "2026 жылғы мерейтойлық форум"
+msgid "форум Шипажай"
+msgstr "Шипажай форумы"
 
 #: .\templates\shipazhai\shipazhai_2026.html
 msgid "участники из стран ближнего и дальнего зарубежья"
