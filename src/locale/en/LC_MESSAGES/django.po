@@ -1114,8 +1114,8 @@ msgid "Шипажай - 2026"
 msgstr "Shipazhai - 2026"
 
 #: .\templates\shipazhai\shipazhai_2026.html
-msgid "Ежегодная масштабная площадка для развития санаторно-курортной отрасли Казахстана и Центральной Азии"
-msgstr "An annual large-scale platform for the development of the sanatorium and resort industry in Kazakhstan and Central Asia"
+msgid "Форум является одним из ключевых международных мероприятий в сфере санаторно-курортного лечения и медицинской реабилитации, где основное внимание уделяется вопросам устойчивого развития санаторно-курортной отрасли, повышению эффективности реабилитационных программ, внедрению научных и цифровых решений в практическое здравоохранение, а также расширению межотраслевого и международного сотрудничества."
+msgstr "The forum is one of the key international events in the field of spa treatment and medical rehabilitation, focusing on sustainable development of the spa industry, improving the effectiveness of rehabilitation programs, implementing scientific and digital solutions in practical healthcare, and expanding intersectoral and international cooperation."
 
 #: .\templates\shipazhai\shipazhai_2026.html
 msgid "Объединяем экспертов, идеи и лучшие практики, чтобы поднять санаторно-курортное лечение на новый уровень."
@@ -1378,5 +1378,5 @@ msgid "Стать спонсором"
 msgstr "Become a sponsor"
 
 #: .\templates\base.html:232 .\templates\MainPage\site_map.html:9
-msgid "Шипажай 2026!"
-msgstr "Shipazhai 2026!"
+msgid "Шипажай 2026"
+msgstr "Shipazhai 2026"
