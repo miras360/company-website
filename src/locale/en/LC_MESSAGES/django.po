@@ -1218,8 +1218,8 @@ msgid "научных работ"
 msgstr "scientific papers"
 
 #: .\templates\shipazhai\shipazhai_2026.html
-msgid "Сборник и Журнал"
-msgstr "Collection and Journal"
+msgid "Сборник и журнал - Вопросы курортологии"
+msgstr "Collection and journal - Issues of balneology"
 
 #: .\templates\shipazhai\shipazhai_2026.html
 msgid "Принятые статьи публикуются в официальном сборнике трудов форума и рецензируемом научно-практическом журнале."
