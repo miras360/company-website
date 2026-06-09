@@ -52,7 +52,8 @@ urlpatterns += i18n_patterns(
     path('ceo-blog/', include('ceoblog.urls')),
     path('people/', include('people.urls')),
     path('ethics-regulations/', include('ethica.urls')),
-    path('media-galery/', include('mediagallery.urls')),
+    #path('media-galery/', include('mediagallery.urls')),
+    path('media-galery/', RedirectView.as_view(pattern_name='error505'), name='media-galery'),
     path('science/', include('scienceBlock.urls')),    
     path('booking/', include('booking.urls')),
     path('gobmp/', include('gobmp.urls')), #получение услуг по ГОБМП
