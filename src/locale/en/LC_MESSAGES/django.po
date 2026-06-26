@@ -1416,3 +1416,19 @@ msgstr "Forum Organizing Committee"
 #: .\templates\shipazhai\shipazhai_2026.html
 msgid "Республика Казахстан, г. Астана, район Есиль, ул. Достык, 13/3, офис 807."
 msgstr "Republic of Kazakhstan, Astana, Yesil district, Dostyk str. 13/3, office 807."
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Жумаева Гульжан Шынтаевна"
+msgstr "Gulzhan Shyntaevna Zhumaeva"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Бауржан Мадина Бауржанқызы"
+msgstr "Madina Baurzhankyzy Baurzhan"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Есильбаев Марлан Жумагельдинович"
+msgstr "Marlan Zhumageldinovich Yesilbaev"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Алимов Бакытжан Каримбаевич"
+msgstr "Bakytzhan Karimbaevich Alimov"
