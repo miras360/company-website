@@ -433,6 +433,157 @@
     .shp-cd-sep{display:none}
     .shp-stats{grid-template-columns:1fr}
   }
+  /* ── CONTACTS ──────────────────────────────────────── */
+  .shp-contacts {
+    position: relative;
+    padding: 8rem 2rem 6rem;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  
+  /* Фоновая графика — абстрактные круги/волны для глубины */
+  .shp-contacts__decor {
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px dashed rgba(15,160,147,0.15);
+    pointer-events: none;
+    animation: spin 40s linear infinite;
+  }
+  .shp-contacts__decor::before {
+    content: '';
+    position: absolute;
+    inset: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,106,199,0.05);
+  }
+
+  .shp-contacts__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .shp-c-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Интерактивное свечение при наведении */
+  .shp-c-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(15,160,147,0.06), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .shp-c-card:hover::before { opacity: 1; }
+
+  .shp-c-card:hover {
+    border-color: rgba(15,160,147,0.25);
+    box-shadow: 0 12px 40px rgba(15,160,147,0.06);
+    transform: translateY(-4px);
+  }
+
+  .shp-c-card__tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    background: var(--accent-light);
+    padding: 0.35rem 0.8rem;
+    border-radius: 100px;
+    align-self: flex-start;
+  }
+
+  .shp-c-card__title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text);
+  }
+
+  .shp-c-card__person {
+    margin-top: 0.5rem;
+  }
+  .shp-c-card__name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .shp-c-card__subname {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+
+  .shp-c-card__links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+  }
+
+  .shp-c-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text);
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  .shp-c-link:hover { color: var(--accent); }
+
+  /* Иконки связи с легким покачиванием */
+  .shp-c-link svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.3s ease;
+  }
+  .shp-c-link:hover svg {
+    transform: scale(1.15) rotate(4deg);
+  }
+
+  /* Особая карточка для Оргкомитета (на всю ширину на десктопах) */
+  .shp-c-card--full {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--bg-soft) 100%);
+    border-left: 4px solid var(--accent);
+  }
+  .shp-c-card--full .shp-c-card__links {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    display: grid;
+  }
+
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 </style>
  
 <div class="shp">
@@ -697,6 +848,105 @@
       </div>
     </div>
   </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="shp-section shp-contacts" id="shp-contacts">
+    <div class="shp-contacts__decor" aria-hidden="true"></div>
+    <div class="shp-inner">
+      <p class="shp-eyebrow shp-reveal">{% trans "Обратная связь" %}</p>
+      <h2 class="shp-h2 shp-reveal shp-d1">{% trans "Контакты" %} <em>{% trans "оргкомитета" %}</em></h2>
+      
+      <div class="shp-contacts__grid">
+        
+        <!-- Карточка 1: Наука -->
+        <div class="shp-c-card shp-reveal shp-d1">
+          <span class="shp-c-card__tag">{% trans "Наука" %}</span>
+          <h3 class="shp-c-card__title">{% trans "Вопросы публикаций и научного содержания" %}</h3>
+          
+          <div class="shp-c-card__person">
+            <div class="shp-c-card__name">Жумаева Гульжан Шынтаевна</div>
+            <div class="shp-c-card__links">
+              <a href="tel:+77015144880" class="shp-c-link">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +7 (701) 514-48-80
+              </a>
+              <a href="mailto:shipazhay_forum@mail.ru" class="shp-c-link">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                shipazhay_forum@mail.ru
+              </a>
+              <a href="mailto:gulzhan_zh_69@mail.ru" class="shp-c-link">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                gulzhan_zh_69@mail.ru
+              </a>
+            </div>
+          </div>
+
+          <div class="shp-c-card__person" style="border-top: 1px dashed var(--border); padding-top: 1rem; margin-top: 0;">
+            <div class="shp-c-card__name">Бауржан Мадина Бауржанқызы</div>
+            <div class="shp-c-card__links" style="border: none; padding-top: 0.5rem;">
+              <a href="tel:+77772375738" class="shp-c-link">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +7 (777) 237-57-38
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 2: Сотрудничество -->
+        <div class="shp-c-card shp-reveal shp-d2">
+          <span class="shp-c-card__tag">{% trans "Партнерство" %}</span>
+          <h3 class="shp-c-card__title">{% trans "Вопросы участия и сотрудничества" %}</h3>
+          
+          <div class="shp-c-card__person">
+            <div class="shp-c-card__name">Есильбаев Марлан Жумагельдинович</div>
+            <div class="shp-c-card__links">
+              <a href="tel:+77472392953" class="shp-c-link">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +7 (747) 239-29-53
+              </a>
+              <a href="mailto:marlanyessilbaev@gmail.com" class="shp-c-link">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                marlanyessilbaev@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 3: Выставка -->
+        <div class="shp-c-card shp-reveal shp-d3">
+          <span class="shp-c-card__tag">{% trans "Выставка" %}</span>
+          <h3 class="shp-c-card__title">{% trans "Вопросы участия в выставке" %}</h3>
+          
+          <div class="shp-c-card__person">
+            <div class="shp-c-card__name">Алимов Бакытжан Каримбаевич</div>
+            <div class="shp-c-card__links">
+              <a href="tel:+77019994327" class="shp-c-link">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +7 (701) 999-43-27
+              </a>
+              <a href="mailto:bahaalimov61@gmail.com" class="shp-c-link">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                bahaalimov61@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 4: Оргкомитет (Широкая) -->
+        <div class="shp-c-card shp-c-card--full shp-reveal shp-d4">
+          <span class="shp-c-card__tag">{% trans "Локация" %}</span>
+          <h3 class="shp-c-card__title">{% trans "Организационный комитет форума" %}</h3>
+          <div class="shp-c-card__links">
+            <span class="shp-c-link" style="cursor: default; hover: none;">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              010000, {% trans "Республика Казахстан, г. Астана, район Есиль, ул. Достык, 13/3, офис 807." %}
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
  
 </div>
  
@@ -817,6 +1067,17 @@
     });
   });
 })();
+
+/* ── ЭФФЕКТ СВЕЧЕНИЯ КАРТОЧЕК КОНТАКТОВ ── */
+  document.querySelectorAll('.shp-c-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+    });
+  });
 </script>
  
 {% endblock %}

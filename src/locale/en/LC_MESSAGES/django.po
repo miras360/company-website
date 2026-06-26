@@ -137,7 +137,7 @@ msgstr "Institute Vision"
 msgid "История"
 msgstr "History"
 
-#: .\templates\MainPage\index.html:18
+#: .\templates\MainPage\index.html:18 .\templates\shipazhai\shipazhai_2026.html
 msgid "Наука"
 msgstr "The science"
 
@@ -402,7 +402,7 @@ msgstr "Our doctors"
 msgid "Наши педагоги"
 msgstr "Our teachers"
 
-#: .\templates\MainPage\site_map.html:63 .\templates\base.html:180
+#: .\templates\MainPage\site_map.html:63 .\templates\base.html:180 .\templates\shipazhai\shipazhai_2026.html
 msgid "Обратная связь"
 msgstr "Feedback"
 
@@ -1380,3 +1380,35 @@ msgstr "Become a sponsor"
 #: .\templates\base.html:232 .\templates\MainPage\site_map.html:9
 msgid "Шипажай 2026"
 msgstr "Shipazhai 2026"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "оргкомитета"
+msgstr "of the Organizing Committee"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Вопросы публикаций и научного содержания"
+msgstr "Publications & Scientific Content Inquiries"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Партнерство"
+msgstr "Partnership"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Вопросы участия и сотрудничества"
+msgstr "Participation & Cooperation Inquiries"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Вопросы участия в выставке"
+msgstr "Exhibition Inquiries"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Локация"
+msgstr "Location"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Организационный комитет форума"
+msgstr "Forum Organizing Committee"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Республика Казахстан, г. Астана, район Есиль, ул. Достык, 13/3, офис 807."
+msgstr "Republic of Kazakhstan, Astana, Yesil district, Dostyk str. 13/3, office 807."

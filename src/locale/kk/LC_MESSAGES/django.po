@@ -138,7 +138,7 @@ msgstr "Институттың Көзқарасы"
 msgid "История"
 msgstr "Тарих"
 
-#: .\templates\MainPage\index.html:18
+#: .\templates\MainPage\index.html:18 .\templates\shipazhai\shipazhai_2026.html
 msgid "Наука"
 msgstr "Ғылым"
 
@@ -401,7 +401,7 @@ msgstr "Біздің дәрігерлер"
 msgid "Наши педагоги"
 msgstr "Біздің педагогтар"
 
-#: .\templates\MainPage\site_map.html:63 .\templates\base.html:180
+#: .\templates\MainPage\site_map.html:63 .\templates\base.html:180 .\templates\shipazhai\shipazhai_2026.html
 msgid "Обратная связь"
 msgstr "Кері байланыс"
 
@@ -1369,3 +1369,35 @@ msgstr "Демеуші болу"
 #: .\templates\base.html:232 .\templates\MainPage\site_map.html:9
 msgid "Шипажай 2026"
 msgstr "Шипажай 2026"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "оргкомитета"
+msgstr "ұйымдастыру комитеті"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Вопросы публикаций и научного содержания"
+msgstr "Жарияланымдар және ғылыми мазмұн мәселелері"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Партнерство"
+msgstr "Серіктестік"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Вопросы участия и сотрудничества"
+msgstr "Қатысу және ынтымақтастық мәселелері"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Вопросы участия в выставке"
+msgstr "Көрмеге қатысу мәселелері"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Локация"
+msgstr "Мекенжай"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Организационный комитет форума"
+msgstr "Форумның ұйымдастыру комитеті"
+
+#: .\templates\shipazhai\shipazhai_2026.html
+msgid "Республика Казахстан, г. Астана, район Есиль, ул. Достык, 13/3, офис 807."
+msgstr "Қазақстан Республикасы, Астана қ., Есіл ауданы, Достық көш., 13/3, 807 кеңсе."
