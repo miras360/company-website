@@ -1398,6 +1398,10 @@ msgid "Вопросы участия и сотрудничества"
 msgstr "Participation & Cooperation Inquiries"
 
 #: .\templates\shipazhai\shipazhai_2026.html
+msgid "Выставка"
+msgstr "Conference"
+
+#: .\templates\shipazhai\shipazhai_2026.html
 msgid "Вопросы участия в выставке"
 msgstr "Exhibition Inquiries"
 
