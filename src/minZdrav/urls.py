@@ -30,7 +30,8 @@ urlpatterns += i18n_patterns(
     path('histories/', include('history_legends.urls')), #История и легенды
     path('ceo-info/', include('ceoInfo.urls')), #О руководителе
     path('vacancies/', include('vacancies.urls')), #Вакансии
-    path('organization-structure/', include('orgStruct.urls')), #Организационная структура
+    path('organization-structure/', include('organizational_structure.urls')),
+    path('archive-structure/', RedirectView.as_view(pattern_name='error505'), name='OldStructure'), #path('archive-structure/', include('orgStruct.urls')),
     path('rights-acts/', include('ProvActs.urls')), #Правовые акты (Надо будет убрать)
     path('workers-info/', include('workersInfo.urls')), #Информация о сотрудниках
     path('anticorruption/', include('antiCorruptions.urls')), #Противодействие коррупции

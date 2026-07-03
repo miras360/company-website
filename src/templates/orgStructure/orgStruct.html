@@ -1,43 +1,175 @@
 {% extends 'base.html' %}
-{% load i18n%}
+{% load i18n %}
 {% block content %}
+<style>
+    /* Неоминимализм: свет, тени, плавность */
+    .neo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+        margin-top: 40px;
+    }
+    .neo-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 28px 24px;
+        text-decoration: none;
+        color: #2c3e50;
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .neo-card::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+        z-index: 1;
+    }
+    .neo-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+/* Обитель для схемы с горизонтальной прокруткой */
+    .neo-scheme-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;  
+        height: 65vh; 
+        background: #ffffff;
+        border-radius: 24px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+        margin-bottom: 3rem;
+        padding: 1.5rem;
+        
+        /* Включаем горизонтальный скролл */
+        overflow-x: auto; 
+        overflow-y: hidden;
+        white-space: nowrap;
+        
+        /* Тонкий скроллбар (Firefox) */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(15,160,147,0.3) transparent;
+    }
+
+    .neo-scheme-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Масштабирование без обрезки и искажений */
+        border-radius: 8px;  /* Легкое смягчение собственных краев картинки */
+    }
+
+    .neo-scheme-wrapper::-webkit-scrollbar {
+        height: 8px;
+    }
+    .neo-scheme-wrapper::-webkit-scrollbar-thumb {
+        background-color: rgba(15,160,147,0.3);
+        border-radius: 10px;
+    }
+    .neo-scheme-wrapper::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .neo-scheme-image {
+        height: 100%;
+        width: auto; /* Позволяем ширине расти за пределы экрана */
+        max-width: none; /* Отменяем любые лимиты ширины */
+        object-fit: contain;
+        border-radius: 8px;
+        transition: opacity 0.3s ease;
+    }
+    
+    /* Эффект наведения, подсказывающий, что картинка кликабельна */
+    .neo-scheme-image:hover {
+        opacity: 0.85;
+        cursor: zoom-in;
+    }
+
+    .neo-card-title {
+        font-weight: 500;
+        font-size: 1.1rem;
+        z-index: 2;
+        transition: color 0.3s ease;
+        padding-right: 20px; /* Создаем буферную зону между текстом и стрелкой */
+    }
+    
+    .neo-card:hover .neo-card-title {
+        color: #3498db; 
+    }
+    
+    .neo-icon-arrow {
+        width: 24px;
+        height: 24px;
+        min-width: 24px; /* Жестко фиксируем минимальную ширину */
+        flex-shrink: 0;  /* Железный запрет на сжатие иконки */
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform 0.3s ease;
+        z-index: 2;
+    }
+    
+    .neo-card:hover .neo-icon-arrow {
+        transform: translateX(4px);
+    }
+    /* Элегия плавного появления */
+    .neo-fade-in {
+        opacity: 0;
+        transform: translateY(15px);
+        animation: fadeIn 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+    @keyframes fadeIn {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+</style>
+
 <div class="content-split">
     <div class="navigation">
         <a href="{% url 'viewSovet'%}">{% trans 'Наблюдательный совет' %}</a>
-        <a href="{% url 'ceo-info'%}"> {%trans 'Руководство'%}</a>
+        <a href="{% url 'ceo-info'%}"> {% trans 'Руководство' %}</a>
         <a href="{% url 'orgStruct' %}" class='selected'>{% trans 'Структура' %}</a>
-        <a href="{% url 'vacancies' %}">{%trans 'Вакансии'%}</a>
+        <a href="{% url 'vacancies' %}">{% trans 'Вакансии' %}</a>
         <a href="{% url 'strategic-dev'%}">{% trans 'Стратегическое развитие' %}</a>
         <a href="{% url 'ads'%}">{% trans 'Государственные закупки' %}</a>
         <a href="{% url 'compServ'%}">{% trans 'Комплаенс служба' %}</a>
         <a href="{% url 'antiCor'%}">{% trans 'Противодействие коррупции' %}</a>
         <a href="{% url 'accreditation'%}">{% trans 'Аккредитация' %}</a>
-        <a href="{% url 'laborProtection' %}">{%trans 'Охрана труда'%}</a>
+        <a href="{% url 'laborProtection' %}">{% trans 'Охрана труда' %}</a>
     </div>
+    
     <div class="rules">
-        <span class="Title"> {% trans 'Организационная структура' %} </span>
+        <span class="Title neo-fade-in">{% trans 'Организационная структура' %}</span>
+        
         {% if file %}
-        <div class="documents">
-            <img src="/media/{{file.file}}" width="100%"></img>
-        </div>
-        {% endif %}
-        <div class="section-list">
-            {% if deps %}
-            {% for dep in deps %}
-            <button class="accordion">{{dep.name}}</button>
-            <div class="panel">
-                <div class="institute__dev">
-                    <div class="institute__dev-text">
-                        {% for info in dep.info %}
-                            {{info|linebreaksbr}}
-                        {% endfor %}
-                    </div>
-                </div>
+            <div class="neo-scheme-wrapper neo-fade-in delay-1">
+                <a href="{{ file.file.url }}" target="_blank" style="display: inline-block; height: 100%;">
+                        <img src="{{ file.file.url }}" class="neo-scheme-image" alt="{% trans 'Схема' %}" title="{% trans 'Нажмите для увеличения' %}">
+                </a>
             </div>
+        {% endif %}
+        
+        <div class="neo-grid">
+            {% for dep in departments %}
+            <a href="{% url 'department_detail' dep.id %}" class="neo-card neo-fade-in" style="animation-delay: calc(0.15s + {{ forloop.counter0 }} * 0.06s);">
+                <span class="neo-card-title">{{ dep.name }}</span>
+                <svg class="neo-icon-arrow" viewBox="0 0 24 24">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
             {% endfor %}
-            {% endif %}
         </div>
     </div>
 </div>
-<script src="/static/accordion.js"></script>
 {% endblock %}
