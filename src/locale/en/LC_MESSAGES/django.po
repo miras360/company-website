@@ -1432,3 +1432,7 @@ msgstr "Marlan Zhumageldinovich Yesilbaev"
 #: .\templates\shipazhai\shipazhai_2026.html
 msgid "Алимов Бакытжан Каримбаевич"
 msgstr "Bakytzhan Karimbaevich Alimov"
+
+#: .\templates\orgStructure\department_detail.html
+msgid "Назад к структуре"
+msgstr "Back to structure"
