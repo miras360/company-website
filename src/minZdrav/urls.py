@@ -75,7 +75,7 @@ urlpatterns += i18n_patterns(
     path('digital_library/', include('digital_library.urls'), name='digital_library'), #Цифровая библиотека
 
     path('academic_council/', include('academicCouncil.urls')), # Ученый совет
-    path('shipazhai/', include('shipazhai_2026.urls')),
+    path('shipazhai/',  RedirectView.as_view(pattern_name='error505'), name='shipazhai_2026'), #include('shipazhai_2026.urls')
     
     path('error/', TemplateView.as_view(template_name='dev-works/505.html'), name='error505'),
 )
