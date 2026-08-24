@@ -612,12 +612,12 @@
             <div class="lok-reveal">
                 <div class="lok-eyebrow" style="justify-content:center;color:rgba(255,255,255,0.35);">{% trans "Связаться" %}</div>
                 <h2 class="lok-section-title lok-section-title--center lok-section-title--light">
-                    {{ general.contacts_title}}
+                    {{ general.contacts_title|default:contacts_title_default }}
                 </h2>
                 <div class="lok-rule lok-rule--center"></div>
             </div>
             <div class="lok-reveal lok-contacts-body">
-                {{ general.contacts_text|linebreaksbr|default:contacts_text_default }}
+                {{ general.contacts_text|linebreaksbr}}
             </div>
         </div>
     </div>
