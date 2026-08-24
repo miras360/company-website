@@ -957,6 +957,14 @@ msgstr "Стратегиялық серіктестер және халықар�
 msgid "Лечебно-оздоровительный комплекс \"Бурабай\""
 msgstr "«Бурабай» емдеу-сауықтыру кешені"
 
+#: .\templates\MainPage\site_map.html .\templates\base.html
+msgid "Лечебно-оздоровительный комплекс \"Астана\""
+msgstr "«Астана» емдік-сауықтыру кешені"
+
+#: .\templates\MainPage\site_map.html .\templates\base.html
+msgid "Лечебно-оздоровительный комплекс"
+msgstr "Емдік-сауықтыру кешені"
+
 #: templates/dopPages/leisure.html:441
 msgid "Досуг и отдых"
 msgstr "Демалыс және бос уақыт"
@@ -1266,7 +1274,7 @@ msgstr "Жақын және алыс шетелдерден келген дел�
 msgid "Если вы развиваете санаторно-курортное направление — это ваше ключевое событие года."
 msgstr "Егер сіз шипажай-курорттық бағытты дамытып жатсаңыз — бұл сіздің жылдың басты оқиғасы."
 
-#: .\templates\shipazhai\shipazhai_2026.html
+#: .\templates\shipazhai\shipazhai_2026.html .\templates\LOKAstanaInfo\lok_astana.html:515
 msgid "Преимущества"
 msgstr "Артықшылықтар"
 
@@ -1409,3 +1417,76 @@ msgstr "Қазақстан Республикасы, Астана қ., Есіл 
 #: .\templates\orgStructure\department_detail.html
 msgid "Назад к структуре"
 msgstr "Құрылымға оралу"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:5
+#: .\templates\LOKAstanaInfo\lok_astana.html:481
+msgid "Лечебно-Оздоровительный Комплекс"
+msgstr "Емдеу-сауықтыру кешені"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:6
+msgid "Ценность проекта"
+msgstr "Жобаның құндылығы"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:7
+msgid "Здесь будет описано уникальное преимущество комплекса."
+msgstr "Мұнда кешеннің бірегей артықшылығы сипатталады."
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:8
+msgid "Особенности"
+msgstr "Ерекшеліктер"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:9
+msgid "Текст о превосходных медицинских и рекреационных возможностях."
+msgstr "Жоғары деңгейдегі медициналық және сауықтыру мүмкіндіктері туралы мәтін."
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:10
+msgid "Свяжитесь с нами"
+msgstr "Бізбен байланысыңыз"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:481
+msgid "Астана"
+msgstr "Астана"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:485
+msgid "Прокрутите вниз"
+msgstr "Төмен жылжытыңыз"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:497
+msgid "О проекте"
+msgstr "Жоба туралы"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:532
+msgid "Размещение"
+msgstr "Орналастыру"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:533
+msgid "Номерной фонд"
+msgstr "Нөмірлер қоры"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:548
+msgid "Смотреть детали"
+msgstr "Толығырақ көру"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:561
+msgid "Закрыть"
+msgstr "Жабу"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:568
+msgid "Номер"
+msgstr "Нөмір"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:577
+msgid "Номера скоро появятся..."
+msgstr "Нөмірлер жақында қосылады..."
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:588
+msgid "Сервис"
+msgstr "Қызмет көрсету"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:589
+msgid "Услуги комплекса"
+msgstr "Кешен қызметтері"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:614
+msgid "Связаться"
+msgstr "Байланысу"

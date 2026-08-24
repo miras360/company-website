@@ -76,6 +76,7 @@ urlpatterns += i18n_patterns(
 
     path('academic_council/', include('academicCouncil.urls')), # Ученый совет
     path('shipazhai/',  RedirectView.as_view(pattern_name='error505'), name='shipazhai_2026'), #include('shipazhai_2026.urls')
+    path('LOK-Astana/', include('LOKAstanaInfo.urls')), #ЛОК Астана
     
     path('error/', TemplateView.as_view(template_name='dev-works/505.html'), name='error505'),
 )

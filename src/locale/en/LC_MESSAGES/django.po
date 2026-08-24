@@ -967,7 +967,15 @@ msgstr "Strategic partners and international cooperation"
 
 #: templates/dopPages/leisure.html:435
 msgid "Лечебно-оздоровительный комплекс \"Бурабай\""
-msgstr "Burabay Health and Wellness Complex"
+msgstr "Burabay Health and Health Complex"
+
+#: .\templates\MainPage\site_map.html .\templates\base.html
+msgid "Лечебно-оздоровительный комплекс \"Астана\""
+msgstr "\"Astana\" Medical and Health Complex"
+
+#: .\templates\MainPage\site_map.html .\templates\base.html
+msgid "Лечебно-оздоровительный комплекс"
+msgstr "Medical and Health Complex"
 
 #: templates/dopPages/leisure.html:441
 msgid "Досуг и отдых"
@@ -1277,7 +1285,7 @@ msgstr "Delegations from near and far abroad"
 msgid "Если вы развиваете санаторно-курортное направление — это ваше ключевое событие года."
 msgstr "If you are developing a sanatorium and resort destination, this is your key event of the year."
 
-#: .\templates\shipazhai\shipazhai_2026.html
+#: .\templates\shipazhai\shipazhai_2026.html .\templates\LOKAstanaInfo\lok_astana.html:515
 msgid "Преимущества"
 msgstr "Advantages"
 
@@ -1436,3 +1444,76 @@ msgstr "Bakytzhan Karimbaevich Alimov"
 #: .\templates\orgStructure\department_detail.html
 msgid "Назад к структуре"
 msgstr "Back to structure"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:5
+#: .\templates\LOKAstanaInfo\lok_astana.html:481
+msgid "Лечебно-Оздоровительный Комплекс"
+msgstr "Health and Wellness Complex"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:6
+msgid "Ценность проекта"
+msgstr "Project Value"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:7
+msgid "Здесь будет описано уникальное преимущество комплекса."
+msgstr "The complex's unique advantages will be described here."
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:8
+msgid "Особенности"
+msgstr "Key Features"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:9
+msgid "Текст о превосходных медицинских и рекреационных возможностях."
+msgstr "Information about our outstanding medical and wellness facilities."
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:10
+msgid "Свяжитесь с нами"
+msgstr "Get in Touch"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:481
+msgid "Астана"
+msgstr "Astana"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:485
+msgid "Прокрутите вниз"
+msgstr "Scroll Down"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:497
+msgid "О проекте"
+msgstr "About the Project"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:532
+msgid "Размещение"
+msgstr "Accommodation"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:533
+msgid "Номерной фонд"
+msgstr "Rooms"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:548
+msgid "Смотреть детали"
+msgstr "View Details"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:561
+msgid "Закрыть"
+msgstr "Close"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:568
+msgid "Номер"
+msgstr "Room"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:577
+msgid "Номера скоро появятся..."
+msgstr "Rooms will be available soon..."
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:588
+msgid "Сервис"
+msgstr "Services"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:589
+msgid "Услуги комплекса"
+msgstr "Health Complex Services"
+
+#: .\templates\LOKAstanaInfo\lok_astana.html:614
+msgid "Связаться"
+msgstr "Contact Us"

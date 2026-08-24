@@ -1,0 +1,667 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+{% trans "Лечебно-Оздоровительный Комплекс" as hero_title_default %}
+{% trans "Ценность проекта" as value_title_default %}
+{% trans "Здесь будет описано уникальное преимущество комплекса." as value_text_default %}
+{% trans "Особенности" as features_title_default %}
+{% trans "Текст о превосходных медицинских и рекреационных возможностях." as features_text_default %}
+{% trans "Свяжитесь с нами" as contacts_title_default %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Nunito:wght@300;400;600;700&display=swap');
+
+    /* ─── ВСЕ СТИЛИ СКОПИРОВАНЫ ВНУТРЬ .lok-page — не вытекают в навбар/футер ─── */
+    .lok-page {
+        --lok-emerald: #0fa093;
+        --lok-dark:    #2c3e50;
+        --lok-cream:   #f4f1ea;
+        --lok-white:   #ffffff;
+        --lok-muted:   #5a6a7a;
+        --lok-border:  rgba(44,62,80,0.07);
+        --lok-serif:   'Playfair Display', Georgia, serif;
+        --lok-sans:    'Nunito', Arial, sans-serif;
+        background-color: var(--lok-cream);
+        color: var(--lok-dark);
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Шрифты — ТОЛЬКО внутри .lok-page */
+    .lok-page h1,
+    .lok-page h2,
+    .lok-page h3,
+    .lok-page h4 {
+        font-family: var(--lok-serif);
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--lok-dark);
+    }
+
+    /* Сброс сайдбара Django */
+    .lok-page .content-split { display: block !important; margin: 0 !important; max-width: 100% !important; }
+    .lok-page .navigation    { display: none  !important; }
+    .lok-page .rules         { width: 100% !important; max-width: 100% !important; padding: 0 !important; overflow-x: hidden; }
+
+    /* ══ HERO ══════════════════════════════════════════════════ */
+    .lok-hero {
+        position: relative;
+        height: 100vh;
+        min-height: 620px;
+        max-height: 900px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;   /* здание по центру, контент тоже */
+        overflow: hidden;
+        background-color: var(--lok-dark);
+    }
+
+    .lok-hero__bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('../../static/images/lok_astana/DSC07991.jpg');
+        background-size: cover;
+        background-position: center 30%;
+        z-index: 1;
+        animation: lokSlowZoom 30s ease-out infinite alternate;
+        will-change: transform;
+    }
+
+    .lok-hero__overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+            160deg,
+            rgba(44,62,80,0.35) 0%,
+            rgba(44,62,80,0.55) 50%,
+            rgba(44,62,80,0.80) 100%
+        );
+    }
+
+    .lok-hero__content {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        max-width: 860px;         /* ограничиваем ширину для читаемости */
+        padding: 0 2rem 7rem;      /* запас снизу под скролл-точку */
+        text-align: center;
+        animation: lokFadeUp 1.4s cubic-bezier(0.2,0.8,0.2,1) both;
+    }
+
+    .lok-hero__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        font-family: var(--lok-sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--lok-emerald);
+        margin-bottom: 1.6rem;
+    }
+
+    /* Короткие черточки по бокам надписи */
+    .lok-hero__eyebrow::before,
+    .lok-hero__eyebrow::after {
+        content: '';
+        display: block;
+        width: 28px;
+        height: 1px;
+        background: var(--lok-emerald);
+        flex-shrink: 0;
+    }
+
+    .lok-hero__title {
+        font-family: var(--lok-serif) !important;
+        font-size: clamp(2rem, 4vw, 3.8rem);
+        color: #ffffff !important;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.15;
+        margin: 0 0 2.4rem;
+        /* Усиленная тень — фото светлее, нужна контрастность */
+        text-shadow:
+            0 2px 6px  rgba(0,0,0,0.55),
+            0 8px 32px rgba(0,0,0,0.40);
+    }
+
+    .lok-hero__meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.4rem;
+    }
+
+    .lok-hero__divider-h {
+        width: 44px;
+        height: 1.5px;
+        background: var(--lok-emerald);
+        flex-shrink: 0;
+    }
+
+    .lok-hero__scroll-label {
+        font-family: var(--lok-sans);
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.5);
+    }
+
+    .lok-scroll-dot {
+        position: absolute;
+        bottom: 2.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 4;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(255,255,255,0.28);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: lokPulse 2.6s ease-in-out infinite;
+    }
+
+    .lok-scroll-dot::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-right: 1.5px solid rgba(255,255,255,0.8);
+        border-bottom: 1.5px solid rgba(255,255,255,0.8);
+        transform: rotate(45deg) translateY(-2px);
+    }
+
+    /* ══ СЕКЦИИ ════════════════════════════════════════════════ */
+    .lok-wrap-cream { background-color: var(--lok-cream); }
+    .lok-wrap-white { background-color: var(--lok-white); }
+    .lok-wrap-dark  { background-color: var(--lok-dark);  }
+
+    .lok-section {
+        padding: 7rem 6%;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    /* ══ 2-КОЛОННЫЙ БЛОК ══════════════════════════════════════ */
+    .lok-text-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+    }
+
+    /* КЛЮЧЕВОЙ ФИКС: текст не вылезает за колонку */
+    .lok-text-col {
+        min-width: 0;
+        overflow: hidden;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .lok-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--lok-sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--lok-emerald);
+        margin-bottom: 1.2rem;
+    }
+
+    .lok-eyebrow::before { content: '•'; font-size: 1rem; }
+
+    .lok-section-title {
+        font-family: var(--lok-serif) !important;
+        font-size: clamp(1.9rem, 3.2vw, 3rem);
+        color: var(--lok-dark);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .lok-section-title--center { text-align: center; }
+    .lok-section-title--light  { color: #ffffff !important; }
+
+    .lok-text-body {
+        font-family: var(--lok-sans);
+        font-size: 1.05rem;
+        line-height: 1.95;
+        color: var(--lok-muted);
+        /* ФИКС: текст ограничен блоком */
+        min-width: 0;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .lok-rule {
+        width: 48px;
+        height: 2px;
+        background: var(--lok-emerald);
+        margin: 2rem 0;
+    }
+
+    .lok-rule--center { margin-left: auto; margin-right: auto; }
+
+    /* ══ КАРТОЧКИ ══════════════════════════════════════════════ */
+    .lok-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+    }
+
+    .lok-card {
+        background: var(--lok-white);
+        border: 1px solid var(--lok-border);
+        border-radius: 3px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: transform 0.45s cubic-bezier(0.2,0.8,0.2,1),
+                    box-shadow  0.45s ease;
+    }
+
+    .lok-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 48px rgba(44,62,80,0.10);
+    }
+
+    .lok-card__img-wrap {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .lok-card__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 1.1s cubic-bezier(0.2,0.8,0.2,1);
+    }
+
+    .lok-card:hover .lok-card__img { transform: scale(1.06); }
+
+    /* ФИКС: текст в карточке не вылезает */
+    .lok-card__body {
+        padding: 2.2rem 2.4rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .lok-card__title {
+        font-family: var(--lok-serif) !important;
+        font-size: 1.5rem;
+        color: var(--lok-dark);
+        margin-bottom: 0.9rem;
+        word-break: break-word;
+    }
+
+    .lok-card__desc {
+        font-family: var(--lok-sans);
+        font-size: 0.93rem;
+        line-height: 1.8;
+        color: var(--lok-muted);
+        margin-bottom: 1.8rem;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .lok-card__link {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--lok-sans);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--lok-emerald);
+        text-decoration: none;
+        transition: gap 0.3s;
+    }
+
+    .lok-card:hover .lok-card__link { gap: 14px; }
+
+    /* ══ МОДАЛКА ═══════════════════════════════════════════════ */
+    .lok-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(244,241,234,0.97);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+
+    .lok-modal.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .lok-modal__inner {
+        width: 92%;
+        max-width: 1280px;
+        height: 85vh;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        background: var(--lok-white);
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 40px 80px rgba(44,62,80,0.14);
+        transform: translateY(22px);
+        transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1);
+    }
+
+    .lok-modal.is-open .lok-modal__inner { transform: translateY(0); }
+
+    .lok-modal__close {
+        position: fixed;
+        top: 1.4rem;
+        right: 2rem;
+        background: none;
+        border: none;
+        font-size: 1.9rem;
+        color: var(--lok-dark);
+        cursor: pointer;
+        z-index: 10;
+        line-height: 1;
+        transition: color 0.2s;
+        font-family: var(--lok-sans);
+        font-weight: 300;
+    }
+
+    .lok-modal__close:hover { color: var(--lok-emerald); }
+
+    .lok-modal__photo { height: 100%; overflow: hidden; }
+    .lok-modal__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ФИКС: модалка скроллится, текст не вылезает */
+    .lok-modal__body {
+        padding: 3.5rem 4rem;
+        overflow-y: auto;
+        min-width: 0;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    /* ══ КОНТАКТЫ ══════════════════════════════════════════════ */
+    .lok-contacts-body {
+        font-family: var(--lok-sans);
+        font-size: 1.1rem;
+        line-height: 2;
+        color: rgba(255,255,255,0.55);
+        max-width: 540px;
+        margin: 0 auto;
+        text-align: center;
+        word-break: break-word;
+    }
+
+    /* ══ REVEAL ════════════════════════════════════════════════ */
+    .lok-reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity 0.85s cubic-bezier(0.2,0.8,0.2,1),
+                    transform 0.85s cubic-bezier(0.2,0.8,0.2,1);
+    }
+
+    .lok-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* ══ KEYFRAMES ═════════════════════════════════════════════ */
+    @keyframes lokSlowZoom {
+        from { transform: scale(1); }
+        to   { transform: scale(1.08); }
+    }
+
+    @keyframes lokFadeUp {
+        from { opacity: 0; transform: translateY(28px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes lokPulse {
+        0%, 100% { opacity: 0.45; transform: translateX(-50%) scale(1); }
+        50%       { opacity: 1;   transform: translateX(-50%) scale(1.14); }
+    }
+
+    /* ══ АДАПТИВ ═══════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+        .lok-text-block { grid-template-columns: 1fr; gap: 2.5rem; }
+        .lok-hero__content { padding: 0 5% 5rem; }
+        .lok-modal__inner {
+            grid-template-columns: 1fr;
+            height: 95vh;
+            overflow-y: auto;
+        }
+        .lok-modal__photo { height: 42vw; min-height: 200px; max-height: 300px; }
+        .lok-modal__body  { padding: 2rem 2.2rem; }
+    }
+
+    @media (max-width: 600px) {
+        .lok-grid { grid-template-columns: 1fr; }
+        .lok-section { padding: 4rem 5%; }
+        .lok-hero__line { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .lok-hero__bg,
+        .lok-reveal,
+        .lok-card,
+        .lok-card__img { animation: none !important; transition: none !important; }
+    }
+</style>
+
+<div class="lok-page">
+
+    <!-- HERO -->
+    <section class="lok-hero">
+        <div class="lok-hero__bg"></div>
+        <div class="lok-hero__overlay"></div>
+        <div class="lok-hero__content">
+            <div class="lok-hero__eyebrow">{% trans "Лечебно-Оздоровительный Комплекс" %} &nbsp;·&nbsp; {% trans "Астана" %}</div>
+            <h1 class="lok-hero__title">{{ general.hero_title|default:hero_title_default }}</h1>
+            <div class="lok-hero__meta">
+                <div class="lok-hero__divider-h"></div>
+                <span class="lok-hero__scroll-label">{% trans "Прокрутите вниз" %}</span>
+            </div>
+        </div>
+
+        <div class="lok-scroll-dot"></div>
+    </section>
+
+    <!-- ЦЕННОСТЬ -->
+    <div class="lok-wrap-cream">
+        <div class="lok-section">
+            <div class="lok-text-block">
+                <div class="lok-text-col lok-reveal">
+                    <div class="lok-eyebrow">{% trans "О проекте" %}</div>
+                    <h2 class="lok-section-title">{{ general.value_title|default:value_title_default }}</h2>
+                    <div class="lok-rule"></div>
+                </div>
+                <div class="lok-text-col lok-reveal">
+                    <div class="lok-text-body">
+                        {{ general.value_text|linebreaksbr|default:value_text_default }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ОСОБЕННОСТИ -->
+    <div class="lok-wrap-white">
+        <div class="lok-section">
+            <div class="lok-text-block">
+                <div class="lok-text-col lok-reveal" style="order:2;">
+                    <div class="lok-eyebrow">{% trans "Преимущества" %}</div>
+                    <h2 class="lok-section-title">{{ general.features_title|default:features_title_default }}</h2>
+                    <div class="lok-rule"></div>
+                </div>
+                <div class="lok-text-col lok-reveal" style="order:1;">
+                    <div class="lok-text-body">
+                        {{ general.features_text|linebreaksbr|default:features_text_default }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- НОМЕРНОЙ ФОНД -->
+    <div class="lok-wrap-cream">
+        <div class="lok-section">
+            <div style="text-align:center;" class="lok-reveal">
+                <div class="lok-eyebrow" style="justify-content:center;">{% trans "Размещение" %}</div>
+                <h2 class="lok-section-title lok-section-title--center">{% trans "Номерной фонд" %}</h2>
+                <div class="lok-rule lok-rule--center"></div>
+            </div>
+
+            <div class="lok-grid">
+                {% for room in rooms %}
+                <div class="lok-card lok-reveal" onclick="lokOpen('lok-m-{{ room.id }}')">
+                    <div class="lok-card__img-wrap">
+                        <img src="{% if room.cover_image %}{{ room.cover_image.url }}{% endif %}"
+                             class="lok-card__img" alt="{{ room.name }}" loading="lazy">
+                    </div>
+                    <div class="lok-card__body">
+                        <h3 class="lok-card__title">{{ room.name }}</h3>
+                        <p class="lok-card__desc">{{ room.short_desc }}</p>
+                        <span class="lok-card__link">
+                            {% trans "Смотреть детали" %}
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="lok-modal" id="lok-m-{{ room.id }}"
+                     role="dialog" aria-modal="true" aria-label="{{ room.name }}">
+                    <button class="lok-modal__close"
+                            onclick="lokClose('lok-m-{{ room.id }}')"
+                            aria-label="{% trans 'Закрыть' %}">&times;</button>
+                    <div class="lok-modal__inner">
+                        <div class="lok-modal__photo">
+                            <img src="{% if room.gallery.first %}{{ room.gallery.first.image.url }}{% elif room.cover_image %}{{ room.cover_image.url }}{% endif %}"
+                                 alt="{{ room.name }}">
+                        </div>
+                        <div class="lok-modal__body">
+                            <div class="lok-eyebrow">{% trans "Номер" %}</div>
+                            <h3 class="lok-section-title" style="font-size:1.9rem;">{{ room.name }}</h3>
+                            <div class="lok-rule"></div>
+                            <div class="lok-text-body">{{ room.full_desc|linebreaksbr }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p style="text-align:center;width:100%;color:var(--lok-muted);font-size:1rem;font-family:var(--lok-sans);">
+                    {% trans "Номера скоро появятся..." %}
+                </p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- УСЛУГИ -->
+    <div class="lok-wrap-white">
+        <div class="lok-section">
+            <div style="text-align:center;" class="lok-reveal">
+                <div class="lok-eyebrow" style="justify-content:center;">{% trans "Сервис" %}</div>
+                <h2 class="lok-section-title lok-section-title--center">{% trans "Услуги комплекса" %}</h2>
+                <div class="lok-rule lok-rule--center"></div>
+            </div>
+
+            <div class="lok-grid">
+                {% for service in services %}
+                <div class="lok-card lok-reveal" style="cursor:default;">
+                    <div class="lok-card__img-wrap">
+                        <img src="{% if service.image %}{{ service.image.url }}{% endif %}"
+                             class="lok-card__img" alt="{{ service.name }}" loading="lazy">
+                    </div>
+                    <div class="lok-card__body" style="align-items:center;text-align:center;">
+                        <h4 class="lok-card__title">{{ service.name }}</h4>
+                        <p class="lok-card__desc">{{ service.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- КОНТАКТЫ -->
+    <div class="lok-wrap-dark">
+        <div class="lok-section" style="text-align:center;">
+            <div class="lok-reveal">
+                <div class="lok-eyebrow" style="justify-content:center;color:rgba(255,255,255,0.35);">{% trans "Связаться" %}</div>
+                <h2 class="lok-section-title lok-section-title--center lok-section-title--light">
+                    {{ general.contacts_title|default:contacts_title_default }}
+                </h2>
+                <div class="lok-rule lok-rule--center"></div>
+            </div>
+            <div class="lok-reveal lok-contacts-body">
+                {{ general.contacts_text|linebreaksbr|default:contacts_text_default }}
+            </div>
+        </div>
+    </div>
+
+</div><!-- /lok-page -->
+
+<script>
+(function () {
+    'use strict';
+
+    // Reveal on scroll
+    var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) e.target.classList.add('is-visible');
+        });
+    }, { threshold: 0.07 });
+
+    document.querySelectorAll('.lok-reveal').forEach(function (el) { obs.observe(el); });
+
+    // Modal
+    window.lokOpen = function (id) {
+        var m = document.getElementById(id);
+        if (!m) return;
+        m.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        m.addEventListener('click', function bg(e) {
+            if (e.target === m) { lokClose(id); m.removeEventListener('click', bg); }
+        });
+    };
+
+    window.lokClose = function (id) {
+        var m = document.getElementById(id);
+        if (!m) return;
+        m.classList.remove('is-open');
+        document.body.style.overflow = '';
+    };
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.lok-modal.is-open').forEach(function (m) {
+                lokClose(m.id);
+            });
+        }
+    });
+}());
+</script>
+{% endblock %}
