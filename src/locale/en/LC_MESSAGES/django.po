@@ -967,7 +967,7 @@ msgstr "Strategic partners and international cooperation"
 
 #: templates/dopPages/leisure.html:435
 msgid "Лечебно-оздоровительный комплекс \"Бурабай\""
-msgstr "Burabay Health and Health Complex"
+msgstr "\"Burabay\" Medical and Health Complex"
 
 #: .\templates\MainPage\site_map.html .\templates\base.html
 msgid "Лечебно-оздоровительный комплекс \"Астана\""
