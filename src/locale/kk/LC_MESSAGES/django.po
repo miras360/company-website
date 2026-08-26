@@ -962,8 +962,8 @@ msgid "Лечебно-оздоровительный комплекс \"Аста
 msgstr "«Астана» емдік-сауықтыру кешені"
 
 #: .\templates\MainPage\site_map.html .\templates\base.html
-msgid "Лечебно-оздоровительный комплекс"
-msgstr "Емдік-сауықтыру кешені"
+msgid "Наши филиалы"
+msgstr "Біздің филиалдарымыз"
 
 #: templates/dopPages/leisure.html:441
 msgid "Досуг и отдых"

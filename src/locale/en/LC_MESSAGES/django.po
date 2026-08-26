@@ -974,8 +974,8 @@ msgid "Лечебно-оздоровительный комплекс \"Аста
 msgstr "\"Astana\" Medical and Health Complex"
 
 #: .\templates\MainPage\site_map.html .\templates\base.html
-msgid "Лечебно-оздоровительный комплекс"
-msgstr "Medical and Health Complex"
+msgid "Наши филиалы"
+msgstr "Our branches"
 
 #: templates/dopPages/leisure.html:441
 msgid "Досуг и отдых"
